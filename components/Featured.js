@@ -28,7 +28,7 @@ export default function FeaturedRow({title,restaurants,description,item}) {
       style={tw`overflow-visible py-2`}
       >
             {
-                restaurants.map((restaurant, index) => {
+                restaurants.slice(0, 5).map((restaurant, index) => {
                     return(
                         <RestaurantsCard 
                         item={restaurant}

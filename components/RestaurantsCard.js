@@ -13,16 +13,16 @@ export default function RestaurantsCard({item}) {
       <View style={tw`mr-6 bg-white rounded-lg m-1 shadow-md shadow-gray-400`}>
         <Image style={tw`h-45 w-40 rounded-t-lg`} source={item.image} />
         <View style={tw`px-3 pb-4 `}>
-            <Text style={tw`text-lg text-gray-500 font-bold pt-2`}>{item.name}</Text>
-            <View style={tw`flex-row flex justify-between pt-2`}>
+            <Text style={tw`text-lg text-gray-500 font-bold mb-2 text-center`}>{item.name}</Text>
+            <View style={tw`flex-row flex justify-between rounded-lg bg-gray-400 p-2 `}>
                 
                 <View style={tw`text-xs flex-row `}>
                 <Image source={require('../assets/images/star.png')} style={tw`h-4 w-4`} />
-                    <Text style={tw`text-gray-500 `}> {item.stars}</Text>
+                    <Text style={tw`text-white `}> {item.stars}</Text>
                 </View>
                     
                     <View>
-                      <Text style={tw`font-bold text-pink-300`}>{item.category}</Text>
+                      <Text style={tw`font-bold text-white`}>{item.category}</Text>
                       </View>
                     
             </View>

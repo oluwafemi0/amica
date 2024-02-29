@@ -29,6 +29,36 @@ export const categories = [
         name: 'Welder',
         image: require('../assets/images/service.png')
     },
+    {
+        id: 1,
+        name: 'Electrician',
+        image: require('../assets/images/service.png')
+    },
+    {
+        id: 2,
+        name: 'Errands',
+        image: require('../assets/images/service.png')
+    },
+    {
+        id: 3,
+        name: 'School',
+        image: require('../assets/images/service.png')
+    },
+    {
+        id: 4,
+        name: 'cleaner',
+        image: require('../assets/images/service.png')
+    },
+    {
+        id: 5,
+        name: 'Plumber',
+        image: require('../assets/images/service.png')
+    },
+    {
+        id: 6,
+        name: 'Welder',
+        image: require('../assets/images/service.png')
+    },
 ]
 
 export const featured =[ {

@@ -27,16 +27,16 @@ const Categories = ({item}) => {
     
 
             {
-                categories.map((category, index) =>{
+                categories.slice(0, 5).map((category, index) =>{
                         return (
                             <View key={index}  style={tw`flex justify-center item-center mr-3 p-1`}>
                                 <TouchableOpacity
                                    onPress={() =>navigation.navigate('Categories', {...item})}
                                     
-                                 style={tw`p-2 rounded-lg w-20 h-20 shadow shadow-gray-400 bg-white`}>
+                                 style={tw`p-2 rounded-lg w-20 h-20 shadow shadow-gray-400 bg-gray-400`}>
                                  <View style={tw`ml-2`}>
                                     <Image style={{width: 45, height: 45, }}  source={category.image} /></View>
-                                    <Text style={tw`text-sm text-gray-400 text-center`}>{category.name}</Text>
+                                    <Text style={tw`text-sm font-bold text-white text-center`}>{category.name}</Text>
                                 </TouchableOpacity>
                             </View>
                         )

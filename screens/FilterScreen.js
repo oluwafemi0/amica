@@ -17,7 +17,7 @@ export default function FilterScreen() {
             <View>
             <TouchableOpacity
                 onPress={()=> navigation.goBack()}
-            style={tw`absolute top-14 left-4 bg-white p-2 rounded-full shadow`}>
+            style={tw`absolute top-8 left-4 bg-white p-2 rounded-full shadow`}>
                 <Icon.ArrowLeft strokeWidth={3} stroke={'#F06292'} />
             </TouchableOpacity>
             </View>
