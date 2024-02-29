@@ -3,16 +3,20 @@ import React from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import tw from 'twrnc' 
 import * as Icon from "react-native-feather"
+import DishRow from '../components/DishRow'
+import CartIcon from '../components/cartIcon'
 
 export default function RestaurantScreen() {
 
     const {params} = useRoute();
     const navigation = useNavigation();
     let item = params;
-    // console.log('restaurant:',item);
 
   return (
     <View>
+
+      <CartIcon />
+
       <ScrollView>
         <View>
           <Image style={tw`w-full h-72`} source={item.image} />
@@ -69,8 +73,15 @@ export default function RestaurantScreen() {
 
 
         <View style={tw`pb-36 bg-white`}>
-        <Text style={tw`px-4 py-4 text-2xl font-bold`}> {item.description}</Text>
+        <Text style={tw`px-4 py-4 text-2xl font-bold`}>Skills</Text>
+        {/* dishes */}
+        
+        {
+          item.dishes.map((dish, index) => <DishRow item={{...dish}} key={index} />)
+        }
         </View>
+
+
       </ScrollView>
     </View>
   )

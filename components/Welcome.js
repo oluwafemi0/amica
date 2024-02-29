@@ -2,9 +2,12 @@ import { View, Text,Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import tw from 'twrnc'
 
+
+
 export default function Welcome() {
-  return ( <View style={tw` p-2 bg-gray-500 mb-2 `}>
-  <View style={tw`   bg-gray-500 p-2`}>
+  return ( 
+  <View style={tw` p-2 bg-gray-500 mb-2 `}>
+  <View style={tw`bg-gray-500 p-2`}>
     <View style={tw`flex-row flex justify-between`}>
         <View style={tw`mt-7 `}>
         <Text  style={tw`text-gray-300 font-bold mb-2 text-2xl`}>Welcome Back!</Text>
