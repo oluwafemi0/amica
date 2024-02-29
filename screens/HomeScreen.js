@@ -1,4 +1,4 @@
-import { View, Text,TextInput, ScrollView } from 'react-native'
+import { View, Text,TextInput, ScrollView, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import tw from 'twrnc'
@@ -8,8 +8,10 @@ import Categories from '../components/Categories'
 import FeaturedRow from '../components/Featured'
 import { featured } from '../constants'
 import Welcome from '../components/Welcome'
+import { useNavigation } from '@react-navigation/native'
 
 export default function HomeScreen() {
+    const navigation = useNavigation();
   return (
     <SafeAreaView style={tw`bg-white`}>
         <StatusBar barStyle="dark-content" />
@@ -26,9 +28,9 @@ export default function HomeScreen() {
             <View style={tw`flex-row items-center flex-1 p-3 rounded-lg border border-gray-300`}>
                 <Icon.Search height="20" width="20" stroke="gray" />
                 <TextInput placeholder="Search for Service " style={tw`ml-2 flex-1 `} />
-                <View style={tw`flex-row items-center  border-0 border-l-2 pl-2 border-l-gray-300`}>
-                    <Icon.MapPin height="20" width="20" stroke="gray" />
-                </View>
+                <TouchableOpacity onPress={() =>navigation.navigate('Filter')} style={tw`flex-row items-center  border-0 border-l-2 pl-2 border-l-gray-300`}>
+                    <Icon.Sliders height="20" width="20" stroke="gray" />
+                </TouchableOpacity>
             </View>
 
             

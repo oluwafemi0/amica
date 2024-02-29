@@ -10,8 +10,15 @@ const Categories = ({item}) => {
 
     return (
         <View style={tw`mt-2  ml-4`}>
+        <View style={tw`flex-row justify-between`}>
            <View>
                 <Text style={tw`font-bold text-gray-400 text-lg mb-2`}>Popular Services</Text>
+            </View>
+            <TouchableOpacity onPress={() =>navigation.navigate('CategoriesAll', {...item})} style={tw`mr-4`}>
+                <Text style={tw`text-pink-300 font-semibold`}>
+                    See All
+                </Text>
+            </TouchableOpacity>
             </View>
           <ScrollView horizontal showsHorizontalScrollIndicator={false} style={tw`overflow-visible`} contentContainerStyle={{
             paddingHorizonal: 15
@@ -26,8 +33,9 @@ const Categories = ({item}) => {
                                 <TouchableOpacity
                                    onPress={() =>navigation.navigate('Categories', {...item})}
                                     
-                                 style={tw`p-2 rounded-lg shadow shadow-gray-400 bg-white`}>
-                                    <Image style={{width: 45, height: 45}} source={category.image} />
+                                 style={tw`p-2 rounded-lg w-20 h-20 shadow shadow-gray-400 bg-white`}>
+                                 <View style={tw`ml-2`}>
+                                    <Image style={{width: 45, height: 45, }}  source={category.image} /></View>
                                     <Text style={tw`text-sm text-gray-400 text-center`}>{category.name}</Text>
                                 </TouchableOpacity>
                             </View>

@@ -11,7 +11,7 @@ export default function RestaurantsCard({item}) {
         onPress={() =>navigation.navigate('Restaurant', {...item})}
     >
       <View style={tw`mr-6 bg-white rounded-lg m-1 shadow-md shadow-gray-400`}>
-        <Image style={tw`h-45 w-50 rounded-t-lg`} source={item.image} />
+        <Image style={tw`h-45 w-40 rounded-t-lg`} source={item.image} />
         <View style={tw`px-3 pb-4 `}>
             <Text style={tw`text-lg text-gray-500 font-bold pt-2`}>{item.name}</Text>
             <View style={tw`flex-row flex justify-between pt-2`}>

@@ -12,6 +12,8 @@ import CategoriesScreen from './screens/CategoriesScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import AllScreen from './screens/AllScreen';
 import ChatScreen from './screens/ChatScreen';
+import FilterScreen from './screens/FilterScreen';
+import CategoriesAllScreen from './screens/CategoriesAllScreen';
 
 export default function Navigation() {
   return (
@@ -21,6 +23,8 @@ export default function Navigation() {
     }}>
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Categories" component={CategoriesScreen} />
+      <Stack.Screen name="CategoriesAll" component={CategoriesAllScreen} />
+      <Stack.Screen name="Filter" component={FilterScreen} />
       <Stack.Screen name="Restaurant" component={RestaurantScreen} />
       <Stack.Screen name="All" component={AllScreen} />
       <Stack.Screen name="Profile" component={ProfileScreen} />
