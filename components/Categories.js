@@ -2,8 +2,11 @@ import { View, Text,ScrollView,TouchableOpacity,Image } from 'react-native'
 import React, { useState } from 'react'
 import tw from 'twrnc'
 import { categories } from '../constants'
+import { useNavigation } from '@react-navigation/native'
 
-const Categories = () => {
+const Categories = ({item}) => {
+
+  const navigation = useNavigation();
 
     return (
         <View style={tw`mt-2  ml-4`}>
@@ -19,9 +22,10 @@ const Categories = () => {
             {
                 categories.map((category, index) =>{
                         return (
-                            <View key={index} style={tw`flex justify-center item-center mr-3 p-1`}>
+                            <View key={index}  style={tw`flex justify-center item-center mr-3 p-1`}>
                                 <TouchableOpacity
-                                    onPress={() => setActiveCategory(category.id)}
+                                   onPress={() =>navigation.navigate('Categories', {...item})}
+                                    
                                  style={tw`p-2 rounded-lg shadow shadow-gray-400 bg-white`}>
                                     <Image style={{width: 45, height: 45}} source={category.image} />
                                     <Text style={tw`text-sm text-gray-400 text-center`}>{category.name}</Text>
