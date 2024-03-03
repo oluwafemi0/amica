@@ -1,7 +1,6 @@
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native'
 import React from 'react'
-import tw from 'twrnc'
-import { restaurants } from '../constants/index.js'
+import tw from 'twrnc' 
 import RestaurantsCard from '../components/RestaurantsCard'
 import { useNavigation } from '@react-navigation/native'
 
