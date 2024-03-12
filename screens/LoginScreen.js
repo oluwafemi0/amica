@@ -1,8 +1,9 @@
 // LoginScreen.js
 
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet,Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import tw from 'twrnc' 
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -21,6 +22,9 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+
+    <Image style={tw`w-95 h-65 mx-auto mb-15 `} source={require('../assets/images/HELPING_HANDS.png')} />
+
       <Text style={styles.title}>Login</Text>
       <TextInput
         style={styles.input}
@@ -53,6 +57,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
+    backgroundColor: 'fff',
   },
   title: {
     fontSize: 24,

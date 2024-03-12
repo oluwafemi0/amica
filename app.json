@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "amica",
+    "name": "Amica",
     "slug": "amica",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/HELPING HANDS.png",
+    "icon": "./assets/images/HANDS.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/images/HELPING HANDS.png",
+      "image": "./assets/images/HANDS.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,13 +18,19 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "amica.visor",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/HELPING HANDS.png",
+        "foregroundImage": "./assets/images/HANDS.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/images/HELPING HANDS.png"
+      "favicon": "./assets/images/HANDS.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "625f0b1a-2495-410b-b090-b67a6c7dd178"
+      }
     }
   }
 }
