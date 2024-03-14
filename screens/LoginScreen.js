@@ -1,104 +1,74 @@
 // LoginScreen.js
 
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet,Image } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useState,useEffect } from 'react';
+import { View, Text, TextInput, TouchableOpacity,Image } from 'react-native';
 import tw from 'twrnc' 
+import 'expo-dev-client'
+import { GoogleSignin,GoogleSigninButton } from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
+import HomeScreen from './HomeScreen';
 
-const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const LoginScreen = () => {
+  // Set an initializing state whilst Firebase connects
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState();
 
-  const handleLogin = () => {
-    // Implement your login logic here
-    // For simplicity, this example just navigates to the home screen on login
-    navigation.navigate('Home');
-  };
+  GoogleSignin.configure({
+    webClientId: '172024979808-lfl30bhtm6qv96b6e5tllvp4b3i0rsi8.apps.googleusercontent.com',
+  });
 
-  const handleTemporaryLogin = () => {
-    // Navigate to the home screen (temporary action)
-    navigation.navigate('Home');
-  };
+  // Handle user state changes
+  function onAuthStateChanged(user) {
+    setUser(user);
+    if (initializing) setInitializing(false);
+  }
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
+  }, []);
+
+    
+    const onGoogleButtonPress = async () => {
+    // Check if your device supports Google Play
+    await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+    // Get the users ID token
+    const { idToken } = await GoogleSignin.signIn();
+
+    // Create a Google credential with the token
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+    // Sign-in the user with the credential
+    const user_sign_in = auth().signInWithCredential(googleCredential);
+    user_sign_in.then((user) => {
+      console.log(user);
+    })
+
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+  if (initializing) return null;
+
+
+  if (!user) {
+    return(
+      <View style={tw`p-2 my-auto px-8`}>
+      <Image style={tw`w-35 h-35 mx-auto mb-30`} source={require('../assets/images/HANDS.png')} />
+      
+        <GoogleSigninButton style={tw`rounded-lg w-full px-2 h-12 mx-auto mb-30`}
+          onPress={onGoogleButtonPress}
+        />
+      </View>
+    )
+  }
 
   return (
-    <View style={styles.container}>
+    <HomeScreen user={user} />
+  )
 
-    <Image style={tw`w-95 h-65 mx-auto mb-15 `} source={require('../assets/images/HELPING_HANDS.png')} />
-
-      <Text style={styles.title}>Login</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        onChangeText={text => setEmail(text)}
-        value={email}
-        keyboardType="email-address"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        onChangeText={text => setPassword(text)}
-        value={password}
-        secureTextEntry
-      />
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
-      {/* Temporary button to directly navigate to the home screen */}
-      <TouchableOpacity style={styles.tempButton} onPress={handleTemporaryLogin}>
-        <Text style={styles.tempButtonText}>Temporary Login</Text>
-      </TouchableOpacity>
-    </View>
-  );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-    backgroundColor: 'fff',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  input: {
-    width: '100%',
-    height: 50,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    marginBottom: 10,
-    paddingHorizontal: 15,
-  },
-  button: {
-    width: '100%',
-    height: 50,
-    backgroundColor: '#007bff',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 5,
-    marginBottom: 10,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  // Temporary button styles
-  tempButton: {
-    backgroundColor: '#ccc',
-    paddingVertical: 12,
-    paddingHorizontal: 30,
-    borderRadius: 25,
-  },
-  tempButtonText: {
-    color: '#000',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-});
 
 export default LoginScreen;

@@ -47,7 +47,7 @@ export default function ChatScreen() {
           <Text style={tw`font-bold text-lg mb-1`}>User 4</Text>
           <Text style={tw`text-base`}  numberOfLines={1} ellipsizeMode="tail">Fusce at magna condimentum, maximus turpis.</Text>
         </TouchableOpacity>
-        {/* Add more chat components as needed */}
+       
       </ScrollView>
     </View>
         </View>

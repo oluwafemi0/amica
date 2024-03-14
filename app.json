@@ -2,6 +2,7 @@
   "expo": {
     "name": "Amica",
     "slug": "amica",
+    "plugins": ["@react-native-google-signin/google-signin"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/HANDS.png",
@@ -18,6 +19,7 @@
       "supportsTablet": true
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
       "package": "amica.visor",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/HANDS.png",

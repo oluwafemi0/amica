@@ -1,11 +1,11 @@
-// Navigation.js
+
 
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import OnboardingScreen from './screens/OnboardingScreen'; // Import your OnboardingScreen component
-import LoginScreen from './screens/LoginScreen'; // Import your LoginScreen component
+import OnboardingScreen from './screens/OnboardingScreen'; 
+import LoginScreen from './screens/LoginScreen'; 
 import HomeScreen from './screens/HomeScreen';
 import RestaurantScreen from './screens/RestaurantScreen';
 import CategoriesScreen from './screens/CategoriesScreen';
@@ -14,7 +14,6 @@ import AllScreen from './screens/AllScreen';
 import ChatScreen from './screens/ChatScreen';
 import FilterScreen from './screens/FilterScreen';
 import CategoriesAllScreen from './screens/CategoriesAllScreen';
-// Import other screens
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +24,6 @@ export default function Navigation() {
   useEffect(() => {
     const checkOnboardingStatus = async () => {
       try {
-        // Check if the app is launched for the first time
         const value = await AsyncStorage.getItem('onboardingCompleted');
         if (value === null) {
           setIsFirstLaunch(true);
@@ -43,7 +41,7 @@ export default function Navigation() {
   }, []);
 
   if (isLoading) {
-    return null; // Render loading indicator or splash screen
+    return null; 
   }
 
   return (

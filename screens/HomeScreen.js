@@ -19,11 +19,11 @@ export default function HomeScreen() {
         <ScrollView  showsVerticalScrollIndicator={false} contentContainerStyle={{
             paddingBottom: 20
         }}>
-        {/*Welcome*/}
+       
        <Welcome />
 
 
-        {/*search*/}
+       
         <View style={tw`flex-row items-center  py-1 px-4 pb-4`} >
             <View style={tw`flex-row items-center flex-1 p-3 rounded-lg border border-gray-300`}>
                 <Icon.Search height="20" width="20" stroke="gray" />
@@ -38,14 +38,10 @@ export default function HomeScreen() {
 
 
 
-        {/*main*/}
-
-        {/*categories*/}
          
             <Categories />
 
 
-        {/*featured*/}
             <View style={tw`mt-5`}>
            <View>
                 <Text style={tw`font-bold text-gray-400 text-lg ml-4 mb-2`}>Based on recent services</Text>

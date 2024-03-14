@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "172024979808",
+    "project_id": "amica-577d1",
+    "storage_bucket": "amica-577d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172024979808:android:f129f90ab384717354be05",
+        "android_client_info": {
+          "package_name": "amica.visor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172024979808-ikh9tjngn705vjat348odgpnu8dg5qdj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "amica.visor",
+            "certificate_hash": "31c7574931bae16c940be1cc96f7efea0fa89555"
+          }
+        },
+        {
+          "client_id": "172024979808-qgfsnf35d7a6qdqoos0o1a79ei4mgrai.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "amica.visor",
+            "certificate_hash": "4a2aa70595d6650416f97daddc429887d659533a"
+          }
+        },
+        {
+          "client_id": "172024979808-lfl30bhtm6qv96b6e5tllvp4b3i0rsi8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1O7nLQUlGsb02yUEt3WDCzVReF5ZLX9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172024979808-lfl30bhtm6qv96b6e5tllvp4b3i0rsi8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
