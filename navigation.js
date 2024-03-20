@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -13,6 +11,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import AllScreen from './screens/AllScreen';
 import ChatScreen from './screens/ChatScreen';
 import FilterScreen from './screens/FilterScreen';
+import EditScreen from './screens/EditScreen';
 import CategoriesAllScreen from './screens/CategoriesAllScreen';
 
 const Stack = createNativeStackNavigator();
@@ -59,6 +58,7 @@ export default function Navigation() {
         <Stack.Screen name="Restaurant" component={RestaurantScreen} />
         <Stack.Screen name="All" component={AllScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="Edit" component={EditScreen} />
         <Stack.Screen name="Chat" component={ChatScreen} />
       </Stack.Navigator>
     </NavigationContainer>

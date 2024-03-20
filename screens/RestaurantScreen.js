@@ -74,7 +74,6 @@ export default function RestaurantScreen() {
 
         <View style={tw`pb-36 bg-white`}>
         <Text style={tw`px-4 py-4 text-2xl font-bold`}>Skills</Text>
-        {/* dishes */}
         
         {
           item.dishes.map((dish, index) => <DishRow item={{...dish}} key={index} />)

@@ -14,7 +14,7 @@ const OnboardingScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to My App</Text>
       <Text style={styles.subtitle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
-      <TouchableOpacity style={styles.button} onPress={handleGetStarted}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
         <Text style={styles.buttonText}>Get Started</Text>
       </TouchableOpacity>
     </View>

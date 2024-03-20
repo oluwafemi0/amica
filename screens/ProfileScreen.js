@@ -46,7 +46,7 @@ export default function ProfileScreen() {
                         </View>
                     </View>
                     <View style={tw`h-4/5 rounded-b-lg bg-white mt-4`}>
-                        <TouchableOpacity style={tw`h-0.85/6 m-1 rounded-lg opacity-85 bg-[#F06292]`}>
+                        <TouchableOpacity onPress={() =>navigation.navigate('Edit')} style={tw`h-0.85/6 m-1 rounded-lg opacity-85 bg-[#F06292]`}>
                             <Text style={tw`text-xl font-semibold text-white rounded-lg text-center mx-auto my-auto`}>Edit Profile</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={tw`h-0.85/6 m-1 rounded-lg opacity-85 bg-[#F06292]`}>
