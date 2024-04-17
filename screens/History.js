@@ -4,7 +4,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import tw from "twrnc";
 import * as Icon from "react-native-feather";
 
-export default function ChatScreen() {
+export default function History() {
   const { params } = useRoute();
   const navigation = useNavigation();
   let item = params;
@@ -24,7 +24,7 @@ export default function ChatScreen() {
           <View style={tw`flex-1 items-center p-2`}>
             <View style={tw``}>
               <Text style={tw`font-semibold text-lg text-center text-[#fff]`}>
-                Chat
+                History
               </Text>
             </View>
           </View>
@@ -39,28 +39,40 @@ export default function ChatScreen() {
       <View style={tw`mt-2`}>
         <ScrollView contentContainerStyle={tw`p-4`}>
           <TouchableOpacity style={tw`bg-white p-4 mb-4 rounded shadow-md`}>
-            <Text style={tw`font-bold text-lg mb-1`}>User 1</Text>
-            <Text style={tw`text-base`} numberOfLines={1} ellipsizeMode="tail">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </Text>
+            <Text style={tw`font-bold text-lg ml-2 mb-2`}>Date</Text>
+            <View
+              style={tw`bg-[#5859b5] flex flex-row justify-between items-center rounded-lg p-4 mb-2 `}
+            >
+              <Text style={tw`text-xl font-bold text-white`}>Service name</Text>
+              <Text style={tw`text-white`}>Service status</Text>
+            </View>
           </TouchableOpacity>
           <TouchableOpacity style={tw`bg-white p-4 mb-4 rounded shadow-md`}>
-            <Text style={tw`font-bold text-lg mb-1`}>User 2</Text>
-            <Text style={tw`text-base`} numberOfLines={1} ellipsizeMode="tail">
-              Praesent sit amet sapien eu lacus fermentum volutpat.
-            </Text>
+            <Text style={tw`font-bold text-lg ml-2 mb-2`}>Date</Text>
+            <View
+              style={tw`bg-[#5859b5] flex flex-row justify-between items-center rounded-lg p-4 mb-2 `}
+            >
+              <Text style={tw`text-xl font-bold text-white`}>Service name</Text>
+              <Text style={tw`text-white`}>Service status</Text>
+            </View>
           </TouchableOpacity>
           <TouchableOpacity style={tw`bg-white p-4 mb-4 rounded shadow-md`}>
-            <Text style={tw`font-bold text-lg mb-1`}>User 3</Text>
-            <Text style={tw`text-base`} numberOfLines={1} ellipsizeMode="tail">
-              Fusce at magna condimentum, maximus turpis sed, malesuada elit.
-            </Text>
+            <Text style={tw`font-bold text-lg ml-2 mb-2`}>Date</Text>
+            <View
+              style={tw`bg-[#5859b5] flex flex-row justify-between items-center rounded-lg p-4 mb-2 `}
+            >
+              <Text style={tw`text-xl font-bold text-white`}>Service name</Text>
+              <Text style={tw`text-white`}>Service status</Text>
+            </View>
           </TouchableOpacity>
           <TouchableOpacity style={tw`bg-white p-4 mb-4 rounded shadow-md`}>
-            <Text style={tw`font-bold text-lg mb-1`}>User 4</Text>
-            <Text style={tw`text-base`} numberOfLines={1} ellipsizeMode="tail">
-              Fusce at magna condimentum, maximus turpis.
-            </Text>
+            <Text style={tw`font-bold text-lg ml-2 mb-2`}>Date</Text>
+            <View
+              style={tw`bg-[#5859b5] flex flex-row justify-between items-center rounded-lg p-4 mb-2 `}
+            >
+              <Text style={tw`text-xl font-bold text-white`}>Service name</Text>
+              <Text style={tw`text-white`}>Service status</Text>
+            </View>
           </TouchableOpacity>
         </ScrollView>
       </View>

@@ -1,52 +1,53 @@
-import { View, Text,ScrollView,TouchableOpacity,Image } from 'react-native'
-import React, { useState } from 'react'
-import tw from 'twrnc'
-import { categories } from '../constants'
-import { useNavigation } from '@react-navigation/native'
+import React, { useState, useEffect } from "react";
+import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
+import firestore from "@react-native-firebase/firestore";
+import tw from "twrnc";
+import { useNavigation } from "@react-navigation/native";
 
-const Categories = ({item}) => {
-
+const Categories = () => {
   const navigation = useNavigation();
+  const [categories, setCategories] = useState([]);
 
-    return (
-        <View style={tw`mt-2  ml-4`}>
-        <View style={tw`flex-row justify-between`}>
-           <View>
-                <Text style={tw`font-bold text-gray-400 text-lg mb-2`}>Popular Services</Text>
-            </View>
-            <TouchableOpacity onPress={() =>navigation.navigate('CategoriesAll', {...item})} style={tw`mr-4`}>
-                <Text style={tw`text-pink-300 font-semibold`}>
-                    See All
-                </Text>
-            </TouchableOpacity>
-            </View>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={tw`overflow-visible`} contentContainerStyle={{
-            paddingHorizonal: 15
-          }} >
-    
-    
+  useEffect(() => {
+    const unsubscribe = firestore()
+      .collection("categories")
+      .onSnapshot((querySnapshot) => {
+        if (querySnapshot) {
+          const fetchedCategories = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            name: doc.id,
+          }));
+          setCategories(fetchedCategories);
+        } else {
+          console.log("No categories found.");
+        }
+      });
 
-            {
-                categories.slice(0, 5).map((category, index) =>{
-                        return (
-                            <View key={index}  style={tw`flex justify-center item-center mr-3 p-1`}>
-                                <TouchableOpacity
-                                   onPress={() =>navigation.navigate('Categories', {...item})}
-                                    
-                                 style={tw`p-2 rounded-lg w-20 h-20 shadow shadow-gray-400 bg-gray-400`}>
-                                 <View style={tw`ml-2`}>
-                                    <Image style={{width: 45, height: 45, }}  source={category.image} /></View>
-                                    <Text style={tw`text-sm font-bold text-white text-center`}>{category.name}</Text>
-                                </TouchableOpacity>
-                            </View>
-                        )
-                })
-            }
-    
-    
-          </ScrollView>
-        </View>
-      )
-    }
+    return () => unsubscribe();
+  }, []);
 
-export default Categories
+  return (
+    <View style={[tw`mt-2 ml-4`, { backgroundColor: "red" }]}>
+      <View style={tw`flex-row justify-between mb-2`}>
+        <Text style={tw`font-bold text-gray-400 text-lg`}>Categories</Text>
+      </View>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {categories.map((category) => (
+          <TouchableOpacity
+            key={category.id}
+            onPress={() => navigation.navigate("Categories", { category })}
+            style={tw`flex-row h-4 p-2 items-center border-b border-gray-200`}
+          >
+            <Image
+              style={tw`w-10 h-10 mr-2`}
+              source={require("../assets/images/HANDS.png")}
+            />
+            <Text style={tw`text-black font-bold`}>{category.name}</Text>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+    </View>
+  );
+};
+
+export default Categories;
