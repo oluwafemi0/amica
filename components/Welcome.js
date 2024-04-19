@@ -15,7 +15,7 @@ const Welcome = () => {
   };
 
   return (
-    <View style={tw`bg-[#332257] p-2  fixed relative `}>
+    <View style={tw`bg-[#332257] p-2   relative `}>
       <View style={tw`flex-row justify-between items-center mx-auto`}>
         <TouchableOpacity onPress={navigateToProfile} style={tw``}>
           {user && user.photoURL ? (
