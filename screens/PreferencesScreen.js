@@ -58,7 +58,7 @@ const PreferencesScreen = () => {
     <SafeAreaView style={tw`flex-1 bg-[#fff] `}>
       <ScrollView>
       <View style={tw` bg-[#332257] p-2 `}>
-        <View style={tw`bg-[#332257] p-2  fixed relative `}>
+        <View style={tw`bg-[#332257] p-2  `}>
           <View style={tw`flex-row justify-between items-center mx-auto`}>
             <TouchableOpacity style={tw`bg-white rounded-md p-2 `} onPress={() => navigation.goBack()}>
               <View style={tw`flex flex-row items-center justify-center`}>

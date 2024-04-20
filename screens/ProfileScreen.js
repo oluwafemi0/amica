@@ -61,7 +61,7 @@ export default function ProfileScreen() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <View style={tw` bg-[#332257] p-2 `}>
-        <View style={tw`bg-[#332257] p-2  fixed relative `}>
+        <View style={tw`bg-[#332257] p-2  `}>
           <View style={tw`flex-row justify-between items-center mx-auto`}>
             <TouchableOpacity
               style={tw`bg-white rounded-md p-2 `}
