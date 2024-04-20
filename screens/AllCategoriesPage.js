@@ -16,7 +16,7 @@ const AllCategoriesPage = ({ route }) => {
 
   return (
     <SafeAreaView>
-      <View style={tw`bg-[#332257] p-4  fixed relative `}>
+      <View style={tw`bg-[#332257] p-4   `}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
             style={tw`bg-white rounded-md p-2 `}

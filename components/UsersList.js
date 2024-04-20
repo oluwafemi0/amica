@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  Dimensions,
-  Image,
-} from "react-native";
+import { View, Text, FlatList, TouchableOpacity, Image } from "react-native";
 import firestore from "@react-native-firebase/firestore";
 import tw from "twrnc";
 import * as Icon from "react-native-feather";
 import auth from "@react-native-firebase/auth";
+import { useNavigation } from "@react-navigation/native";
 
-const UsersList = () => {
+const UserList = () => {
+  const navigation = useNavigation();
   const [users, setUsers] = useState([]);
+  const [chats, setChats] = useState([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -25,9 +21,8 @@ const UsersList = () => {
           categories: [],
         }));
 
-        
         const currentUser = auth().currentUser;
-        const filteredUsers = fetchedUsers.filter(user => user.id !== currentUser.uid);
+        const filteredUsers = fetchedUsers.filter((user) => user.id !== currentUser.uid);
 
         setUsers(filteredUsers);
       } catch (error) {
@@ -37,16 +32,20 @@ const UsersList = () => {
 
     fetchUsers();
 
-    
     return () => {};
   }, []);
 
   const imageUrlPrefix = 'https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/';
-  const imageUrlSuffix = '?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e'; 
+  const imageUrlSuffix = '?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e';
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={tw`bg-[#fff]   w-1/2.1 h-60 rounded-lg`}
+      onPress={() => {
+        navigation.navigate('Chat', { user: item });
+        const newChats = [...chats, { id: item.id, user: item.data }];
+        setChats(newChats);
+      }}
     >
       <Image
         style={tw`w-1/1 h-2.4/3 rounded-t-lg mx-auto `}
@@ -60,12 +59,12 @@ const UsersList = () => {
           <Text style={tw`text-[#fff] text-lg font-bold mx-auto `}>{item.data.categories}</Text>
         </View>
         <View style={tw`flex flex-row justify-between `}>
-        <View>
-          <Text style={tw`text-[#fff] font-bold`}>{item.data.category}</Text>
-        </View>
-        <View>
-          <Text style={tw`text-[#fff] font-bold`}>{item.data.location}</Text>
-        </View>
+          <View>
+            <Text style={tw`text-[#fff] font-bold`}>{item.data.category}</Text>
+          </View>
+          <View>
+            <Text style={tw`text-[#fff] font-bold`}>{item.data.location}</Text>
+          </View>
         </View>
       </View>
     </TouchableOpacity>
@@ -82,12 +81,12 @@ const UsersList = () => {
         data={users}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
-        numColumns={2} 
+        numColumns={2}
         contentContainerStyle={tw`flex gap-4`}
-        columnWrapperStyle={{ justifyContent: "space-between" }} 
+        columnWrapperStyle={{ justifyContent: "space-between" }}
       />
     </View>
   );
 };
 
-export default UsersList;
+export default UserList;

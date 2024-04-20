@@ -38,7 +38,7 @@ const Welcome = () => {
           </View>
         </View>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Chat")}
+          onPress={() => navigation.navigate("ChatsList")}
           style={tw`p-2 mx-auto bg-[#b2a1cd] rounded-lg`}
         >
           <Icon.Mail width={20} height={20} stroke="#ffffff" />
