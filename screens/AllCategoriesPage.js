@@ -19,11 +19,11 @@ const AllCategoriesPage = ({ route }) => {
       <View style={tw`bg-[#332257] p-4   `}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={tw`bg-white rounded-md p-2 `}
+            style={tw`bg-[#332257] rounded-md p-2 `}
             onPress={() => navigation.goBack()}
           >
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.ArrowLeft strokeWidth={2} stroke={"#332257"} style={tw``} />
+              <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} style={tw``} />
             </View>
           </TouchableOpacity>
           <View style={tw`flex-1 items-center p-2`}>

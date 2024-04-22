@@ -26,8 +26,6 @@ export default function ProfileScreen() {
         const userDetailsSnapshot = await firestore()
           .collection("users")
           .doc(user.uid)
-          .collection("details")
-          .doc("userDetails")
           .get();
 
         if (userDetailsSnapshot.exists) {
@@ -64,13 +62,13 @@ export default function ProfileScreen() {
         <View style={tw`bg-[#332257] p-2  `}>
           <View style={tw`flex-row justify-between items-center mx-auto`}>
             <TouchableOpacity
-              style={tw`bg-white rounded-md p-2 `}
+              style={tw`bg-[#332257] rounded-md p-2 `}
               onPress={() => navigation.goBack()}
             >
               <View style={tw`flex flex-row items-center justify-center`}>
                 <Icon.ArrowLeft
                   strokeWidth={2}
-                  stroke={"#332257"}
+                  stroke={"#fff"}
                   style={tw``}
                 />
               </View>
@@ -83,7 +81,7 @@ export default function ProfileScreen() {
               </View>
             </View>
             <TouchableOpacity
-              style={tw`bg-red-500 rounded-md p-2`}
+              style={tw`bg-[#332257] rounded-md p-2`}
               onPress={signOut}
             >
               <View style={tw`flex flex-row items-center justify-center`}>

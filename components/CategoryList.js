@@ -7,7 +7,7 @@ import * as Icon from "react-native-feather";
 const CategoryList = () => {
   const navigation = useNavigation();
   const categories = [
-    "Eletrical",
+    "Electrical",
     "Welder",
     "School",
     "Errand",

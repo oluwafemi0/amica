@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { View, Text, FlatList, TextInput, TouchableOpacity, Image, KeyboardAvoidingView, Platform } from "react-native";
 import firestore from "@react-native-firebase/firestore";
 import auth from "@react-native-firebase/auth";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import * as Icon from "react-native-feather";
 import tw from "twrnc";
 
-const ChatScreen = ({ route }) => {
-  const { user } = route.params;
+const ChatScreen = () => {
+  const { user } = useRoute().params;
   const [messages, setMessages] = useState([]);
   const [textMessage, setTextMessage] = useState("");
   const currentUser = auth().currentUser;
@@ -67,9 +67,39 @@ const ChatScreen = ({ route }) => {
           createdAt: new Date(),
         });
       setTextMessage("");
+
+      // Update chat list
+      updateChatList(user);
     } catch (error) {
       console.error("Error sending message:", error);
     }
+  };
+
+  const updateChatList = async (user) => {
+    const chatId = [currentUser.uid, user.id].sort().join("");
+    const chatRef = firestore().collection("chats").doc(chatId);
+    const chatDoc = await chatRef.get();
+
+    if (!chatDoc.exists) {
+      await chatRef.set({
+        members: {
+          [currentUser.uid]: true,
+          [user.id]: true
+        },
+        otherUser: user.data
+      });
+    }
+
+    const otherUserId = Object.keys(chatDoc.data().members).find(memberId => memberId !== currentUser.uid);
+    const otherUserDoc = await firestore().collection("users").doc(otherUserId).get();
+
+    const newChat = {
+      id: chatId,
+      userId: otherUserId,
+      user: otherUserDoc.data(),
+    };
+
+    navigation.setParams({ user: newChat });
   };
 
   const renderItem = ({ item }) => {
@@ -91,18 +121,49 @@ const ChatScreen = ({ route }) => {
   }
 
   return (
-    <View style={tw`flex-1 bg-white p-4`}>
-      <View style={tw`mb-4 items-center`}>
-        <Image
-          style={tw`w-18 h-18 rounded-full mb-2`}
-          source={{ uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${user.data.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e` }}
-        />
-        <Text style={tw`text-xl font-bold`}>{user.data.categories}</Text>
-        <Text style={tw` `}>{user.data.category}</Text>
-        <Text>{user.data.location}</Text>
+    <View style={tw`flex-1 `}>
+    <View style={tw`bg-[#332257] p-4  mb-4 `}>
+      <View style={tw`flex-row justify-between items-center mx-auto`}>
+        <TouchableOpacity
+          style={tw`bg-[#332257] rounded-md p-2 `}
+          onPress={() => navigation.goBack()}
+        >
+          <View style={tw`flex flex-row items-center justify-center`}>
+            <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} style={tw``} />
+          </View>
+        </TouchableOpacity>
+        <View style={tw`flex-1 items-center `}>
+         
+      <View style={tw` items-center mx-auto`}>
+        {user.data ? (
+          <View style={tw`flex flex-row w-74 ml-4 mt-1 justify-between `}>
+           <View style={tw``}>
+            <Text style={tw`text-xl text-white font-bold`}>{user.data.categories}</Text>
+            <Text style={tw`text-slate-400 `}>{user.data.category}</Text>
+            <Text style={tw`text-slate-400`}>{user.data.location}</Text>
+            </View>
+            <View>
+            <Image
+              style={tw`w-15 h-15 rounded-full `}
+              source={{ uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${user.data.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e` }}
+            />
+            </View>
+          </View>
+        ) : (
+          <Text>Loading...</Text>
+        )}
       </View>
+        </View>
+        <TouchableOpacity style={tw` rounded-md p-2`}>
+          <View style={tw`flex flex-row items-center justify-center`}>
+            
+          </View>
+        </TouchableOpacity>
+      </View>
+    </View>
+      
       <KeyboardAvoidingView
-        style={tw`flex-1`}
+        style={tw`flex-1 p-2`}
         behavior={Platform.OS === "ios" ? "padding" : null}
         keyboardVerticalOffset={Platform.OS === "ios" ? 100 : 0}
       >
@@ -111,7 +172,6 @@ const ChatScreen = ({ route }) => {
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
           contentContainerStyle={tw`flex-grow`}
-          
           showsVerticalScrollIndicator={false}
         />
         <View style={tw`flex-row items-center mt-4`}>
