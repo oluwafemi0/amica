@@ -1,32 +1,44 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, FlatList, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  Dimensions,
+  Image,
+} from "react-native";
 import firestore from "@react-native-firebase/firestore";
 import tw from "twrnc";
-import auth from "@react-native-firebase/auth";
 import * as Icon from "react-native-feather";
+import auth from "@react-native-firebase/auth";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
 
 const ChatsListScreen = () => {
   const [chats, setChats] = useState([]);
   const isFocused = useIsFocused();
-  const currentUser = auth().currentUser;
 
   useEffect(() => {
     const fetchChats = async () => {
       try {
+        const currentUser = auth().currentUser;
         const chatsSnapshot = await firestore()
           .collection("chats")
-          .where(`members.${currentUser.uid}`, "==", true)
+          .doc(currentUser.uid)
           .get();
+        const chatIds = Object.keys(chatsSnapshot.data() || {});
 
-        const fetchedChats = chatsSnapshot.docs.map((doc) => {
-          const otherUserId = Object.keys(doc.data().members).find(memberId => memberId !== currentUser.uid);
-          return {
-            id: doc.id,
-            userId: otherUserId,
-            user: doc.data().otherUser,
-          };
-        });
+        const fetchedChats = await Promise.all(
+          chatIds.map(async (chatId) => {
+            const chatUserSnapshot = await firestore()
+              .collection("users")
+              .doc(chatId)
+              .get();
+            return {
+              id: chatId,
+              user: chatUserSnapshot.data(),
+            };
+          })
+        );
 
         setChats(fetchedChats);
       } catch (error) {
@@ -43,22 +55,26 @@ const ChatsListScreen = () => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      style={tw`bg-[#fff] flex flex-row p-2  w-96 h-20 rounded-lg`}
-      onPress={() => navigation.navigate("Chat", { user: { id: item.userId, data: item.user } })}
+      style={tw`bg-[#fff]   w-1/2.1 h-60 rounded-lg`}
+      onPress={() => navigation.navigate("Chat", { user: item })}
     >
       <Image
-        style={tw`w-24 h-16 rounded-lg  `}
-        source={{ uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${item.user.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e` }}
+        style={tw`w-1/1 h-2.4/3 rounded-t-lg mx-auto `}
+        source={{ uri: item.user.imageFilename }}
       />
 
-      <View style={tw` p-2 w-70 `}>
-        
-        <View style={tw`flex flex-row  py-4 justify-between `}>
+      <View style={tw`bg-[#b2a1cd] p-2 flex h-0.6/3   rounded-b-lg`}>
+        <View style={tw``}>
+          <Text style={tw`text-[#fff] text-lg font-bold mx-auto `}>
+            {item.user.categories}
+          </Text>
+        </View>
+        <View style={tw`flex flex-row justify-between `}>
           <View>
-            <Text style={tw`text-[#b2a1cd] font-bold `}>{item.user.categories}</Text>
+            <Text style={tw`text-[#fff] font-bold`}>{item.user.category}</Text>
           </View>
           <View>
-            <Text style={tw`text-[#b2a1cd] font-bold`}>{item.user.category}</Text>
+            <Text style={tw`text-[#fff] font-bold`}>{item.user.location}</Text>
           </View>
         </View>
       </View>
@@ -66,37 +82,19 @@ const ChatsListScreen = () => {
   );
 
   return (
-    <View style={tw``}>
-    <View style={tw`bg-[#332257] p-4  mb-4 `}>
-      <View style={tw`flex-row justify-between items-center mx-auto`}>
-        <TouchableOpacity
-          style={tw`bg-white rounded-md p-2 `}
-          onPress={() => navigation.goBack()}
-        >
-          <View style={tw`flex flex-row items-center justify-center`}>
-            <Icon.ArrowLeft strokeWidth={2} stroke={"#332257"} style={tw``} />
-          </View>
-        </TouchableOpacity>
-        <View style={tw`flex-1 items-center p-2`}>
-          <View style={tw``}>
-            <Text style={tw`font-semibold text-lg text-center text-[#fff]`}>
-              Chats
-            </Text>
-          </View>
-        </View>
-        <TouchableOpacity style={tw`bg-[#332257] rounded-md p-2`}>
-          <View style={tw`flex flex-row items-center justify-center`}>
-            <Icon.LogOut strokeWidth={2} stroke={"#332257"} style={tw``} />
-          </View>
-        </TouchableOpacity>
-      </View>
-    </View>
+    <View style={tw`items-center py-6`}>
+      <Text
+        style={tw`text-white px-20 py-4 bg-[#332257] rounded-lg text-center mb-4`}
+      >
+        Chats
+      </Text>
       <FlatList
         data={chats}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
-        numColumns={1}
-        contentContainerStyle={tw`p-1 gap-4`}
+        numColumns={2}
+        contentContainerStyle={tw`flex gap-4`}
+        columnWrapperStyle={{ justifyContent: "space-between" }}
         extraData={chats}
       />
     </View>

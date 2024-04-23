@@ -8,6 +8,7 @@ import auth from "@react-native-firebase/auth";
 import firestore from "@react-native-firebase/firestore";
 import { useNavigation } from "@react-navigation/native";
 import HomeScreen from "./HomeScreen";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const LoginScreen = () => {
   const [initializing, setInitializing] = useState(true);
@@ -57,23 +58,25 @@ const LoginScreen = () => {
 
   if (!user) {
     return (
-      <View className="flex flex-col justify-center items-center h-full p-6 bg-white rounded-lg shadow-md">
-        <Image
-          source={require("../assets/images/HANDS.png")}
-          style="w-48 h-48 mb-4"
-        />
-        <GoogleSigninButton
-          style="w-48 h-12 mb-4"
-          size={GoogleSigninButton.Size.Wide}
-          color={GoogleSigninButton.Color.Light}
-          onPress={onGoogleButtonPress}
-        />
-        <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-          <Text style="text-blue-600 underline">
-            Don't have an account? Sign up
-          </Text>
-        </TouchableOpacity>
-      </View>
+      <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+          <Image
+            source={require("../assets/images/HANDS.png")}
+            style={{ width: 150, height: 150, marginBottom: 20 }}
+          />
+          <GoogleSigninButton
+            style={{ width: 200, height: 48, marginBottom: 20 }}
+            size={GoogleSigninButton.Size.Wide}
+            color={GoogleSigninButton.Color.Light}
+            onPress={onGoogleButtonPress}
+          />
+          <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+            <Text style={{ color: "#0069c0", textDecorationLine: "underline" }}>
+              Don't have an account? Sign up
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
     );
   }
 

@@ -51,19 +51,21 @@ export default function Navigation() {
         {isFirstLaunch ? (
           <Stack.Screen name="Onboarding" component={OnboardingScreen} />
         ) : (
-          <Stack.Screen name="Login" component={LoginScreen} />
+          <>
+            <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Categories" component={CategoriesScreen} />
+            <Stack.Screen name="CategoriesAll" component={CategoriesAllScreen} />
+            <Stack.Screen name="Profile" component={ProfileScreen} />
+            <Stack.Screen name="Preferences" component={PreferencesScreen} />
+            <Stack.Screen name="Chat" component={ChatScreen} />
+            <Stack.Screen name="ChatsList" component={ChatsListScreen} />
+            <Stack.Screen name="CategoryList" component={CategoryList} />
+            <Stack.Screen name="CategoryPage" component={CategoryPage} />
+            <Stack.Screen name="AllCategoriesPage" component={AllCategoriesPage} />
+            <Stack.Screen name="History" component={History} />
+          </>
         )}
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Categories" component={CategoriesScreen} />
-        <Stack.Screen name="CategoriesAll" component={CategoriesAllScreen} />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
-        <Stack.Screen name="Preferences" component={PreferencesScreen} />
-        <Stack.Screen name="Chat" component={ChatScreen} />
-        <Stack.Screen name="ChatsList" component={ChatsListScreen} />
-        <Stack.Screen name="CategoryList" component={CategoryList} />
-        <Stack.Screen name="CategoryPage" component={CategoryPage} />
-        <Stack.Screen name="AllCategoriesPage" component={AllCategoriesPage} />
-        <Stack.Screen name="History" component={History} />
       </Stack.Navigator>
     </NavigationContainer>
   );
