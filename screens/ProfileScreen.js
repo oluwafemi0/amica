@@ -26,8 +26,6 @@ export default function ProfileScreen() {
         const userDetailsSnapshot = await firestore()
           .collection("users")
           .doc(user.uid)
-          .collection("details")
-          .doc("userDetails")
           .get();
 
         if (userDetailsSnapshot.exists) {
@@ -63,16 +61,9 @@ export default function ProfileScreen() {
       <View style={tw` bg-[#332257] p-2 `}>
         <View style={tw`bg-[#332257] p-2  `}>
           <View style={tw`flex-row justify-between items-center mx-auto`}>
-            <TouchableOpacity
-              style={tw`bg-white rounded-md p-2 `}
-              onPress={() => navigation.goBack()}
-            >
+          <TouchableOpacity style={tw`bg-[#332257] rounded-md p-2 `} onPress={() => navigation.goBack()}>
               <View style={tw`flex flex-row items-center justify-center`}>
-                <Icon.ArrowLeft
-                  strokeWidth={2}
-                  stroke={"#332257"}
-                  style={tw``}
-                />
+                <Icon.ArrowLeft strokeWidth={2} stroke={'#fff'} style={tw``} />
               </View>
             </TouchableOpacity>
             <View style={tw`flex-1 items-center p-2`}>
@@ -83,7 +74,7 @@ export default function ProfileScreen() {
               </View>
             </View>
             <TouchableOpacity
-              style={tw`bg-red-500 rounded-md p-2`}
+              style={tw`bg-[#332257] rounded-md p-2`}
               onPress={signOut}
             >
               <View style={tw`flex flex-row items-center justify-center`}>
@@ -138,7 +129,7 @@ export default function ProfileScreen() {
           >
             <TouchableOpacity
               onPress={() => navigation.navigate("Preferences")}
-              style={tw`bg-blue-500 rounded-md p-8 mb-3`}
+              style={tw`bg-[#332257] rounded-md p-8 mb-3`}
             >
               <Text
                 style={{
@@ -153,7 +144,7 @@ export default function ProfileScreen() {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => navigation.navigate("History")}
-              style={tw`bg-blue-500 rounded-md p-8 mb-3 `}
+              style={tw`bg-[#332257] rounded-md p-8 mb-3 `}
             >
               <Text
                 style={{
