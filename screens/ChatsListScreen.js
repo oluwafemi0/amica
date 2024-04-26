@@ -10,6 +10,7 @@ const ChatsListScreen = () => {
   const [chats, setChats] = useState([]);
   const isFocused = useIsFocused();
   const currentUser = auth().currentUser;
+  const navigation = useNavigation();
 
   useEffect(() => {
     const fetchChats = async () => {
@@ -39,8 +40,6 @@ const ChatsListScreen = () => {
     return () => {};
   }, [isFocused]);
 
-  const navigation = useNavigation();
-
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={tw`bg-[#fff] flex flex-row p-2  w-96 h-20 rounded-lg`}
@@ -67,27 +66,27 @@ const ChatsListScreen = () => {
 
   return (
     <View style={tw``}>
-    <View style={tw`bg-[#332257] p-4  mb-4 `}>
-      <View style={tw`flex-row justify-between items-center mx-auto`}>
-      <TouchableOpacity style={tw`bg-[#332257] rounded-md p-2 `} onPress={() => navigation.goBack()}>
-              <View style={tw`flex flex-row items-center justify-center`}>
-                <Icon.ArrowLeft strokeWidth={2} stroke={'#fff'} style={tw``} />
-              </View>
-            </TouchableOpacity>
-        <View style={tw`flex-1 items-center p-2`}>
-          <View style={tw``}>
-            <Text style={tw`font-semibold text-lg text-center text-[#fff]`}>
-              Chats
-            </Text>
+      <View style={tw`bg-[#332257] p-4  mb-4 `}>
+        <View style={tw`flex-row justify-between items-center mx-auto`}>
+          <TouchableOpacity style={tw`bg-[#332257] rounded-md p-2 `} onPress={() => navigation.goBack()}>
+            <View style={tw`flex flex-row items-center justify-center`}>
+              <Icon.ArrowLeft strokeWidth={2} stroke={'#fff'} style={tw``} />
+            </View>
+          </TouchableOpacity>
+          <View style={tw`flex-1 items-center p-2`}>
+            <View style={tw``}>
+              <Text style={tw`font-semibold text-lg text-center text-[#fff]`}>
+                Chats
+              </Text>
+            </View>
           </View>
+          <TouchableOpacity style={tw`bg-[#332257] rounded-md p-2`}>
+            <View style={tw`flex flex-row items-center justify-center`}>
+              <Icon.LogOut strokeWidth={2} stroke={"#332257"} style={tw``} />
+            </View>
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity style={tw`bg-[#332257] rounded-md p-2`}>
-          <View style={tw`flex flex-row items-center justify-center`}>
-            <Icon.LogOut strokeWidth={2} stroke={"#332257"} style={tw``} />
-          </View>
-        </TouchableOpacity>
       </View>
-    </View>
       <FlatList
         data={chats}
         renderItem={renderItem}
