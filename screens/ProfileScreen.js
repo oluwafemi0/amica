@@ -91,7 +91,7 @@ export default function ProfileScreen() {
             <View style={tw`items-center`}>
               <Image
                 style={tw`w-[100px] h-[100px] rounded-md`}
-                source={{ uri: user.photoURL }}
+                source={{ uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e` }}
               />
               <Text
                 style={{
