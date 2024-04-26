@@ -70,11 +70,6 @@ const LoginScreen = () => {
             color={GoogleSigninButton.Color.Light}
             onPress={onGoogleButtonPress}
           />
-          <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-            <Text style={{ color: "#0069c0", textDecorationLine: "underline" }}>
-              Don't have an account? Sign up
-            </Text>
-          </TouchableOpacity>
         </View>
       </SafeAreaView>
     );
