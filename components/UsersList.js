@@ -40,7 +40,7 @@ const UserList = () => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      style={tw`bg-[#fff]   w-1/2.1 h-60 rounded-lg`}
+      style={tw`bg-white w-1/2.1 h-64 rounded-lg overflow-hidden  border border-[#332257]`}
       onPress={() => {
         navigation.navigate('Chat', { user: item });
         const newChats = [...chats, { id: item.id, user: item.data }];
@@ -48,24 +48,16 @@ const UserList = () => {
       }}
     >
       <Image
-        style={tw`w-1/1 h-2.4/3 rounded-t-lg mx-auto `}
+        style={tw`w-full h-2.2/3`}
         source={{ uri: imageUrlPrefix + item.data.imageFilename + imageUrlSuffix }}
       />
 
-      <View
-        style={tw`bg-[#b2a1cd] p-2 flex h-0.6/3   rounded-b-lg`}
-      >
-        <View style={tw``}>
-          <Text style={tw`text-[#fff] text-lg font-bold mx-auto `}>{item.data.categories}</Text>
+      <View style={tw`p-2`}>
+        <View style={tw`flex flex-row justify-between`}>
+        <Text style={tw`text-lg font-bold text-blue-800 mb-2`} numberOfLines={1} ellipsizeMode="tail">{item.data.categories}</Text>
+        <Text style={tw`text-sm text-gray-600 mt-1`} numberOfLines={1} ellipsizeMode="tail">{item.data.category}</Text>
         </View>
-        <View style={tw`flex flex-row justify-between `}>
-          <View>
-            <Text style={tw`text-[#fff] font-bold`}>{item.data.category}</Text>
-          </View>
-          <View>
-            <Text style={tw`text-[#fff] font-bold`}>{item.data.location}</Text>
-          </View>
-        </View>
+        <Text style={tw`text-sm text-gray-500 `} numberOfLines={1} ellipsizeMode="tail">{item.data.location}</Text>
       </View>
     </TouchableOpacity>
   );

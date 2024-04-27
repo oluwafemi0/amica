@@ -66,34 +66,33 @@ const CategoryPage = ({ route }) => {
   );
 
   return (
-    <View style={tw`bg-[#332257] p-4  `}>
+    <View style={tw`bg-white p-4 shadow-md rounded-md `}>
       <View style={tw`flex-row justify-between items-center mx-auto`}>
         <TouchableOpacity
-          style={tw`bg-[#332257] rounded-md p-2 `}
+          style={tw`bg-[#fff] rounded-md p-2 `}
           onPress={() => navigation.goBack()}
         >
           <View style={tw`flex flex-row items-center justify-center`}>
-            <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} style={tw``} />
+            <Icon.ArrowLeft strokeWidth={2} stroke={"#332257"} style={tw``} />
           </View>
         </TouchableOpacity>
         <View style={tw`flex-1 items-center p-2`}>
           <View style={tw``}>
             <Text style={tw`font-semibold text-lg text-center text-[#fff]`}>
               <Text
-                style={tw`text-[#fff] text-center py-2 mb-2 font-bold text-lg`}
+                style={tw`text-[#332257] text-center py-2 mb-2 font-bold text-lg`}
               >
                 {category}
               </Text>
             </Text>
           </View>
         </View>
-        <TouchableOpacity style={tw`bg-[#332257] rounded-md p-2`}>
+        <TouchableOpacity style={tw`bg-[#fff] rounded-md p-2`}>
           <View style={tw`flex flex-row items-center justify-center`}>
-            <Icon.LogOut strokeWidth={2} stroke={"#332257"} style={tw``} />
+            <Icon.LogOut strokeWidth={2} stroke={"#fff"} style={tw``} />
           </View>
         </TouchableOpacity>
       </View>
-      <ScrollView>
         {filteredUsers.length > 0 ? (
           <FlatList
             data={filteredUsers}
@@ -104,9 +103,8 @@ const CategoryPage = ({ route }) => {
             columnWrapperStyle={{ justifyContent: "space-between" }}
           />
         ) : (
-          <Text style={tw`text-white text-center mt-4`}>No users found</Text>
+          <Text style={tw`text-[#332257] text-center mt-4`}>No users found</Text>
         )}
-      </ScrollView>
     </View>
   );
 };

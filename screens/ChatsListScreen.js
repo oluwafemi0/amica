@@ -66,23 +66,23 @@ const ChatsListScreen = () => {
 
   return (
     <View style={tw``}>
-      <View style={tw`bg-[#332257] p-4  mb-4 `}>
+      <View style={tw`bg-white p-4 shadow-md rounded-md`}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
-          <TouchableOpacity style={tw`bg-[#332257] rounded-md p-2 `} onPress={() => navigation.goBack()}>
+          <TouchableOpacity style={tw`bg-white rounded-md p-2 `} onPress={() => navigation.goBack()}>
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.ArrowLeft strokeWidth={2} stroke={'#fff'} style={tw``} />
+              <Icon.ArrowLeft strokeWidth={2} stroke={'#332257'} style={tw``} />
             </View>
           </TouchableOpacity>
           <View style={tw`flex-1 items-center p-2`}>
             <View style={tw``}>
-              <Text style={tw`font-semibold text-lg text-center text-[#fff]`}>
+              <Text style={tw`font-semibold text-lg text-center text-[#332257]`}>
                 Chats
               </Text>
             </View>
           </View>
-          <TouchableOpacity style={tw`bg-[#332257] rounded-md p-2`}>
+          <TouchableOpacity style={tw`bg-white rounded-md p-2`}>
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.LogOut strokeWidth={2} stroke={"#332257"} style={tw``} />
+              <Icon.LogOut strokeWidth={2} stroke={"#fff"} style={tw``} />
             </View>
           </TouchableOpacity>
         </View>

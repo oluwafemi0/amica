@@ -39,21 +39,16 @@ const CategoryList = () => {
           <TouchableOpacity
             key={index}
             onPress={() => navigateToCategoryPage(category)}
-            style={tw`bg-[#b2a1cd] py-1 px-6 mt-2 rounded-lg  w-0.97/3  `}
+            style={tw`bg-[#fff] py-1 px-6 mt-2 rounded-lg w-0.97/3 items-center justify-center border border-[#332257]`}
           >
-            <Icon.Users
-              width={40}
-              height={40}
-              stroke="#fff"
-              style={tw`mx-auto `}
-            />
-            <Text style={tw`text-[#333333] text-center mt-2`}>{category}</Text>
+            <Icon.Users width={40} height={40} stroke="#332257" style={tw`mb-2`} />
+            <Text style={tw`text-[#332257] text-center `}>{category}</Text>
           </TouchableOpacity>
         ))}
       </View>
       <TouchableOpacity
         onPress={navigateToAllCategoriesPage}
-        style={tw`mt-4 bg-[#332257] px-20 py-2 rounded-lg  rounded-lg  `}
+        style={tw`mt-4 bg-[#332257] px-20 py-3 rounded-lg`}
       >
         <Text style={tw`text-white`}>See All Categories</Text>
       </TouchableOpacity>

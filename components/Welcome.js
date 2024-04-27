@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
+import { View, Image, TouchableOpacity, TextInput } from "react-native";
 import tw from "twrnc";
 import { useNavigation } from "@react-navigation/native";
 import * as Icon from "react-native-feather";
@@ -7,41 +7,36 @@ import auth from "@react-native-firebase/auth";
 
 const Welcome = () => {
   const navigation = useNavigation();
-
-  const user = auth().currentUser; // Get the current user from Firebase auth
+  const user = auth().currentUser;
 
   const navigateToProfile = () => {
     navigation.navigate("Profile");
   };
 
   return (
-    <View style={tw`bg-[#fff] p-2   relative `}>
-      <View style={tw`flex-row justify-between items-center mx-auto`}>
-        <TouchableOpacity onPress={navigateToProfile} style={tw``}>
+    <View style={tw`bg-white p-2 shadow-md rounded-md`}>
+      <View style={tw`flex-row items-center`}>
+        <View style={tw`flex-1 `}>
+          <Image
+            source={require("../assets/images/HANDS.png")}
+            style={tw`w-20 h-14 `}
+          />
+        </View>
+        <TouchableOpacity onPress={navigateToProfile}>
           {user && user.photoURL ? (
             <Image
               style={tw`w-10 h-10 rounded-lg`}
               source={{ uri: user.photoURL }}
             />
           ) : (
-            <Icon.User width={24} height={24} stroke="gray" />
+            <Icon.User width={20} height={20} stroke="#333" />
           )}
         </TouchableOpacity>
-        <View style={tw`flex-1 items-center p-2`}>
-          <View
-            style={tw`flex-row items-center border rounded-lg border-[#b2a1cd] `}
-          >
-            <TextInput
-              placeholder="Search for Service"
-              style={tw` text-center  flex-1 p-2`}
-            />
-          </View>
-        </View>
         <TouchableOpacity
           onPress={() => navigation.navigate("ChatsList")}
-          style={tw`p-2 mx-auto bg-[#b2a1cd] rounded-lg`}
+          style={tw`p-2 bg-white rounded-lg ml-2 border border-[#332257]`}
         >
-          <Icon.Mail width={20} height={20} stroke="#ffffff" />
+          <Icon.Mail width={20} height={20} stroke="#332257" />
         </TouchableOpacity>
       </View>
     </View>
