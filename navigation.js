@@ -5,7 +5,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import OnboardingScreen from "./screens/OnboardingScreen";
 import LoginScreen from "./screens/LoginScreen";
 import HomeScreen from "./screens/HomeScreen";
-import CategoriesScreen from "./screens/CategoriesScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import ChatScreen from "./screens/ChatScreen";
 import CategoriesAllScreen from "./screens/CategoriesAllScreen";
@@ -54,7 +53,6 @@ export default function Navigation() {
           <>
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="Categories" component={CategoriesScreen} />
             <Stack.Screen name="CategoriesAll" component={CategoriesAllScreen} />
             <Stack.Screen name="Profile" component={ProfileScreen} />
             <Stack.Screen name="Preferences" component={PreferencesScreen} />

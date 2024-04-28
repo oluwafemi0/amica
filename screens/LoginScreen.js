@@ -29,7 +29,6 @@ const LoginScreen = () => {
     if (initializing) setInitializing(false);
 
     if (user) {
-      // Save user to Firestore if not exists
       const userRef = firestore().collection("users").doc(user.uid);
       const doc = await userRef.get();
       if (!doc.exists) {
@@ -59,7 +58,9 @@ const LoginScreen = () => {
   if (!user) {
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <View
+          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+        >
           <Image
             source={require("../assets/images/HANDS.png")}
             style={{ width: 150, height: 150, marginBottom: 20 }}

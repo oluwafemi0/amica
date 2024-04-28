@@ -41,7 +41,12 @@ const CategoryList = () => {
             onPress={() => navigateToCategoryPage(category)}
             style={tw`bg-[#fff] py-1 px-6 mt-2 rounded-lg w-0.97/3 items-center justify-center border border-[#332257]`}
           >
-            <Icon.Users width={40} height={40} stroke="#332257" style={tw`mb-2`} />
+            <Icon.Users
+              width={40}
+              height={40}
+              stroke="#332257"
+              style={tw`mb-2`}
+            />
             <Text style={tw`text-[#332257] text-center `}>{category}</Text>
           </TouchableOpacity>
         ))}

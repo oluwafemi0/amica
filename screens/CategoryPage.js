@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, TouchableOpacity, ScrollView, FlatList, Image } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  FlatList,
+  Image,
+} from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import tw from "twrnc";
 import * as Icon from "react-native-feather";
@@ -22,7 +29,9 @@ const CategoryPage = ({ route }) => {
         }));
 
         const currentUser = auth().currentUser;
-        const filteredUsers = fetchedUsers.filter((user) => user.id !== currentUser.uid);
+        const filteredUsers = fetchedUsers.filter(
+          (user) => user.id !== currentUser.uid
+        );
 
         setUsers(filteredUsers);
       } catch (error) {
@@ -44,7 +53,9 @@ const CategoryPage = ({ route }) => {
     >
       <Image
         style={tw`w-1/1 h-2.4/3 rounded-t-lg mx-auto`}
-        source={{ uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${item.data.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e` }}
+        source={{
+          uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${item.data.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
+        }}
       />
 
       <View style={tw`bg-[#b2a1cd] p-2 flex h-0.6/3 rounded-b-lg`}>
@@ -93,18 +104,18 @@ const CategoryPage = ({ route }) => {
           </View>
         </TouchableOpacity>
       </View>
-        {filteredUsers.length > 0 ? (
-          <FlatList
-            data={filteredUsers}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id}
-            numColumns={2}
-            contentContainerStyle={tw`flex gap-4`}
-            columnWrapperStyle={{ justifyContent: "space-between" }}
-          />
-        ) : (
-          <Text style={tw`text-[#332257] text-center mt-4`}>No users found</Text>
-        )}
+      {filteredUsers.length > 0 ? (
+        <FlatList
+          data={filteredUsers}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          numColumns={2}
+          contentContainerStyle={tw`flex gap-4`}
+          columnWrapperStyle={{ justifyContent: "space-between" }}
+        />
+      ) : (
+        <Text style={tw`text-[#332257] text-center mt-4`}>No users found</Text>
+      )}
     </View>
   );
 };

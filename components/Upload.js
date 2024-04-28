@@ -39,7 +39,6 @@ const Upload = ({ setImage, onUpload }) => {
 
       await ref.put(blob);
 
-      
       onUpload(filename);
 
       Alert.alert("Picture Uploaded");

@@ -22,7 +22,9 @@ const UserList = () => {
         }));
 
         const currentUser = auth().currentUser;
-        const filteredUsers = fetchedUsers.filter((user) => user.id !== currentUser.uid);
+        const filteredUsers = fetchedUsers.filter(
+          (user) => user.id !== currentUser.uid
+        );
 
         setUsers(filteredUsers);
       } catch (error) {
@@ -35,29 +37,51 @@ const UserList = () => {
     return () => {};
   }, []);
 
-  const imageUrlPrefix = 'https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/';
-  const imageUrlSuffix = '?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e';
+  const imageUrlPrefix =
+    "https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/";
+  const imageUrlSuffix =
+    "?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e";
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={tw`bg-white w-1/2.1 h-64 rounded-lg overflow-hidden  border border-[#332257]`}
       onPress={() => {
-        navigation.navigate('Chat', { user: item });
+        navigation.navigate("Chat", { user: item });
         const newChats = [...chats, { id: item.id, user: item.data }];
         setChats(newChats);
       }}
     >
       <Image
         style={tw`w-full h-2.2/3`}
-        source={{ uri: imageUrlPrefix + item.data.imageFilename + imageUrlSuffix }}
+        source={{
+          uri: imageUrlPrefix + item.data.imageFilename + imageUrlSuffix,
+        }}
       />
 
       <View style={tw`p-2`}>
         <View style={tw`flex flex-row justify-between`}>
-        <Text style={tw`text-lg font-bold text-blue-800 mb-2`} numberOfLines={1} ellipsizeMode="tail">{item.data.categories}</Text>
-        <Text style={tw`text-sm text-gray-600 mt-1`} numberOfLines={1} ellipsizeMode="tail">{item.data.category}</Text>
+          <Text
+            style={tw`text-lg font-bold text-blue-800 mb-2`}
+            numberOfLines={1}
+            ellipsizeMode="tail"
+          >
+            {item.data.categories}
+          </Text>
+          <Text
+            style={tw`text-sm text-gray-600 mt-1`}
+            numberOfLines={1}
+            ellipsizeMode="tail"
+          >
+            {item.data.category}
+          </Text>
         </View>
-        <Text style={tw`text-sm text-gray-500 `} numberOfLines={1} ellipsizeMode="tail">{item.data.location}</Text>
+        <Text
+          style={tw`text-sm text-gray-500 `}
+          numberOfLines={1}
+          ellipsizeMode="tail"
+        >
+          {item.data.location}
+        </Text>
       </View>
     </TouchableOpacity>
   );

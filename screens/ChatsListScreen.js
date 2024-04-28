@@ -21,7 +21,9 @@ const ChatsListScreen = () => {
           .get();
 
         const fetchedChats = chatsSnapshot.docs.map((doc) => {
-          const otherUserId = Object.keys(doc.data().members).find(memberId => memberId !== currentUser.uid);
+          const otherUserId = Object.keys(doc.data().members).find(
+            (memberId) => memberId !== currentUser.uid
+          );
           return {
             id: doc.id,
             userId: otherUserId,
@@ -43,21 +45,30 @@ const ChatsListScreen = () => {
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={tw`bg-[#fff] flex flex-row p-2  w-96 h-20 rounded-lg`}
-      onPress={() => navigation.navigate("Chat", { user: { id: item.userId, data: item.user } })}
+      onPress={() =>
+        navigation.navigate("Chat", {
+          user: { id: item.userId, data: item.user },
+        })
+      }
     >
       <Image
         style={tw`w-24 h-16 rounded-lg  `}
-        source={{ uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${item.user.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e` }}
+        source={{
+          uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${item.user.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
+        }}
       />
 
       <View style={tw` p-2 w-70 `}>
-        
         <View style={tw`flex flex-row  py-4 justify-between `}>
           <View>
-            <Text style={tw`text-[#b2a1cd] font-bold `}>{item.user.categories}</Text>
+            <Text style={tw`text-[#b2a1cd] font-bold `}>
+              {item.user.categories}
+            </Text>
           </View>
           <View>
-            <Text style={tw`text-[#b2a1cd] font-bold`}>{item.user.category}</Text>
+            <Text style={tw`text-[#b2a1cd] font-bold`}>
+              {item.user.category}
+            </Text>
           </View>
         </View>
       </View>
@@ -68,14 +79,19 @@ const ChatsListScreen = () => {
     <View style={tw``}>
       <View style={tw`bg-white p-4 shadow-md rounded-md`}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
-          <TouchableOpacity style={tw`bg-white rounded-md p-2 `} onPress={() => navigation.goBack()}>
+          <TouchableOpacity
+            style={tw`bg-white rounded-md p-2 `}
+            onPress={() => navigation.goBack()}
+          >
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.ArrowLeft strokeWidth={2} stroke={'#332257'} style={tw``} />
+              <Icon.ArrowLeft strokeWidth={2} stroke={"#332257"} style={tw``} />
             </View>
           </TouchableOpacity>
           <View style={tw`flex-1 items-center p-2`}>
             <View style={tw``}>
-              <Text style={tw`font-semibold text-lg text-center text-[#332257]`}>
+              <Text
+                style={tw`font-semibold text-lg text-center text-[#332257]`}
+              >
                 Chats
               </Text>
             </View>

@@ -61,9 +61,12 @@ export default function ProfileScreen() {
       <View style={tw` bg-[#332257] p-2 `}>
         <View style={tw`bg-[#332257] p-2  `}>
           <View style={tw`flex-row justify-between items-center mx-auto`}>
-          <TouchableOpacity style={tw`bg-[#332257] rounded-md p-2 `} onPress={() => navigation.goBack()}>
+            <TouchableOpacity
+              style={tw`bg-[#332257] rounded-md p-2 `}
+              onPress={() => navigation.goBack()}
+            >
               <View style={tw`flex flex-row items-center justify-center`}>
-                <Icon.ArrowLeft strokeWidth={2} stroke={'#fff'} style={tw``} />
+                <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} style={tw``} />
               </View>
             </TouchableOpacity>
             <View style={tw`flex-1 items-center p-2`}>
@@ -91,7 +94,9 @@ export default function ProfileScreen() {
             <View style={tw`items-center`}>
               <Image
                 style={tw`w-[100px] h-[100px] rounded-md`}
-                source={{ uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e` }}
+                source={{
+                  uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
+                }}
               />
               <Text
                 style={{
