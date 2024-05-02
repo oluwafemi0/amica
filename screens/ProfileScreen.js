@@ -93,7 +93,7 @@ export default function ProfileScreen() {
           <View style={tw`bg-[#332257] p-4  mb-6`}>
             <View style={tw`items-center`}>
               <Image
-                style={tw`w-[100px] h-[100px] rounded-md`}
+                style={tw`w-[100px] h-[100px] rounded-md bg-gray-400 border-2 border-gray-400`}
                 source={{
                   uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
                 }}
@@ -116,16 +116,16 @@ export default function ProfileScreen() {
               style={tw`flex flex-row items-center justify-center gap-2 mt-4 `}
             >
               <Image
-                style={tw`w-[100px] h-[100px] rounded-md`}
-                source={{ uri: user.photoURL }}
+                style={tw`w-[100px] h-[100px] rounded-md bg-gray-400 border-2 border-gray-400`}
+                source={{
+                  uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
+                }}
               />
               <Image
-                style={tw`w-[100px] h-[100px] rounded-md`}
-                source={{ uri: user.photoURL }}
-              />
-              <Image
-                style={tw`w-[100px] h-[100px] rounded-md`}
-                source={{ uri: user.photoURL }}
+                style={tw`w-[100px] h-[100px] rounded-md bg-gray-400 border-2 border-gray-400`}
+                source={{
+                  uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
+                }}
               />
             </View>
           </View>

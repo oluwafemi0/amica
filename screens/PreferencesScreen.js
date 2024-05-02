@@ -15,7 +15,6 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import tw from "twrnc";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Icon from "react-native-feather";
-import { firebase } from "../config";
 import Upload from "../components/Upload";
 
 const PreferencesScreen = () => {
@@ -36,7 +35,6 @@ const PreferencesScreen = () => {
       const userDoc = firestore().collection("users").doc(uid);
 
       try {
-        e;
         await userDoc.set({
           categories: categories.split(",").map((category) => category.trim()),
           location,
@@ -71,7 +69,13 @@ const PreferencesScreen = () => {
             <View style={tw`flex-row justify-between items-center mx-auto`}>
               <TouchableOpacity
                 style={tw`bg-[#332257] rounded-md p-2 `}
-                onPress={() => navigation.goBack()}
+                onPress={() => {
+                  if (navigation.canGoBack()) {
+                    navigation.goBack();
+                  } else {
+                    navigation.navigate("Home");
+                  }
+                }}
               >
                 <View style={tw`flex flex-row items-center justify-center`}>
                   <Icon.ArrowLeft

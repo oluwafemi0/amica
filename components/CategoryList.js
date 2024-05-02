@@ -46,16 +46,17 @@ const CategoryList = () => {
 
   return (
     <View style={tw`flex-1 p-2`}>
-       <View style={tw` flex flex-row justify-between items-center  `}>
+      <View style={tw` flex flex-row justify-between items-center  `}>
         <Text style={tw`text-lg font-semibold text-gray-600`}>Categories</Text>
-          <TouchableOpacity
-            onPress={navigateToAllCategoriesPage}
-            style={tw``}
-          >
-            <Text style={tw`text-blue-800 font-bold  mb-1`}>See All </Text>
-          </TouchableOpacity>
-    </View>
-      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={tw`ml--6`}>
+        <TouchableOpacity onPress={navigateToAllCategoriesPage} style={tw``}>
+          <Text style={tw`text-blue-800 font-bold  mb-1`}>See All </Text>
+        </TouchableOpacity>
+      </View>
+      <ScrollView
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        style={tw`ml--6`}
+      >
         <View style={tw`flex-row p-2 ml-1`}>
           {categories.slice(0, 6).map((category, index) => (
             <TouchableOpacity
@@ -69,11 +70,16 @@ const CategoryList = () => {
               <Icon
                 name={categoryIcons[category]}
                 size={35}
-                style={[tw` `,
-                { color: colors[index] }]}
+                style={[tw` `, { color: colors[index] }]}
               />
-              <Text style={[tw` text-center font-semibold`,
-                { color: colors[index] }]}>{category}</Text>
+              <Text
+                style={[
+                  tw` text-center font-semibold`,
+                  { color: colors[index] },
+                ]}
+              >
+                {category}
+              </Text>
             </TouchableOpacity>
           ))}
         </View>

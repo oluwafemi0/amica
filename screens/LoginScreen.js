@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Image, Text, TouchableOpacity } from "react-native";
+import { View, Image } from "react-native";
 import {
   GoogleSignin,
   GoogleSigninButton,
@@ -7,12 +7,15 @@ import {
 import auth from "@react-native-firebase/auth";
 import firestore from "@react-native-firebase/firestore";
 import { useNavigation } from "@react-navigation/native";
-import HomeScreen from "./HomeScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
+import PreferencesScreen from "./PreferencesScreen";
+import HomeScreen from "./HomeScreen";
 
 const LoginScreen = () => {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState(null);
+  const [isNewUser, setIsNewUser] = useState(false);
+  const navigation = useNavigation();
 
   GoogleSignin.configure({
     webClientId:
@@ -32,15 +35,10 @@ const LoginScreen = () => {
       const userRef = firestore().collection("users").doc(user.uid);
       const doc = await userRef.get();
       if (!doc.exists) {
-        await userRef.set({
-          email: user.email,
-          displayName: user.displayName,
-        });
+        setIsNewUser(true);
       }
     }
   };
-
-  const navigation = useNavigation();
 
   const onGoogleButtonPress = async () => {
     await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
@@ -76,7 +74,11 @@ const LoginScreen = () => {
     );
   }
 
-  return <HomeScreen user={user} />;
+  if (isNewUser) {
+    return <PreferencesScreen />;
+  } else {
+    return <HomeScreen user={user} />;
+  }
 };
 
 export default LoginScreen;
