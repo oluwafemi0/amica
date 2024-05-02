@@ -52,7 +52,7 @@ const CategoryList = () => {
             onPress={navigateToAllCategoriesPage}
             style={tw``}
           >
-            <Text style={tw`text-gray-300 font-bold  mb-1`}>See All </Text>
+            <Text style={tw`text-blue-800 font-bold  mb-1`}>See All </Text>
           </TouchableOpacity>
     </View>
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={tw`ml--6 `}>
