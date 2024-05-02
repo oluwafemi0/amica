@@ -34,8 +34,8 @@ const HomeScreen = () => {
         contentContainerStyle={tw`p-2`}
       >
         <View style={tw``}>
-          <CategoryList />
           <ActiveService />
+          <CategoryList />
           <UsersList />
         </View>
       </ScrollView>

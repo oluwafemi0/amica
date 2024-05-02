@@ -14,7 +14,7 @@ const Welcome = () => {
   };
 
   return (
-    <View style={tw`bg-white p-1 border-b-2 border-[#FFA07A] `}>
+    <View style={tw`bg-white p-1 border-b-2 border-gray-100 `}>
       <View style={tw`flex-row items-center`}>
         <View style={tw`flex-1 `}>
           <Image
@@ -24,9 +24,9 @@ const Welcome = () => {
         </View>
         <TouchableOpacity
           onPress={() => navigation.navigate("ChatsList")}
-          style={tw`p-2 bg-[#fff] rounded-lg mr-2 border-2 border-[#FFA07A]`}
+          style={tw`p-2 bg-[#fff] rounded-lg mr-2 border-2 border-gray-300`}
         >
-          <Icon.Mail width={20} height={20} stroke="#FFA07A" />
+          <Icon.Mail width={20} height={20} stroke="#E0E0E0" />
         </TouchableOpacity>
         <TouchableOpacity onPress={navigateToProfile}>
           {user && user.photoURL ? (
@@ -35,7 +35,7 @@ const Welcome = () => {
               source={{ uri: user.photoURL }}
             />
           ) : (
-            <Icon.User width={20} height={20} stroke="#332257" />
+            <Icon.User width={20} height={20} stroke="#F5F5F5" />
           )}
         </TouchableOpacity>
       </View>

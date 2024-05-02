@@ -61,14 +61,14 @@ const UserList = () => {
       <View style={tw`p-2`}>
         <View style={tw`flex flex-row gap-30 justify-between`}>
           <Text
-            style={tw`text-lg font-bold text-blue-800 mb-2`}
+            style={tw`text-lg font-bold text-blue-800 mt-8`}
             numberOfLines={1}
             ellipsizeMode="tail"
           >
             {item.data.categories}
           </Text>
           <Text
-            style={tw`text-sm text-gray-600 mt-1`}
+            style={tw`text-sm text-gray-600 font-semibold `}
             numberOfLines={1}
             ellipsizeMode="tail"
           >
@@ -87,11 +87,11 @@ const UserList = () => {
   );
 
   return (
-    <View style={tw`items-center py-6 `}>
+    <View style={tw` py-2 `}>
       <Text
-        style={tw`text-white px-20 py-4 bg-[#332257] rounded-lg text-center mb-4`}
+        style={tw`text-gray-600 p-1 text-lg font-semibold`}
       >
-        Users near you
+        Recommended
       </Text>
       <FlatList
         data={users}

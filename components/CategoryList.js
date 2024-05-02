@@ -45,13 +45,16 @@ const CategoryList = () => {
   };
 
   return (
-    <View style={tw`flex-1   mt--4 p-2`}>
+    <View style={tw`flex-1    p-2`}>
+       <View style={tw` flex flex-row justify-between items-center  `}>
+        <Text style={tw`text-lg font-semibold text-gray-600`}>Categories</Text>
           <TouchableOpacity
             onPress={navigateToAllCategoriesPage}
             style={tw``}
           >
-            <Text style={tw`text-[#FFA07A] font-bold ml-80 mb-1`}>See All </Text>
+            <Text style={tw`text-gray-300 font-bold  mb-1`}>See All </Text>
           </TouchableOpacity>
+    </View>
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={tw`ml--6 `}>
         <View style={tw`flex-row p-2 ml-1`}>
           {categories.slice(0, 6).map((category, index) => (
