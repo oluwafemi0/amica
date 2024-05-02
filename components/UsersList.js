@@ -44,7 +44,7 @@ const UserList = () => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      style={tw`bg-white w-1/2.1 h-64 rounded-lg overflow-hidden  border border-[#332257]`}
+      style={tw`bg-white w-90 h-30 rounded-lg overflow-hidden flex flex-row `}
       onPress={() => {
         navigation.navigate("Chat", { user: item });
         const newChats = [...chats, { id: item.id, user: item.data }];
@@ -52,14 +52,14 @@ const UserList = () => {
       }}
     >
       <Image
-        style={tw`w-full h-2.2/3`}
+        style={tw`w-1.2/3 h-full`}
         source={{
           uri: imageUrlPrefix + item.data.imageFilename + imageUrlSuffix,
         }}
       />
 
       <View style={tw`p-2`}>
-        <View style={tw`flex flex-row justify-between`}>
+        <View style={tw`flex flex-row gap-30 justify-between`}>
           <Text
             style={tw`text-lg font-bold text-blue-800 mb-2`}
             numberOfLines={1}
@@ -87,7 +87,7 @@ const UserList = () => {
   );
 
   return (
-    <View style={tw`items-center py-6`}>
+    <View style={tw`items-center py-6 `}>
       <Text
         style={tw`text-white px-20 py-4 bg-[#332257] rounded-lg text-center mb-4`}
       >
@@ -97,9 +97,8 @@ const UserList = () => {
         data={users}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
-        numColumns={2}
-        contentContainerStyle={tw`flex gap-4`}
-        columnWrapperStyle={{ justifyContent: "space-between" }}
+        numColumns={1}
+        contentContainerStyle={tw`flex gap-4 bg-gray-100 p-2 rounded-lg`}
       />
     </View>
   );
