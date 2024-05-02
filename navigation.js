@@ -14,6 +14,7 @@ import CategoryList from "./components/CategoryList";
 import AllCategoriesPage from "./screens/AllCategoriesPage";
 import History from "./screens/History";
 import ChatsListScreen from "./screens/ChatsListScreen";
+import ViewPage from "./screens/ViewPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -61,6 +62,7 @@ export default function Navigation() {
             <Stack.Screen name="CategoryList" component={CategoryList} />
             <Stack.Screen name="CategoryPage" component={CategoryPage} />
             <Stack.Screen name="AllCategoriesPage" component={AllCategoriesPage} />
+            <Stack.Screen name="ViewPage" component={ViewPage} />
             <Stack.Screen name="History" component={History} />
           </>
         )}

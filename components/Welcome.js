@@ -11,7 +11,6 @@ const Welcome = () => {
   const [userDetails, setUserDetails] = useState(null);
   const user = auth().currentUser;
 
-  
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
@@ -50,8 +49,10 @@ const Welcome = () => {
         >
           <Icon.Mail width={20} height={20} stroke="#1565C0" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={navigateToProfile} 
-          style={tw`rounded-lg bg-gray-400 border-2 border-gray-400`}>
+        <TouchableOpacity
+          onPress={navigateToProfile}
+          style={tw`rounded-lg bg-gray-400 border-2 border-gray-400`}
+        >
           {user && user.photoURL ? (
             <Image
               style={tw`w-9 h-9 rounded-lg `}

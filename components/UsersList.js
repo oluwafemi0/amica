@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import { View, Text, FlatList, TouchableOpacity, Image } from "react-native";
 import firestore from "@react-native-firebase/firestore";
 import tw from "twrnc";
-import * as Icon from "react-native-feather";
-import auth from "@react-native-firebase/auth";
 import { useNavigation } from "@react-navigation/native";
+import auth from "@react-native-firebase/auth";
 
 const UserList = () => {
   const navigation = useNavigation();
   const [users, setUsers] = useState([]);
-  const [chats, setChats] = useState([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -18,10 +16,11 @@ const UserList = () => {
         const fetchedUsers = usersSnapshot.docs.map((doc) => ({
           id: doc.id,
           data: doc.data(),
-          categories: [],
         }));
 
         const currentUser = auth().currentUser;
+        if (!currentUser) return;
+
         const filteredUsers = fetchedUsers.filter(
           (user) => user.id !== currentUser.uid
         );
@@ -33,8 +32,6 @@ const UserList = () => {
     };
 
     fetchUsers();
-
-    return () => {};
   }, []);
 
   const imageUrlPrefix =
@@ -46,9 +43,7 @@ const UserList = () => {
     <TouchableOpacity
       style={tw`bg-white w-90 h-30 rounded-lg overflow-hidden flex flex-row `}
       onPress={() => {
-        navigation.navigate("Chat", { user: item });
-        const newChats = [...chats, { id: item.id, user: item.data }];
-        setChats(newChats);
+        navigation.navigate("ViewPage", { user: item });
       }}
     >
       <Image
