@@ -41,7 +41,7 @@ const UserList = () => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      style={tw`bg-white w-90 h-30 rounded-lg overflow-hidden flex flex-row `}
+      style={tw`bg-white w-90 h-32 rounded-lg overflow-hidden flex flex-row `}
       onPress={() => {
         navigation.navigate("ViewPage", { user: item });
       }}
