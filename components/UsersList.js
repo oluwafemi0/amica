@@ -61,14 +61,14 @@ const UserList = () => {
       <View style={tw`p-2`}>
         <View style={tw`flex flex-row gap-30 justify-between`}>
           <Text
-            style={tw`text-lg font-bold text-blue-800 mt-8`}
+            style={tw`text-lg font-bold text-gray-600 mt-8`}
             numberOfLines={1}
             ellipsizeMode="tail"
           >
             {item.data.categories}
           </Text>
           <Text
-            style={tw`text-sm text-gray-600 font-semibold `}
+            style={tw`text-sm text-blue-800 font-semibold `}
             numberOfLines={1}
             ellipsizeMode="tail"
           >
