@@ -98,7 +98,7 @@ const UserList = () => {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         numColumns={1}
-        contentContainerStyle={tw`flex gap-2 bg-gray-100 p-2 rounded-lg`}
+        contentContainerStyle={tw`flex gap-3 bg-gray-100 p-2 rounded-lg`}
       />
     </View>
   );
