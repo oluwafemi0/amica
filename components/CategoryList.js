@@ -45,7 +45,7 @@ const CategoryList = () => {
   };
 
   return (
-    <View style={tw`flex-1    p-2`}>
+    <View style={tw`flex-1 p-2`}>
        <View style={tw` flex flex-row justify-between items-center  `}>
         <Text style={tw`text-lg font-semibold text-gray-600`}>Categories</Text>
           <TouchableOpacity
@@ -55,7 +55,7 @@ const CategoryList = () => {
             <Text style={tw`text-blue-800 font-bold  mb-1`}>See All </Text>
           </TouchableOpacity>
     </View>
-      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={tw`ml--6 `}>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={tw`ml--6`}>
         <View style={tw`flex-row p-2 ml-1`}>
           {categories.slice(0, 6).map((category, index) => (
             <TouchableOpacity
