@@ -1,20 +1,65 @@
-import React from "react";
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, Text, TouchableOpacity, Image, TextInput, ScrollView, ActivityIndicator } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import tw from "twrnc";
 import * as Icon from "react-native-feather";
+import firestore from "@react-native-firebase/firestore"; 
 
 const ViewPage = () => {
   const navigation = useNavigation();
   const route = useRoute();
   const { user } = route.params;
+  const [comment, setComment] = useState("");
+  const [recentComments, setRecentComments] = useState([]); 
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    fetchRecentComments();
+  }, []);
 
   const handleChatNavigation = () => {
     navigation.navigate("Chat", { user });
   };
 
+  const handleCommentSubmit = async () => {
+    try {
+      setLoading(true);
+      await firestore().collection("users").doc(user.id).update({
+        comments: firestore.FieldValue.arrayUnion(comment)
+      });
+      console.log("Comment saved to Firestore:", comment);
+      setComment("");
+      fetchRecentComments(); 
+    } catch (error) {
+      console.error("Error saving comment:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchRecentComments = async () => {
+    try {
+      const userDoc = await firestore().collection("users").doc(user.id).get();
+      const userData = userDoc.data();
+      if (userData && userData.comments && userData.comments.length > 0) {
+        const lastIndex = userData.comments.length - 1;
+        const secondLastIndex = lastIndex - 1;
+        if (lastIndex === 0) {
+          setRecentComments([userData.comments[0]]);
+        } else {
+          const lastComment = userData.comments[lastIndex];
+          const secondLastComment = userData.comments[secondLastIndex];
+          setRecentComments([secondLastComment, lastComment]);
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching recent comments:", error);
+    }
+  };
+
   return (
     <View style={tw`flex-1 bg-gray-50`}>
+      
       <View style={tw`bg-white p-4 mb-4 shadow-md`}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
@@ -39,32 +84,67 @@ const ViewPage = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={tw`items-center mb-6`}>
-        <Image
-          style={tw`w-100 h-60 rounded-md bg-gray-300`}
-          source={{
-            uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${user.data.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
-          }}
-        />
-        <View style={tw`flex flex-row gap-65 p-2`}>
-          <View>
-            <Text style={tw`text-lg font-bold`}>{user.data.categories}</Text>
-            <Text style={tw`text-gray-500`}>{user.data.category}</Text>
-          </View>
-          <View>
-            <TouchableOpacity
-              style={tw`bg-blue-500 py-2 px-4 rounded`}
-              onPress={handleChatNavigation}
-            >
-              <Text style={tw`text-white`}>Chat</Text>
-            </TouchableOpacity>
+
+      <ScrollView>
+        <View style={tw`items-center `}>
+          <Image
+            style={tw`w-100 h-55  bg-gray-300`}
+            source={{
+              uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${user.data.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
+            }}
+          />
+          <View style={tw`flex flex-row gap-65 p-2`}>
+            <View>
+              <Text style={tw`text-lg font-bold`}>{user.data.categories}</Text>
+              <Text style={tw`text-gray-500`}>{user.data.category}</Text>
+            </View>
+            <View>
+              <TouchableOpacity
+                style={tw`bg-gray-400 py-2 px-4 rounded`}
+                onPress={handleChatNavigation}
+              >
+                <Text style={tw`text-white font-bold`}>Chat</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-      </View>
-      <View style={tw`p-4`}>
-        <Text style={tw`text-gray-500 text-base font-bold`}>Description</Text>
-        <Text style={tw`text-gray-500`}>{user.data.description}</Text>
-      </View>
+
+        
+        <View style={tw`p-2 bg-gray-200 m-2 h-25 rounded-md`}>
+          <Text style={tw`text-gray-500 text-base text-center font-bold`}>Description</Text>
+          <View  style={tw`p-2 bg-white rounded-md  m-1`}>
+            <Text style={tw`text-gray-500`}>{user.data.description}</Text>
+          </View>
+        </View>
+
+        <View style={tw`p-3 bg-gray-200 m-2 rounded-md`}>
+          <View style={tw`p-0 flex flex-row`}>
+            <TextInput
+              placeholder="Add a comment"
+              style={tw`h-10  w-4/5 text-left pl-2 bg-white text-gray-500  rounded-lg `}
+              onChangeText={(text) => setComment(text)}
+              value={comment}
+            />
+            <TouchableOpacity
+              style={tw`bg-gray-400 w-1/5 rounded-md ml-1`}
+              onPress={handleCommentSubmit}
+            >
+              {loading ? (
+                <ActivityIndicator color="#fff" style={tw` mx-auto pt-2 font-bold`}/>
+              ) : (
+                <Text style={tw`text-white mx-auto pt-3 font-bold`}>{comment ? "Submit" : "Sent"}</Text>
+              )}
+            </TouchableOpacity>
+
+          </View>
+          {recentComments.map((recentComment, index) => (
+            <View key={index} style={tw`mt-4 bg-white rounded-md p-2`}>
+              <Text style={tw`text-gray-500 font-bold`}>User</Text>
+              <Text style={tw`text-gray-500`}>{recentComment}</Text>
+            </View>
+          ))}
+        </View>
+      </ScrollView>
     </View>
   );
 };

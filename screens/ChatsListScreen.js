@@ -77,10 +77,10 @@ const ChatsListScreen = () => {
 
   return (
     <View style={[tw`bg-gray-100`, { backgroundColor: "#F3F4F6" }]}>
-      <View style={[tw`bg-white p-4 shadow-md rounded-md`, { backgroundColor: "#fff", borderColor: "#D1D5DB", borderBottomWidth: 2 }]}>
+      <View style={[tw`bg-white p-4 mb-2`, { backgroundColor: "#fff", borderColor: "#D1D5DB", borderBottomWidth: 2 }]}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={[tw`bg-white rounded-md p-2`, { backgroundColor: "#fff", borderColor: "#D1D5DB", borderWidth: 2 }]}
+            style={[tw`bg-white rounded-md p-2`, { backgroundColor: "#fff", borderColor: "#fff", borderWidth: 2 }]}
             onPress={() => navigation.goBack()}
           >
             <View style={tw`flex flex-row items-center justify-center`}>
@@ -96,7 +96,7 @@ const ChatsListScreen = () => {
               </Text>
             </View>
           </View>
-          <TouchableOpacity style={[tw`bg-white rounded-md p-2`, { backgroundColor: "#fff", borderColor: "#D1D5DB", borderWidth: 2 }]}>
+          <TouchableOpacity style={[tw`bg-white rounded-md p-2`, { backgroundColor: "#fff", borderColor: "#fff", borderWidth: 2 }]}>
             <View style={tw`flex flex-row items-center justify-center`}>
               <Icon.LogOut strokeWidth={2} stroke={"#fff"} style={tw``} />
             </View>

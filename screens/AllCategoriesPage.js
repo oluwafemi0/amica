@@ -15,23 +15,23 @@ const AllCategoriesPage = ({ route }) => {
 
   return (
     <SafeAreaView style={tw`flex-1 bg-gray-200`}>
-      <View style={tw`bg-gray-700 p-4`}>
+      <View style={tw`bg-white p-4`}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
             style={tw`rounded-md p-2`}
             onPress={() => navigation.goBack()}
           >
-            <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} />
+            <Icon.ArrowLeft strokeWidth={2} stroke={"#333"} />
           </TouchableOpacity>
           <View style={tw`flex-1 items-center`}>
             <View style={tw``}>
-              <Text style={tw`font-semibold text-lg text-center text-white`}>
+              <Text style={tw`font-semibold text-lg text-center text-[#333]`}>
                 Categories
               </Text>
             </View>
           </View>
           <TouchableOpacity style={tw`rounded-md p-2`}>
-            <Icon.LogOut strokeWidth={2} stroke={"#333"} />
+            <Icon.LogOut strokeWidth={2} stroke={"#fff"} />
           </TouchableOpacity>
         </View>
       </View>
