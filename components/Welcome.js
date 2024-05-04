@@ -35,27 +35,25 @@ const Welcome = () => {
   };
 
   return (
-    <View style={tw`bg-white p-1 border-b-2 border-gray-100 `}>
+    <View style={[tw`bg-white p-1 border-b-2 border-gray-100`, { backgroundColor: "#fff", borderColor: "#D1D5DB", borderBottomWidth: 2 }]}>
       <View style={tw`flex-row items-center`}>
         <View style={tw`flex-1 `}>
           <Image
             source={require("../assets/images/HANDS.png")}
-            style={tw`w-20 h-14 `}
+            style={tw`w-20 h-14`}
           />
         </View>
         <TouchableOpacity
           onPress={() => navigation.navigate("ChatsList")}
-          style={tw`p-1.6 bg-[#fff] rounded-lg mr-2 border-2 border-gray-400`}
-        >
+          style={[tw`p-1.6 rounded-lg mr-2`, { backgroundColor: "#fff", borderColor: "#D1D5DB", borderWidth: 2 }]}>
           <Icon.Mail width={20} height={20} stroke="#1565C0" />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={navigateToProfile}
-          style={tw`rounded-lg bg-gray-400 border-2 border-gray-400`}
-        >
+          style={[tw`rounded-lg`, { backgroundColor: "#D1D5DB", borderColor: "#D1D5DB", borderWidth: 2 }]}>
           {user && user.photoURL ? (
             <Image
-              style={tw`w-9 h-9 rounded-lg `}
+              style={tw`w-9 h-9 rounded-lg`}
               source={{
                 uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
               }}

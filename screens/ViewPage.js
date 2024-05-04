@@ -14,60 +14,57 @@ const ViewPage = () => {
   };
 
   return (
-    <View style={tw` justify-center items-center bg-white`}>
-    <View style={tw`flex-row justify-between items-center mx-auto`}>
-      <TouchableOpacity
-        style={tw`bg-[#fff] rounded-md p-2 `}
-        onPress={() => navigation.goBack()}
-      >
-        <View style={tw`flex flex-row items-center justify-center`}>
-          <Icon.ArrowLeft strokeWidth={2} stroke={"#332257"} style={tw``} />
-        </View>
-      </TouchableOpacity>
-      <View style={tw`flex-1 items-center p-2`}>
-        <View style={tw``}>
-          <Text style={tw`font-semibold text-lg text-center text-[#fff]`}>
-            <Text
-              style={tw`text-[#332257] text-center py-2 mb-2 font-bold text-lg`}
-            >
-              Amica
-            </Text>
-          </Text>
+    <View style={tw`flex-1 bg-gray-50`}>
+      <View style={tw`bg-white p-4 mb-4 shadow-md`}>
+        <View style={tw`flex-row justify-between items-center mx-auto`}>
+          <TouchableOpacity
+            style={tw`bg-transparent rounded-md p-2 `}
+            onPress={() => navigation.goBack()}
+          >
+            <View style={tw`flex flex-row items-center justify-center`}>
+              <Icon.ArrowLeft strokeWidth={2} stroke={"#332257"} style={tw``} />
+            </View>
+          </TouchableOpacity>
+          <View style={tw`flex-1 items-center p-2`}>
+            <View style={tw``}>
+              <Text style={tw`font-semibold text-lg text-center text-[#332257]`}>
+                Amica
+              </Text>
+            </View>
+          </View>
+          <TouchableOpacity style={tw`bg-transparent rounded-md p-2`}  onPress={handleChatNavigation}>
+            <View style={tw`flex flex-row items-center justify-center`}>
+              <Icon.LogOut strokeWidth={2} stroke={"#fff"} style={tw``} />
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
-      <TouchableOpacity style={tw`bg-[#fff] rounded-md p-2`}>
-        <View style={tw`flex flex-row items-center justify-center`}>
-          <Icon.LogOut strokeWidth={2} stroke={"#fff"} style={tw``} />
-        </View>
-      </TouchableOpacity>
-    </View>
-      <View style={tw`  items-center mb-6`}>
+      <View style={tw`items-center mb-6`}>
         <Image
-          style={tw`w-100 h-60 `}
+          style={tw`w-100 h-60 rounded-md bg-gray-300`}
           source={{
             uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${user.data.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
           }}
         />
-        <View style={tw`flex flex-row gap-60 p-2`}>
-        <View style={tw``}>
-          <Text style={tw`text-lg font-bold`}>{user.data.categories}</Text>
-          <Text style={tw`text-gray-500`}>{user.data.category}</Text>
+        <View style={tw`flex flex-row gap-65 p-2`}>
+          <View>
+            <Text style={tw`text-lg font-bold`}>{user.data.categories}</Text>
+            <Text style={tw`text-gray-500`}>{user.data.category}</Text>
+          </View>
+          <View>
+            <TouchableOpacity
+              style={tw`bg-blue-500 py-2 px-4 rounded`}
+              onPress={handleChatNavigation}
+            >
+              <Text style={tw`text-white`}>Chat</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <View>
-        <TouchableOpacity
-        style={tw`bg-blue-500 py-2 px-4 rounded`}
-        onPress={handleChatNavigation}
-      >
-        <Text style={tw`text-white`}>Chat</Text>
-      </TouchableOpacity>
-        </View>
-        </View>
-        </View>
-
-        <View>
+      </View>
+      <View style={tw`p-4`}>
+        <Text style={tw`text-gray-500 text-base font-bold`}>Description</Text>
         <Text style={tw`text-gray-500`}>{user.data.description}</Text>
-        </View>
-      
+      </View>
     </View>
   );
 };

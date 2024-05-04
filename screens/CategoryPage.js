@@ -48,28 +48,28 @@ const CategoryPage = ({ route }) => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      style={tw`bg-[#fff] w-1/2.1 h-60 rounded-lg`}
+      style={tw`bg-gray-300 bg-opacity-70 w-1/2.1 h-60 rounded-lg shadow-md`}
       onPress={() => navigation.navigate("Chat", { user: item })}
     >
       <Image
-        style={tw`w-1/1 h-2.4/3 rounded-t-lg mx-auto`}
+        style={tw`w-full h-2.4/3 rounded-t-lg`}
         source={{
           uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${item.data.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
         }}
       />
 
-      <View style={tw`bg-[#b2a1cd] p-2 flex h-0.6/3 rounded-b-lg`}>
+      <View style={tw`bg-gray-600 bg-opacity-70 p-2 flex h-0.6/3 rounded-b-lg`}>
         <View style={tw``}>
-          <Text style={tw`text-[#fff] text-lg font-bold mx-auto `}>
+          <Text style={tw`text-white text-lg font-bold mx-auto `}>
             {item.data.categories}
           </Text>
         </View>
         <View style={tw`flex flex-row justify-between `}>
           <View>
-            <Text style={tw`text-[#fff] font-bold`}>{item.data.category}</Text>
+            <Text style={tw`text-white font-bold`}>{item.data.category}</Text>
           </View>
           <View>
-            <Text style={tw`text-[#fff] font-bold`}>{item.data.location}</Text>
+            <Text style={tw`text-white font-bold`}>{item.data.location}</Text>
           </View>
         </View>
       </View>
@@ -77,32 +77,26 @@ const CategoryPage = ({ route }) => {
   );
 
   return (
-    <View style={tw`bg-white p-4 shadow-md rounded-md `}>
-      <View style={tw`flex-row justify-between items-center mx-auto`}>
-        <TouchableOpacity
-          style={tw`bg-[#fff] rounded-md p-2 `}
-          onPress={() => navigation.goBack()}
-        >
-          <View style={tw`flex flex-row items-center justify-center`}>
-            <Icon.ArrowLeft strokeWidth={2} stroke={"#332257"} style={tw``} />
-          </View>
-        </TouchableOpacity>
-        <View style={tw`flex-1 items-center p-2`}>
-          <View style={tw``}>
-            <Text style={tw`font-semibold text-lg text-center text-[#fff]`}>
-              <Text
-                style={tw`text-[#332257] text-center py-2 mb-2 font-bold text-lg`}
-              >
+    <View style={tw`bg-white bg-opacity-70 flex-1`}>
+      <View style={tw`p-4`}>
+        <View style={tw`flex-row justify-between items-center mx-auto`}>
+          <TouchableOpacity
+            style={tw`rounded-md p-2`}
+            onPress={() => navigation.goBack()}
+          >
+            <Icon.ArrowLeft strokeWidth={2} stroke={"#333"} />
+          </TouchableOpacity>
+          <View style={tw`flex-1 items-center`}>
+            <View style={tw``}>
+              <Text style={tw`font-semibold text-lg text-center text-gray-800`}>
                 {category}
               </Text>
-            </Text>
+            </View>
           </View>
+          <TouchableOpacity style={tw`rounded-md p-2`}>
+            <Icon.LogOut strokeWidth={2} stroke={"#fff"} />
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity style={tw`bg-[#fff] rounded-md p-2`}>
-          <View style={tw`flex flex-row items-center justify-center`}>
-            <Icon.LogOut strokeWidth={2} stroke={"#fff"} style={tw``} />
-          </View>
-        </TouchableOpacity>
       </View>
       {filteredUsers.length > 0 ? (
         <FlatList
@@ -110,11 +104,11 @@ const CategoryPage = ({ route }) => {
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
           numColumns={2}
-          contentContainerStyle={tw`flex gap-4`}
+          contentContainerStyle={tw`flex gap-4 p-4`}
           columnWrapperStyle={{ justifyContent: "space-between" }}
         />
       ) : (
-        <Text style={tw`text-[#332257] text-center mt-4`}>No users found</Text>
+        <Text style={tw`text-gray-800 text-center mt-4`}>No users found</Text>
       )}
     </View>
   );

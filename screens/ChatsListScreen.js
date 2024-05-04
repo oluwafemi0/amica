@@ -44,7 +44,7 @@ const ChatsListScreen = () => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      style={tw`bg-[#fff] flex flex-row p-2  w-96 h-20 rounded-lg`}
+      style={[tw`bg-white flex flex-row p-2 w-96 h-20 rounded-lg`, { borderColor: "#D1D5DB", borderWidth: 2 }]}
       onPress={() =>
         navigation.navigate("Chat", {
           user: { id: item.userId, data: item.user },
@@ -52,16 +52,16 @@ const ChatsListScreen = () => {
       }
     >
       <Image
-        style={tw`w-24 h-16 rounded-lg  `}
+        style={tw`w-24 h-16 rounded-lg`}
         source={{
           uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${item.user.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
         }}
       />
 
-      <View style={tw` p-2 w-70 `}>
-        <View style={tw`flex flex-row  py-4 justify-between `}>
+      <View style={tw`p-2 w-70`}>
+        <View style={tw`flex flex-row py-4 justify-between`}>
           <View>
-            <Text style={tw`text-[#b2a1cd] font-bold `}>
+            <Text style={tw`text-[#b2a1cd] font-bold`}>
               {item.user.categories}
             </Text>
           </View>
@@ -76,11 +76,11 @@ const ChatsListScreen = () => {
   );
 
   return (
-    <View style={tw``}>
-      <View style={tw`bg-white p-4 shadow-md rounded-md`}>
+    <View style={[tw`bg-gray-100`, { backgroundColor: "#F3F4F6" }]}>
+      <View style={[tw`bg-white p-4 shadow-md rounded-md`, { backgroundColor: "#fff", borderColor: "#D1D5DB", borderBottomWidth: 2 }]}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={tw`bg-white rounded-md p-2 `}
+            style={[tw`bg-white rounded-md p-2`, { backgroundColor: "#fff", borderColor: "#D1D5DB", borderWidth: 2 }]}
             onPress={() => navigation.goBack()}
           >
             <View style={tw`flex flex-row items-center justify-center`}>
@@ -96,7 +96,7 @@ const ChatsListScreen = () => {
               </Text>
             </View>
           </View>
-          <TouchableOpacity style={tw`bg-white rounded-md p-2`}>
+          <TouchableOpacity style={[tw`bg-white rounded-md p-2`, { backgroundColor: "#fff", borderColor: "#D1D5DB", borderWidth: 2 }]}>
             <View style={tw`flex flex-row items-center justify-center`}>
               <Icon.LogOut strokeWidth={2} stroke={"#fff"} style={tw``} />
             </View>

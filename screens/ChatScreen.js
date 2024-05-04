@@ -154,33 +154,29 @@ const ChatScreen = () => {
   };
 
   return (
-    <View style={tw`flex-1 `}>
-      <View style={tw`bg-[#332257] p-4  mb-4 `}>
+    <View style={tw`flex-1 bg-gray-50`}>
+      <View style={tw`p-4 bg-[rgba(255,255,255,0.5)] mb-4`}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={tw`bg-[#332257] rounded-md p-2 `}
+            style={tw`rounded-md p-2`}
             onPress={() => navigation.goBack()}
           >
-            <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} style={tw``} />
-            </View>
+            <Icon.ArrowLeft strokeWidth={2} stroke={"#332257"} />
           </TouchableOpacity>
-          <View style={tw`flex-1 items-center `}>
+          <View style={tw`flex-1 items-center`}>
             <View style={tw` items-center mx-auto`}>
               {user.data ? (
-                <View style={tw`flex flex-row w-74 ml-4 mt-1 justify-between `}>
-                  <View style={tw``}>
-                    <Text style={tw`text-xl text-white font-bold`}>
+                <View style={tw`flex flex-row w-74 ml-4 mt-1 justify-between`}>
+                  <View>
+                    <Text style={tw`text-xl text-gray-700 font-bold`}>
                       {user.data.categories}
                     </Text>
-                    <Text style={tw`text-slate-400 `}>
-                      {user.data.category}
-                    </Text>
+                    <Text style={tw`text-slate-400`}>{user.data.category}</Text>
                     <Text style={tw`text-slate-400`}>{user.data.location}</Text>
                   </View>
                   <View>
                     <Image
-                      style={tw`w-15 h-15 rounded-full `}
+                      style={tw`w-15 h-15 rounded-full`}
                       source={{
                         uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${user.data.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
                       }}
@@ -192,8 +188,8 @@ const ChatScreen = () => {
               )}
             </View>
           </View>
-          <TouchableOpacity style={tw` rounded-md p-2`}>
-            <View style={tw`flex flex-row items-center justify-center`}></View>
+          <TouchableOpacity style={tw`rounded-md p-2`}>
+            <Icon.MoreHorizontal strokeWidth={2} stroke={"#332257"} />
           </TouchableOpacity>
         </View>
       </View>
@@ -225,12 +221,7 @@ const ChatScreen = () => {
             onPress={handleSend}
             disabled={!textMessage.trim()}
           >
-            <Icon.Send
-              width={24}
-              height={24}
-              stroke="white"
-              style={tw`mx-auto`}
-            />
+            <Icon.Send width={24} height={24} stroke="white" />
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>

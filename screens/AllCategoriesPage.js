@@ -14,28 +14,24 @@ const AllCategoriesPage = ({ route }) => {
   };
 
   return (
-    <SafeAreaView>
-      <View style={tw`bg-[#332257] p-4   `}>
+    <SafeAreaView style={tw`flex-1 bg-gray-200`}>
+      <View style={tw`bg-gray-700 p-4`}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={tw`bg-[#332257] rounded-md p-2 `}
+            style={tw`rounded-md p-2`}
             onPress={() => navigation.goBack()}
           >
-            <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} style={tw``} />
-            </View>
+            <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} />
           </TouchableOpacity>
-          <View style={tw`flex-1 items-center p-2`}>
+          <View style={tw`flex-1 items-center`}>
             <View style={tw``}>
-              <Text style={tw`font-semibold text-lg text-center text-[#fff]`}>
+              <Text style={tw`font-semibold text-lg text-center text-white`}>
                 Categories
               </Text>
             </View>
           </View>
-          <TouchableOpacity style={tw`bg-[#332257] rounded-md p-2`}>
-            <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.LogOut strokeWidth={2} stroke={"#332257"} style={tw``} />
-            </View>
+          <TouchableOpacity style={tw`rounded-md p-2`}>
+            <Icon.LogOut strokeWidth={2} stroke={"#333"} />
           </TouchableOpacity>
         </View>
       </View>
@@ -45,9 +41,9 @@ const AllCategoriesPage = ({ route }) => {
           <TouchableOpacity
             key={index}
             onPress={() => navigateToCategoryPage(category)}
-            style={tw`bg-white py-10 px-6  rounded-lg   w-0.97/3`}
+            style={tw`bg-white py-10 px-6 rounded-lg w-0.97/3 shadow-md`}
           >
-            <Text style={tw`text-gray-500 text-center`}>{category}</Text>
+            <Text style={tw`text-gray-800 text-center`}>{category}</Text>
           </TouchableOpacity>
         ))}
       </View>

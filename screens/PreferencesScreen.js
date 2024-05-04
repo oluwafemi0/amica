@@ -67,7 +67,7 @@ const PreferencesScreen = () => {
       <View style={tw`bg-[#fff] `}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={tw`bg-[#fff] rounded-md p-2 `}
+            style={tw`bg-[#fff]  p-2 `}
             onPress={() => {
               if (navigation.canGoBack()) {
                 navigation.goBack();

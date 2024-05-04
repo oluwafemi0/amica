@@ -58,30 +58,30 @@ export default function ProfileScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-      <View style={tw` bg-[#fff] p-2 `}>
-        <View style={tw`bg-[#fff] p-2  border-b-2 border-gray-100`}>
+      <View style={tw` bg-transparent p-2 `}>
+        <View style={tw`bg-transparent p-2  border-b-2 border-gray-200`}>
           <View style={tw`flex-row justify-between items-center mx-auto`}>
             <TouchableOpacity
-              style={tw`bg-[#fff] rounded-md p-2 `}
+              style={tw`bg-transparent rounded-md p-2 `}
               onPress={() => navigation.goBack()}
             >
               <View style={tw`flex flex-row items-center justify-center`}>
-                <Icon.ArrowLeft strokeWidth={2} stroke={"#332257"} style={tw``} />
+                <Icon.ArrowLeft strokeWidth={2} stroke={"#333"} style={tw``} />
               </View>
             </TouchableOpacity>
             <View style={tw`flex-1 items-center p-2`}>
               <View style={tw``}>
-                <Text style={tw`font-semibold text-lg text-center text-[#332257]`}>
+                <Text style={tw`font-semibold text-lg text-center text-[#333]`}>
                   Profile
                 </Text>
               </View>
             </View>
             <TouchableOpacity
-              style={tw`bg-[#fff] rounded-md p-2`}
+              style={tw`bg-transparent rounded-md p-2`}
               onPress={signOut}
             >
               <View style={tw`flex flex-row items-center justify-center`}>
-                <Icon.LogOut strokeWidth={2} stroke={"#332257"} style={tw``} />
+                <Icon.LogOut strokeWidth={2} stroke={"#333"} style={tw``} />
               </View>
             </TouchableOpacity>
           </View>
@@ -90,10 +90,10 @@ export default function ProfileScreen() {
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={tw`mt-2`}>
-          <View style={tw`bg-[#000] p-4 `}>
-            <View style={tw`items-center `}>
+          <View style={tw`bg-transparent p-4 mt--2`}>
+            <View style={tw`items-center m--6`}>
               <Image
-                style={tw`w-100 h-60 rounded-md bg-gray-400 `}
+                style={tw`w-100 h-60 rounded-md bg-gray-300 `}
                 source={{
                   uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
                 }}
@@ -102,27 +102,27 @@ export default function ProfileScreen() {
                 style={{
                   fontSize: 24,
                   fontWeight: "bold",
-                  color: "#332257",
+                  color: "#333",
                   marginTop: 12,
                 }}
               >
                 {userDetails?.categories[0]}
               </Text>
-              <Text style={{ fontSize: 16, color: "#332257", marginTop: 6 }}>
+              <Text style={{ fontSize: 16, color: "#333", marginTop: 6 }}>
                 {userDetails?.location}
               </Text>
             </View>
             <View
-              style={tw`flex flex-row items-center justify-center gap-2 mt-4 `}
+              style={tw`flex flex-row items-center justify-center gap-2 mt-8 `}
             >
               <Image
-                style={tw`w-[100px] h-[100px] rounded-md bg-gray-400 border-2 border-gray-400`}
+                style={tw`w-[100px] h-[100px] rounded-md bg-gray-300 border-2 border-gray-200`}
                 source={{
                   uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
                 }}
               />
               <Image
-                style={tw`w-[100px] h-[100px] rounded-md bg-gray-400 border-2 border-gray-400`}
+                style={tw`w-[100px] h-[100px] rounded-md bg-gray-300 border-2 border-gray-200`}
                 source={{
                   uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
                 }}
@@ -134,7 +134,7 @@ export default function ProfileScreen() {
           >
             <TouchableOpacity
               onPress={() => navigation.navigate("Preferences")}
-              style={tw`bg-[#332257] rounded-md p-8 mb-3`}
+              style={tw`bg-[#333] rounded-md p-8 mb-3`}
             >
               <Text
                 style={{
@@ -149,7 +149,7 @@ export default function ProfileScreen() {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => navigation.navigate("History")}
-              style={tw`bg-[#332257] rounded-md p-8 mb-3 `}
+              style={tw`bg-[#333] rounded-md p-8 mb-3 `}
             >
               <Text
                 style={{
