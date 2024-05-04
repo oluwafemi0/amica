@@ -63,7 +63,7 @@ const UserList = () => {
             {item.data.categories}
           </Text>
           <Text
-            style={tw`text-sm text-blue-800 font-semibold `}
+            style={tw`text-sm text-blue-800 font-semibold text-right`}
             numberOfLines={1}
             ellipsizeMode="tail"
           >

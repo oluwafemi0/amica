@@ -49,9 +49,18 @@ const Upload = ({ setImage, onUpload }) => {
   };
 
   return (
-    <SafeAreaView style={tw`flex mx-auto  pb-2`}>
+    <SafeAreaView  style={tw`mt--2`}>
+      <View style={tw`h-55 m-2 mx-22 border-2 border-[#332257] rounded-lg`}>
+      {imageURI && (
+          <Image
+            source={{ uri: imageURI }}
+            style={tw`rounded-lg w-50 h-50 mx-auto my-2`}
+          />
+        )}
+      </View>
+      <View style={tw`flex mx-auto gap-2 flex-row pb-2`}>
       <TouchableOpacity
-        style={tw`rounded-lg w-full h-10 bg-[#F06292] mx-auto p-2 mb-2`}
+        style={tw`rounded-lg w-30 h-10 bg-[#F06292] mx-auto p-2 mb-2`}
         onPress={pickImage}
       >
         <Text
@@ -62,22 +71,18 @@ const Upload = ({ setImage, onUpload }) => {
       </TouchableOpacity>
 
       <View>
-        {imageURI && (
-          <Image
-            source={{ uri: imageURI }}
-            style={{ width: 300, height: 300 }}
-          />
-        )}
+       
         <TouchableOpacity
-          style={tw`rounded-lg w-full h-10 bg-[#F06292] mx-auto p-2`}
+          style={tw`rounded-lg w-30 h-10 bg-[#F06292] mx-auto p-2`}
           onPress={uploadMedia}
         >
           <Text
             style={tw`text-md font-semibold text-white text-center mx-auto my-auto`}
           >
-            Upload Picture
+            Upload All
           </Text>
         </TouchableOpacity>
+      </View>
       </View>
     </SafeAreaView>
   );

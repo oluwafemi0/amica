@@ -63,6 +63,10 @@ const ViewPage = () => {
         </View>
         </View>
         </View>
+
+        <View>
+        <Text style={tw`text-gray-500`}>{user.data.description}</Text>
+        </View>
       
     </View>
   );
