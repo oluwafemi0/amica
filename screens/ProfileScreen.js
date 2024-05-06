@@ -62,7 +62,7 @@ export default function ProfileScreen() {
         <View style={tw`bg-transparent p-2  border-b-2 border-gray-200`}>
           <View style={tw`flex-row justify-between items-center mx-auto`}>
             <TouchableOpacity
-              style={tw`bg-transparent rounded-md p-2 `}
+              style={tw`bg-transparent p-2 `}
               onPress={() => navigation.goBack()}
             >
               <View style={tw`flex flex-row items-center justify-center`}>
@@ -77,7 +77,7 @@ export default function ProfileScreen() {
               </View>
             </View>
             <TouchableOpacity
-              style={tw`bg-transparent rounded-md p-2`}
+              style={tw`bg-transparent p-2`}
               onPress={signOut}
             >
               <View style={tw`flex flex-row items-center justify-center`}>
