@@ -77,7 +77,6 @@ const ChatScreen = () => {
         });
       setTextMessage("");
 
-      // Update chat list
       updateChatList(user);
     } catch (error) {
       console.error("Error sending message:", error);
@@ -154,8 +153,8 @@ const ChatScreen = () => {
   };
 
   return (
-    <View style={tw`flex-1 bg-gray-50`}>
-      <View style={tw`p-4 bg-[rgba(255,255,255,0.5)] mb-4`}>
+    <View style={tw`flex-1 bg-gray-50 `}>
+      <View style={tw`p-4 bg-[rgba(255,255,255,0.5)] mb-4 border-b  border-b-[#D1D5DB]`}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
             style={tw`rounded-md p-2`}
@@ -163,7 +162,7 @@ const ChatScreen = () => {
           >
             <Icon.ArrowLeft strokeWidth={2} stroke={"#332257"} />
           </TouchableOpacity>
-          <View style={tw`flex-1 items-center`}>
+          <TouchableOpacity style={tw`flex-1 items-center`} >
             <View style={tw` items-center mx-auto`}>
               {user.data ? (
                 <View style={tw`flex flex-row w-74 ml-4 mt-1 justify-between`}>
@@ -187,9 +186,9 @@ const ChatScreen = () => {
                 <Text>Loading...</Text>
               )}
             </View>
-          </View>
+          </TouchableOpacity>
           <TouchableOpacity style={tw`rounded-md p-2`}>
-            <Icon.MoreHorizontal strokeWidth={2} stroke={"#332257"} />
+           
           </TouchableOpacity>
         </View>
       </View>

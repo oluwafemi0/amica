@@ -27,14 +27,14 @@ const HomeScreen = () => {
 
       <Welcome />
 
-      <View style={tw`bg-white mb-4`}></View>
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={tw`p-2`}
+        contentContainerStyle={tw``}
       >
-        <View style={tw``}>
-          <ActiveService />
+        <ActiveService />
+        <View style={tw`p-1`}>
+          
           <CategoryList />
           <UsersList />
         </View>

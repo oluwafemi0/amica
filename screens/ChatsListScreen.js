@@ -44,7 +44,7 @@ const ChatsListScreen = () => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      style={[tw`bg-white flex flex-row p-2 w-96 h-20 rounded-lg`, { borderColor: "#D1D5DB", borderWidth: 2 }]}
+      style={[tw`bg-white flex flex-row p-2 w-96 h-20 rounded-lg`, { borderColor: "#D1D5DB", borderWidth: 1 }]}
       onPress={() =>
         navigation.navigate("Chat", {
           user: { id: item.userId, data: item.user },
@@ -77,7 +77,7 @@ const ChatsListScreen = () => {
 
   return (
     <View style={[tw`bg-gray-100`, { backgroundColor: "#F3F4F6" }]}>
-      <View style={[tw`bg-white p-4 mb-2`, { backgroundColor: "#fff", borderColor: "#D1D5DB", borderBottomWidth: 2 }]}>
+      <View style={[tw`bg-white p-2 mb-2`, { backgroundColor: "#fff", borderColor: "#D1D5DB", borderBottomWidth: 1 }]}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
             style={[tw`bg-white rounded-md p-2`, { backgroundColor: "#fff", borderColor: "#fff", borderWidth: 2 }]}
@@ -108,7 +108,7 @@ const ChatsListScreen = () => {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         numColumns={1}
-        contentContainerStyle={tw`p-1 gap-4`}
+        contentContainerStyle={tw`p-1 gap-2`}
         extraData={chats}
       />
     </View>

@@ -50,7 +50,7 @@ const Upload = ({ setImage, onUpload }) => {
 
   return (
     <SafeAreaView  style={tw`mt--2`}>
-      <View style={tw`h-55 m-2 mx-22 border-2 border-[#332257] rounded-lg`}>
+      <View style={tw`h-55 m-2 mx-22 border border-[#333] rounded-lg`}>
       {imageURI && (
           <Image
             source={{ uri: imageURI }}
@@ -60,11 +60,11 @@ const Upload = ({ setImage, onUpload }) => {
       </View>
       <View style={tw`flex mx-auto gap-2 flex-row pb-2`}>
       <TouchableOpacity
-        style={tw`rounded-lg w-30 h-10 bg-[#F06292] mx-auto p-2 mb-2`}
+        style={tw`rounded-lg w-30 h-10  mx-auto p-2 mb-2 border border-[#333]`}
         onPress={pickImage}
       >
         <Text
-          style={tw`text-md font-semibold text-white text-center mx-auto my-auto`}
+          style={tw`text-md font-semibold text-[#333] text-center mx-auto my-auto`}
         >
           Select Picture
         </Text>
@@ -73,11 +73,11 @@ const Upload = ({ setImage, onUpload }) => {
       <View>
        
         <TouchableOpacity
-          style={tw`rounded-lg w-30 h-10 bg-[#F06292] mx-auto p-2`}
+          style={tw`rounded-lg w-30 h-10  mx-auto p-2 border border-[#333]`}
           onPress={uploadMedia}
         >
           <Text
-            style={tw`text-md font-semibold text-white text-center mx-auto my-auto`}
+            style={tw`text-md font-semibold text-[#333] text-center mx-auto my-auto`}
           >
             Upload All
           </Text>

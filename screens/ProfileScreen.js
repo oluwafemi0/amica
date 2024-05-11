@@ -89,9 +89,9 @@ export default function ProfileScreen() {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={tw`mt-2`}>
-          <View style={tw`bg-transparent p-4 mt--2`}>
-            <View style={tw`items-center m--6`}>
+        <View style={tw`mt--4`}>
+          <View style={tw`bg-transparent p-4`}>
+            <View style={tw`items-center `}>
               <Image
                 style={tw`w-100 h-60 rounded-md bg-gray-300 `}
                 source={{
@@ -130,7 +130,7 @@ export default function ProfileScreen() {
             </View>
           </View>
           <View
-            style={tw` flex flex-row items-center justify-center gap-2 mt-4 `}
+            style={tw` flex flex-row items-center justify-center gap-2 mt-2 `}
           >
             <TouchableOpacity
               onPress={() => navigation.navigate("Preferences")}
