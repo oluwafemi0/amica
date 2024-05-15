@@ -42,8 +42,8 @@ const UserList = () => {
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={[
-        tw`bg-white w-92 h-32 rounded-lg overflow-hidden flex flex-row`,
-        { borderColor: "#D1D5DB", borderWidth: 1 },
+        tw`bg-white w-92 h-24 rounded-tl-2xl overflow-hidden flex flex-row border-b- border-[#CBC3E3]`,
+       ,
       ]}
       onPress={() => {
         navigation.navigate("ViewPage", { user: item });
@@ -59,14 +59,14 @@ const UserList = () => {
       <View style={tw`p-2`}>
         <View style={tw`flex flex-row gap-30 justify-between`}>
           <Text
-            style={tw`text-lg font-bold text-gray-800 mt-8`}
+            style={tw`text-lg font-bold text-gray-800 mt-3`}
             numberOfLines={1}
             ellipsizeMode="tail"
           >
             {item.data.categories}
           </Text>
           <Text
-            style={tw`text-sm text-blue-800 font-semibold text-right`}
+            style={tw`text-sm text-blue-800 font-semibold text-right mt-4`}
             numberOfLines={1}
             ellipsizeMode="tail"
           >
@@ -86,7 +86,7 @@ const UserList = () => {
 
   return (
     <View style={tw`py-2`}>
-      <Text style={tw`text-gray-800 p-1 text-lg font-semibold`}>
+      <Text style={tw`text-gray-400 p-1 ml-1 text-sm font-semibold`}>
         Recommended
       </Text>
       <FlatList

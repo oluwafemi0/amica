@@ -44,7 +44,7 @@ const ChatsListScreen = () => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      style={[tw`bg-white flex flex-row p-2 w-96 h-20 rounded-lg`, { borderColor: "#D1D5DB", borderWidth: 1 }]}
+      style={[tw`bg-white flex flex-row p-2 w-96 h-20  border-b- border-gray-500`, ]}
       onPress={() =>
         navigation.navigate("Chat", {
           user: { id: item.userId, data: item.user },
@@ -76,15 +76,15 @@ const ChatsListScreen = () => {
   );
 
   return (
-    <View style={[tw`bg-gray-100`, { backgroundColor: "#F3F4F6" }]}>
-      <View style={[tw`bg-white p-2 mb-2`, { backgroundColor: "#fff", borderColor: "#D1D5DB", borderBottomWidth: 1 }]}>
+    <View style={[tw`bg-[#fff]`, ]}>
+      <View style={[tw`bg-[#CBC3E3] p-2 `,]}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={[tw`bg-white rounded-md p-2`, { backgroundColor: "#fff", borderColor: "#fff", borderWidth: 2 }]}
+            style={[tw`bg-[#CBC3E3] rounded-md p-2`, ]}
             onPress={() => navigation.goBack()}
           >
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.ArrowLeft strokeWidth={2} stroke={"#332257"} style={tw``} />
+              <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} style={tw``} />
             </View>
           </TouchableOpacity>
           <View style={tw`flex-1 items-center p-2`}>
@@ -96,9 +96,9 @@ const ChatsListScreen = () => {
               </Text>
             </View>
           </View>
-          <TouchableOpacity style={[tw`bg-white rounded-md p-2`, { backgroundColor: "#fff", borderColor: "#fff", borderWidth: 2 }]}>
+          <TouchableOpacity style={[tw`bg-[#CBC3E3] rounded-md p-2`,]}>
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.LogOut strokeWidth={2} stroke={"#fff"} style={tw``} />
+              <Icon.LogOut strokeWidth={2} stroke={"#CBC3E3"} style={tw``} />
             </View>
           </TouchableOpacity>
         </View>
@@ -108,7 +108,7 @@ const ChatsListScreen = () => {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         numColumns={1}
-        contentContainerStyle={tw`p-1 gap-2`}
+        contentContainerStyle={tw`p-1 `}
         extraData={chats}
       />
     </View>

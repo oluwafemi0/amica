@@ -122,7 +122,7 @@ const ChatScreen = () => {
       <View
         style={[
           tw`bg-gray-200 px-4 py-2 mb-2 rounded-xl max-w-[60%]`,
-          isSent ? tw`self-end bg-blue-500` : tw`self-start`,
+          isSent ? tw`self-end bg-[#AA98A9]` : tw`self-start`,
         ]}
       >
         <Text style={isSent ? tw`text-white` : tw`text-black`}>
@@ -130,7 +130,7 @@ const ChatScreen = () => {
         </Text>
         <Text
           style={[
-            tw`text-xs text-gray-400 mt-1`,
+            tw`text-xs text-[#333] mt-1`,
             isSent ? tw`text-right` : tw`text-left`,
           ]}
         >
@@ -142,8 +142,6 @@ const ChatScreen = () => {
 
   const formatDate = (date) => {
     const options = {
-      weekday: "short",
-      year: "numeric",
       month: "short",
       day: "numeric",
       hour: "2-digit",
@@ -154,24 +152,24 @@ const ChatScreen = () => {
 
   return (
     <View style={tw`flex-1 bg-gray-50 `}>
-      <View style={tw`p-4 bg-[rgba(255,255,255,0.5)] mb-4 border-b  border-b-[#D1D5DB]`}>
+      <View style={tw`p-4 bg-[#CBC3E3] mb-4 `}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
             style={tw`rounded-md p-2`}
             onPress={() => navigation.goBack()}
           >
-            <Icon.ArrowLeft strokeWidth={2} stroke={"#332257"} />
+            <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} />
           </TouchableOpacity>
           <TouchableOpacity style={tw`flex-1 items-center`} >
             <View style={tw` items-center mx-auto`}>
               {user.data ? (
                 <View style={tw`flex flex-row w-74 ml-4 mt-1 justify-between`}>
                   <View>
-                    <Text style={tw`text-xl text-gray-700 font-bold`}>
+                    <Text style={tw`text-xl text-[#fff] font-bold`}>
                       {user.data.categories}
                     </Text>
-                    <Text style={tw`text-slate-400`}>{user.data.category}</Text>
-                    <Text style={tw`text-slate-400`}>{user.data.location}</Text>
+                    <Text style={tw`text-[#fff]`}>{user.data.category}</Text>
+                    <Text style={tw`text-[#fff] text-sm`}>{user.data.location}</Text>
                   </View>
                   <View>
                     <Image

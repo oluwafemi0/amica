@@ -63,11 +63,11 @@ const PreferencesScreen = () => {
 
   return (
     <SafeAreaView style={tw`flex-1 bg-[#fff] `}>
-    <View style={tw` bg-[#fff] p-2 mb-2`}>
-      <View style={tw`bg-[#fff] `}>
+    <View style={tw` bg-[#CBC3E3] p-2 mb-2`}>
+      <View style={tw`bg-[#CBC3E3] `}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={tw`bg-[#fff]  p-2 `}
+            style={tw`bg-[#CBC3E3]  p-2 `}
             onPress={() => {
               if (navigation.canGoBack()) {
                 navigation.goBack();
@@ -79,7 +79,7 @@ const PreferencesScreen = () => {
             <View style={tw`flex flex-row items-center justify-center`}>
               <Icon.ArrowLeft
                 strokeWidth={2}
-                stroke={"#332257"}
+                stroke={"#fff"}
                 style={tw``}
               />
             </View>
@@ -87,7 +87,7 @@ const PreferencesScreen = () => {
           <View style={tw`flex-1 items-center p-2`}>
             <View style={tw``}>
               <Text
-                style={tw`font-semibold mr-8 text-lg text-center text-[#332257]`}
+                style={tw`font-semibold mr-8 text-lg text-center text-[#fff]`}
               >
                 Add Your Details
               </Text>
@@ -96,7 +96,7 @@ const PreferencesScreen = () => {
         </View>
       </View>
     </View>
-      <ScrollView>
+      <ScrollView style={tw`p-2 `}>
 
         <Upload setImage={setImage} onUpload={handleSavePreferences} />
         <View style={tw`bg-white rounded-lg p-2 `}>

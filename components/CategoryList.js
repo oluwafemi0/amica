@@ -45,9 +45,9 @@ const CategoryList = () => {
   };
 
   return (
-    <View style={[tw`flex-1 p-2`, { backgroundColor: "rgba(255, 255, 255, 0.2)" }]}>
-      <View style={tw`flex flex-row justify-between items-center`}>
-        <Text style={tw`text-lg font-semibold text-gray-600`}>Categories</Text>
+    <View style={[tw`flex-1 p-2 border-b border-[#CBC3E3]`, { backgroundColor: "rgba(255, 255, 255, 0.2)" }]}>
+      <View style={tw`flex flex-row justify-between items-center `}>
+        <Text style={tw`text-sm font-semibold text-gray-400`}>Categories</Text>
         <TouchableOpacity onPress={navigateToAllCategoriesPage} style={tw``}>
           <Text style={tw`text-blue-800 font-bold mb-1`}>See All </Text>
         </TouchableOpacity>
@@ -63,7 +63,7 @@ const CategoryList = () => {
               key={index}
               onPress={() => navigateToCategoryPage(category)}
               style={[
-                tw`py-1 px-6 ml-1 rounded-lg w-26 items-center justify-center border `,
+                tw`py-1 px-6 ml-2 rounded-tl-lg w-26 items-center justify-center border `,
                 { borderColor: colors[index], backgroundColor: colors[index] + "30", backdropFilter: 'blur(8px)' },
               ]}
             >

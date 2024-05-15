@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Image, TouchableOpacity, TextInput } from "react-native";
+import { View, Image, TouchableOpacity, TextInput,Text } from "react-native";
 import tw from "twrnc";
 import { useNavigation } from "@react-navigation/native";
 import * as Icon from "react-native-feather";
@@ -35,22 +35,11 @@ const Welcome = () => {
   };
 
   return (
-    <View style={[tw`bg-white p-1 border-b  border-b-[#D1D5DB]`, { backgroundColor: "#fff"}]}>
+    <View style={[tw`bg-[#CBC3E3] p-2 `, { backgroundColor: "#CBC3E3"}]}>
       <View style={tw`flex-row items-center`}>
-        <View style={tw`flex-1 `}>
-          <Image
-            source={require("../assets/images/HANDS.png")}
-            style={tw`w-20 h-14`}
-          />
-        </View>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("ChatsList")}
-          style={[tw`p-1.6 rounded-lg mr-2`, { backgroundColor: "#fff", borderColor: "#D1D5DB", borderWidth: 1 }]}>
-          <Icon.Mail width={20} height={20} stroke="#1565C0" />
-        </TouchableOpacity>
         <TouchableOpacity
           onPress={navigateToProfile}
-          style={[tw`rounded-lg`, { backgroundColor: "#D1D5DB", borderColor: "#D1D5DB", borderWidth: 1 }]}>
+          style={[tw`rounded-lg ` , { backgroundColor: "#D1D5DB", borderColor: "#D1D5DB", borderWidth: 1 }]}>
           {user && user.photoURL ? (
             <Image
               style={tw`w-9 h-9 rounded-lg`}
@@ -61,6 +50,14 @@ const Welcome = () => {
           ) : (
             <Icon.User width={20} height={20} stroke="#F5F5F5" />
           )}
+        </TouchableOpacity>
+        <View style={tw`flex-1 items-center`}>
+      <Text style={tw`text-2xl font-bold text-[#fff] `}>Amica</Text>
+        </View>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("ChatsList")}
+          style={[tw`p-1.6 rounded-lg `, { backgroundColor: "#fff", borderColor: "#D1D5DB", borderWidth: 1 }]}>
+          <Icon.Mail width={20} height={20} stroke="#CBC3E3" />
         </TouchableOpacity>
       </View>
     </View>
