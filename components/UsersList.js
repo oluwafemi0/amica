@@ -42,7 +42,7 @@ const UserList = () => {
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={[
-        tw`bg-white w-92 h-24 rounded-tl-2xl overflow-hidden flex flex-row border-b- border-[#CBC3E3]`,
+        tw`bg-white w-92 h-24  overflow-hidden flex flex-row border-b- border-[#CBC3E3]`,
        ,
       ]}
       onPress={() => {

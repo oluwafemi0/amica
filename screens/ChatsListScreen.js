@@ -44,7 +44,7 @@ const ChatsListScreen = () => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      style={[tw`bg-white flex flex-row p-2 w-96 h-20  border-b- border-gray-500`, ]}
+      style={[tw`bg-white flex flex-row p-2 w-96 h-20  border-b- border-[#CBC3E3]`, ]}
       onPress={() =>
         navigation.navigate("Chat", {
           user: { id: item.userId, data: item.user },
@@ -103,14 +103,16 @@ const ChatsListScreen = () => {
           </TouchableOpacity>
         </View>
       </View>
+      <View style={tw`bg-[#fff]`}>
       <FlatList
         data={chats}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         numColumns={1}
-        contentContainerStyle={tw`p-1 `}
+        contentContainerStyle={tw`p-1 bg-[#fff]`}
         extraData={chats}
       />
+      </View>
     </View>
   );
 };

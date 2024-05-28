@@ -58,49 +58,45 @@ const ViewPage = () => {
   };
 
   return (
-    <View style={tw`flex-1 bg-gray-50`}>
+    <View style={tw`flex-1 bg-white`}>
       
-      <View style={tw`bg-white p-4 mb-4 shadow-md`}>
-        <View style={tw`flex-row justify-between items-center mx-auto`}>
+      <View style={tw`bg-white   shadow-md`}>
+        <View style={tw`flex-row  justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={tw`bg-transparent rounded-md p-2 `}
+            style={tw`bg-transparent rounded-md z-40  p-2 `}
             onPress={() => navigation.goBack()}
           >
-            <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.ArrowLeft strokeWidth={2} stroke={"#332257"} style={tw``} />
+            <View style={tw`flex flex-row items-center  justify-center`}>
+              <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} style={tw`mb-55 ml-2  p-3.5 rounded-md`} />
             </View>
           </TouchableOpacity>
-          <View style={tw`flex-1 items-center p-2`}>
-            <View style={tw``}>
-              <Text style={tw`font-semibold text-lg text-center text-[#332257]`}>
-                Amica
-              </Text>
-            </View>
+          <View style={tw`flex-1 items-center mr-9`}>
+          <Image
+            style={tw`w-100 h-70  bg-gray-300`}
+            source={{
+              uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${user.data.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
+            }}
+          />
           </View>
           <TouchableOpacity style={tw`bg-transparent rounded-md p-2`}  onPress={handleChatNavigation}>
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.LogOut strokeWidth={2} stroke={"#fff"} style={tw``} />
+              
             </View>
           </TouchableOpacity>
         </View>
       </View>
 
-      <ScrollView>
-        <View style={tw`items-center `}>
-          <Image
-            style={tw`w-100 h-55  bg-gray-300`}
-            source={{
-              uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${user.data.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
-            }}
-          />
-          <View style={tw`flex flex-row gap-65 p-2`}>
+      <ScrollView
+      
+      showsVerticalScrollIndicator={false}>
+        <View style={tw`items-center`}>
+          <View style={tw`flex flex-row gap-62 mt-2 p-2`}>
             <View>
-              <Text style={tw`text-lg font-bold`}>{user.data.categories}</Text>
-              <Text style={tw`text-gray-500`}>{user.data.category}</Text>
+              <Text style={tw`text-3xl text-gray-500 font-bold`}>{user.data.categories}</Text>
             </View>
             <View>
               <TouchableOpacity
-                style={tw`bg-gray-400 py-2 px-4 rounded`}
+                style={tw`bg-[#CBC3E3] py-2 px-4  rounded`}
                 onPress={handleChatNavigation}
               >
                 <Text style={tw`text-white font-bold`}>Chat</Text>
@@ -109,24 +105,31 @@ const ViewPage = () => {
           </View>
         </View>
 
-        
-        <View style={tw`p-2 bg-gray-200 m-2 h-25 rounded-md`}>
-          <Text style={tw`text-gray-500 text-base text-center font-bold`}>Description</Text>
+        <View style={tw`p-2 bg-white m-2 h-15 rounded-md`}>
+          <Text style={tw`text-gray-300 text-base text-left uppercase  font-bold`}>category</Text>
           <View  style={tw`p-2 bg-white rounded-md  m-1`}>
-            <Text style={tw`text-gray-500`}>{user.data.description}</Text>
+              <Text style={tw`text-gray-500 font-semibold`}>{user.data.category}</Text>
           </View>
         </View>
 
-        <View style={tw`p-3 bg-gray-200 m-2 rounded-md`}>
+        
+        <View style={tw`p-2 bg-white m-2 h-78 rounded-md`}>
+          <Text style={tw`text-gray-300 text-base text-left uppercase  font-bold`}>Description</Text>
+          <View  style={tw`p-2 bg-white rounded-md  m-1`}>
+            <Text style={tw`text-gray-500 font-semibold`}>{user.data.description}</Text>
+          </View>
+        </View>
+
+        <View style={tw`p-3 bg-gray-100 m-2 rounded-md`}>
           <View style={tw`p-0 flex flex-row`}>
             <TextInput
               placeholder="Add a comment"
-              style={tw`h-10  w-4/5 text-left pl-2 bg-white text-gray-500  rounded-lg `}
+              style={tw`h-10  w-4/5 text-left pl-2 bg-white text-gray-300  rounded-lg `}
               onChangeText={(text) => setComment(text)}
               value={comment}
             />
             <TouchableOpacity
-              style={tw`bg-gray-400 w-1/5 rounded-md ml-1`}
+              style={tw`bg-[#CBC3E3] w-1/5 rounded-md ml-1`}
               onPress={handleCommentSubmit}
             >
               {loading ? (
@@ -139,7 +142,7 @@ const ViewPage = () => {
           </View>
           {recentComments.map((recentComment, index) => (
             <View key={index} style={tw`mt-4 bg-white rounded-md p-2`}>
-              <Text style={tw`text-gray-500 font-bold`}>User</Text>
+              <Text style={tw`text-gray-300 font-bold`}>User</Text>
               <Text style={tw`text-gray-500`}>{recentComment}</Text>
             </View>
           ))}

@@ -58,89 +58,99 @@ export default function ProfileScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-      <View style={tw` bg-transparent p-2 `}>
-        <View style={tw`bg-transparent p-2  border-b-2 border-gray-200`}>
-          <View style={tw`flex-row justify-between items-center mx-auto`}>
-            <TouchableOpacity
-              style={tw`bg-transparent p-2 `}
-              onPress={() => navigation.goBack()}
-            >
-              <View style={tw`flex flex-row items-center justify-center`}>
-                <Icon.ArrowLeft strokeWidth={2} stroke={"#333"} style={tw``} />
-              </View>
-            </TouchableOpacity>
-            <View style={tw`flex-1 items-center p-2`}>
-              <View style={tw``}>
-                <Text style={tw`font-semibold text-lg text-center text-[#333]`}>
-                  Profile
-                </Text>
-              </View>
+      <View style={tw` bg-transparent  `}>
+        <View style={tw`bg-transparent  `}>
+          <View style={tw`bg-white   shadow-md`}>
+        <View style={tw`flex-row  justify-between items-center mx-auto`}>
+          <TouchableOpacity
+            style={tw`bg-transparent rounded-md z-40  p-2 `}
+            onPress={() => navigation.goBack()}
+          >
+            <View style={tw`flex flex-row items-center  justify-center`}>
+              <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} style={tw`mb-55 ml-2`} />
             </View>
+          </TouchableOpacity>
+          <View style={tw`flex-1 items-center  ml-2`}>
+          <Image
+            style={tw`w-100 h-70  bg-gray-300`}
+            source={{
+              uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
+            }}
+          />
+          </View>
+          <TouchableOpacity style={tw`bg-transparent rounded-md p-2`}  >
+            <View style={tw`flex flex-row items-center justify-center`}>
             <TouchableOpacity
               style={tw`bg-transparent p-2`}
               onPress={signOut}
             >
-              <View style={tw`flex flex-row items-center justify-center`}>
-                <Icon.LogOut strokeWidth={2} stroke={"#333"} style={tw``} />
+              <View style={tw`flex flex-row items-center justify-center `}>
+                <Icon.LogOut strokeWidth={2} stroke={"#fff"} style={tw`mb-55 `} />
               </View>
             </TouchableOpacity>
-          </View>
+              
+            </View>
+          </TouchableOpacity>
+        </View>
+      </View>
         </View>
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={tw`mt--4`}>
-          <View style={tw`bg-transparent p-4`}>
-            <View style={tw`items-center `}>
-              <Image
-                style={tw`w-100 h-60 rounded-md bg-gray-300 `}
-                source={{
-                  uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
-                }}
-              />
-              <Text
-                style={{
-                  fontSize: 24,
-                  fontWeight: "bold",
-                  color: "#333",
-                  marginTop: 12,
-                }}
-              >
-                {userDetails?.categories[0]}
-              </Text>
-              <Text style={{ fontSize: 16, color: "#333", marginTop: 6 }}>
-                {userDetails?.location}
-              </Text>
+          <View style={tw`bg-transparent p-3`}>
+            <View style={tw`items-center flex flex-row gap-52 border-b-2 border-[#CBC3E3]`}>
+        <View style={tw`p-2 bg-white  h-15 rounded-md`}>
+          <Text style={tw`text-gray-300  text-left uppercase  font-bold`}></Text>
+          <View  style={tw` bg-white rounded-md `}>
+              <Text style={tw`text-gray-500 text-left text-2xl font-bold`}>{userDetails?.categories[0]}</Text>
+          </View>
+        </View>
+        <View style={tw`p-2 bg-white  h-15 rounded-md mt-2`}>
+          <Text style={tw`text-gray-300 text-base text-right uppercase  font-bold`}></Text>
+          <View  style={tw` bg-white rounded-md  `}>
+              <Text style={tw`text-gray-500 text-right font-semibold `}>{userDetails?.location}</Text>
+          </View>
+        </View>
             </View>
-            <View
-              style={tw`flex flex-row items-center justify-center gap-2 mt-8 `}
-            >
-              <Image
-                style={tw`w-[100px] h-[100px] rounded-md bg-gray-300 border-2 border-gray-200`}
-                source={{
-                  uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
-                }}
-              />
-              <Image
-                style={tw`w-[100px] h-[100px] rounded-md bg-gray-300 border-2 border-gray-200`}
-                source={{
-                  uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
-                }}
-              />
-            </View>
+            <View style={tw`border-b border-[#CBC3E3]`}>
+        <View style={tw`p-2 bg-white m-2  rounded-md `}>
+          <Text style={tw`text-gray-300 text-base text-left uppercase  font-bold`}>description</Text>
+          <View  style={tw`p-2 bg-white rounded-md  m-1`}>
+              <Text style={tw`text-gray-500 text-left font-semibold`}>{userDetails?.description}</Text>
+          </View>
+        </View>
+        </View>
+        <View style={tw``}>
+        {userDetails && userDetails?.comments ? (
+            
+        <View style={tw`p-2 bg-white m-2  rounded-md`}>
+        <Text style={tw`text-gray-300 text-base text-left uppercase  font-bold`}>most recent comment</Text>
+        <View  style={tw`p-2 bg-white rounded-md  m-1`}>
+            <Text style={tw`text-gray-500 font-semibold`}>{userDetails?.comments[0]}</Text>
+        </View>
+        <View  style={tw`p-2 bg-white rounded-md  m-1`}>
+            <Text style={tw`text-gray-500 font-semibold`}>{userDetails?.comments[1]}</Text>
+        </View>
+        </View>
+          ) : (
+            <Text style={tw`text-gray-500 text-left font-semibold text-center mt-10`}>no comments available</Text>
+          )}
+        </View>
+
           </View>
           <View
-            style={tw` flex flex-row items-center justify-center gap-2 mt-2 `}
+            style={tw` items-center justify-center gap-2 mt-12 `}
           >
             <TouchableOpacity
               onPress={() => navigation.navigate("Preferences")}
-              style={tw`bg-[#333] rounded-md p-8 mb-3`}
+              style={tw`bg-[#fff] rounded-md px-27 py-3 mb-3 border border-[#CBC3E3]`}
             >
               <Text
                 style={{
                   fontSize: 18,
                   fontWeight: "bold",
-                  color: "#fff",
+                  color: "#CBC3E3",
                   textAlign: "center",
                 }}
               >
@@ -149,13 +159,13 @@ export default function ProfileScreen() {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => navigation.navigate("History")}
-              style={tw`bg-[#333] rounded-md p-8 mb-3 `}
+              style={tw`bg-[#fff] rounded-md  px-25 py-3 mb-3 border border-[#CBC3E3] `}
             >
               <Text
                 style={{
                   fontSize: 18,
                   fontWeight: "bold",
-                  color: "#fff",
+                  color: "#CBC3E3",
                   textAlign: "center",
                 }}
               >

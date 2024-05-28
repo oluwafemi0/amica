@@ -63,7 +63,7 @@ const CategoryList = () => {
               key={index}
               onPress={() => navigateToCategoryPage(category)}
               style={[
-                tw`py-1 px-6 ml-2 rounded-tl-lg w-26 items-center justify-center border `,
+                tw`py-1 px-6 ml-2  w-26 items-center justify-center border `,
                 { borderColor: colors[index], backgroundColor: colors[index] + "30", backdropFilter: 'blur(8px)' },
               ]}
             >

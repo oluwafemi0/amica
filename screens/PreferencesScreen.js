@@ -168,7 +168,7 @@ const PreferencesScreen = () => {
                       setModalVisible(false);
                     }}
                   >
-                    <Text style={tw`py-2 px-4 text-[#45B1E8]`}>
+                    <Text style={tw`py-2 px-4 text-center text-[#CBC3E3]`}>
                       {item.name}
                     </Text>
                   </TouchableOpacity>

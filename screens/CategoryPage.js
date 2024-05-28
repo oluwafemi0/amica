@@ -77,27 +77,28 @@ const CategoryPage = ({ route }) => {
   );
 
   return (
-    <View style={tw`bg-white bg-opacity-70 flex-1`}>
-      <View style={tw`p-4`}>
-        <View style={tw`flex-row justify-between items-center mx-auto`}>
+    <View style={tw`bg-[#fff]  flex-1`}>
+      <View style={tw`p-4 bg-[#CBC3E3]`}>
+        <View style={tw`flex-row bg-[#CBC3E3] justify-between items-center mx-auto`}>
           <TouchableOpacity
             style={tw`rounded-md p-2`}
             onPress={() => navigation.goBack()}
           >
-            <Icon.ArrowLeft strokeWidth={2} stroke={"#333"} />
+            <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} />
           </TouchableOpacity>
           <View style={tw`flex-1 items-center`}>
             <View style={tw``}>
-              <Text style={tw`font-semibold text-lg text-center text-gray-800`}>
+              <Text style={tw`font-semibold text-lg text-center text-white`}>
                 {category}
               </Text>
             </View>
           </View>
-          <TouchableOpacity style={tw`rounded-md p-2`}>
-            <Icon.LogOut strokeWidth={2} stroke={"#fff"} />
+          <TouchableOpacity style={tw` p-2`}>
+            <Icon.LogOut strokeWidth={2} stroke={"#CBC3E3"} />
           </TouchableOpacity>
         </View>
       </View>
+      <View style={tw`p-4 bg-[#fff]`}>
       {filteredUsers.length > 0 ? (
         <FlatList
           data={filteredUsers}
@@ -108,8 +109,9 @@ const CategoryPage = ({ route }) => {
           columnWrapperStyle={{ justifyContent: "space-between" }}
         />
       ) : (
-        <Text style={tw`text-gray-800 text-center mt-4`}>No users found</Text>
+        <Text style={tw`text-[#CBC3E3] text-center mt-10`}>No users found</Text>
       )}
+      </View>
     </View>
   );
 };

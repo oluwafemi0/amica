@@ -142,8 +142,6 @@ const ChatScreen = () => {
 
   const formatDate = (date) => {
     const options = {
-      month: "short",
-      day: "numeric",
       hour: "2-digit",
       minute: "2-digit",
     };
