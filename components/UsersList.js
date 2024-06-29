@@ -87,7 +87,7 @@ const UserList = () => {
   return (
     <View style={tw`py-2`}>
       <Text style={tw`text-gray-400 p-1 ml-1 text-sm font-semibold`}>
-        Recommended
+        Recommendedsa
       </Text>
       <FlatList
         data={users}
