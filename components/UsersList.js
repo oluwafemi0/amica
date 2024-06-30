@@ -33,7 +33,7 @@ const UserList = () => {
 
     fetchUsers();
   }, []);
-
+51747
   const imageUrlPrefix =
     "https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/";
   const imageUrlSuffix =
@@ -42,7 +42,7 @@ const UserList = () => {
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={[
-        tw`bg-white w-92 h-24  overflow-hidden flex flex-row border-b- border-[#CBC3E3]`,
+        tw`bg-[#87CEFA]  w-92 h-24 rounded-lg overflow-hidden flex flex-row border-2 border-[#000] p-1  `,
        ,
       ]}
       onPress={() => {
@@ -50,7 +50,7 @@ const UserList = () => {
       }}
     >
       <Image
-        style={tw`w-1.2/3 h-full`}
+        style={tw`w-1.2/3 h-full rounded-lg`}
         source={{
           uri: imageUrlPrefix + item.data.imageFilename + imageUrlSuffix,
         }}
@@ -86,7 +86,7 @@ const UserList = () => {
 
   return (
     <View style={tw`py-2`}>
-      <Text style={tw`text-gray-400 p-1 ml-1 text-sm font-semibold`}>
+      <Text style={tw`text-[#000] p-1 ml-1 text-lg font-semibold`}>
         Recommended
       </Text>
       <FlatList

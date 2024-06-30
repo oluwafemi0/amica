@@ -22,8 +22,8 @@ const HomeScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView style={tw`flex-1 bg-[#CBC3E3]`}>
-      <StatusBar backgroundColor="#CBC3E3" barStyle="light-content" />
+    <SafeAreaView style={tw`flex-1 bg-[#fff]`}>
+      <StatusBar backgroundColor="#fff" barStyle="light-content" />
 
       <Welcome />
 

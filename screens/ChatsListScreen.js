@@ -44,7 +44,7 @@ const ChatsListScreen = () => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      style={[tw`bg-white flex flex-row p-2 w-96 h-20  border-b- border-[#CBC3E3]`, ]}
+      style={[tw`bg-[#CBC3E3] flex flex-row w-96 h-20 rounded-lg border-2 border-[#000] p-1`, ]}
       onPress={() =>
         navigation.navigate("Chat", {
           user: { id: item.userId, data: item.user },
@@ -52,7 +52,7 @@ const ChatsListScreen = () => {
       }
     >
       <Image
-        style={tw`w-24 h-16 rounded-lg`}
+        style={tw`w-24 h-16 mt-0.5 rounded-lg`}
         source={{
           uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${item.user.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
         }}
@@ -61,12 +61,12 @@ const ChatsListScreen = () => {
       <View style={tw`p-2 w-70`}>
         <View style={tw`flex flex-row py-4 justify-between`}>
           <View>
-            <Text style={tw`text-[#b2a1cd] font-bold`}>
+            <Text style={tw`text-[#000] text-base font-bold`}>
               {item.user.categories}
             </Text>
           </View>
           <View>
-            <Text style={tw`text-[#b2a1cd] font-bold`}>
+            <Text style={tw`text-[#000] text-sm mt-0.5 font-bold`}>
               {item.user.category}
             </Text>
           </View>
@@ -77,28 +77,28 @@ const ChatsListScreen = () => {
 
   return (
     <View style={[tw`bg-[#fff]`, ]}>
-      <View style={[tw`bg-[#CBC3E3] p-2 `,]}>
-        <View style={tw`flex-row justify-between items-center mx-auto`}>
+      <View style={[tw`bg-[#fff] p-2 `,]}>
+        <View style={tw`flex-row  justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={[tw`bg-[#CBC3E3] rounded-md p-2`, ]}
+            style={[tw`bg-[#CBC3E3] rounded-md p-1 rounded-full`, {  borderColor: "#000", borderWidth: 2 }]}
             onPress={() => navigation.goBack()}
           >
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} style={tw``} />
+              <Icon.ArrowLeft width={20} height={20} stroke={"#000"} style={tw``} />
             </View>
           </TouchableOpacity>
           <View style={tw`flex-1 items-center p-2`}>
             <View style={tw``}>
               <Text
-                style={tw`font-semibold text-lg text-center text-[#332257]`}
+                style={tw`font-medium text-lg text-center text-[#000]`}
               >
-                Chats
+                Chat
               </Text>
             </View>
           </View>
-          <TouchableOpacity style={[tw`bg-[#CBC3E3] rounded-md p-2`,]}>
+          <TouchableOpacity style={[tw`bg-[#fff] rounded-md p-2`,]}>
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.LogOut strokeWidth={2} stroke={"#CBC3E3"} style={tw``} />
+              <Icon.LogOut strokeWidth={2} stroke={"#fff"} style={tw``} />
             </View>
           </TouchableOpacity>
         </View>

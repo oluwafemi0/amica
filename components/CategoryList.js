@@ -45,11 +45,11 @@ const CategoryList = () => {
   };
 
   return (
-    <View style={[tw`flex-1 p-2 border-b border-[#CBC3E3]`, { backgroundColor: "rgba(255, 255, 255, 0.2)" }]}>
+    <View style={[tw`flex-1 p-2`, { backgroundColor: "rgba(255, 255, 255, 0.2)" }]}>
       <View style={tw`flex flex-row justify-between items-center `}>
-        <Text style={tw`text-sm font-semibold text-gray-400`}>Categories</Text>
+        <Text style={tw`text-lg font-semibold text-[#000]`}>Categories</Text>
         <TouchableOpacity onPress={navigateToAllCategoriesPage} style={tw``}>
-          <Text style={tw`text-blue-800 font-bold mb-1`}>See All </Text>
+          <Text style={tw`text-[#899499] text-sm font-semibold mt-1`}>See All </Text>
         </TouchableOpacity>
       </View>
       <ScrollView
@@ -63,19 +63,19 @@ const CategoryList = () => {
               key={index}
               onPress={() => navigateToCategoryPage(category)}
               style={[
-                tw`py-1 px-6 ml-2  w-26 items-center justify-center border `,
-                { borderColor: colors[index], backgroundColor: colors[index] + "30", backdropFilter: 'blur(8px)' },
+                tw`py-1 px-6 ml-2  w-26 items-center justify-center border-2 rounded-lg`,
+                {  backgroundColor: colors[index] + "30", backdropFilter: 'blur(8px)' },
               ]}
             >
               <Icon
                 name={categoryIcons[category]}
-                size={35}
-                style={[tw``, { color: colors[index] }]}
+                size={28}
+                style={[tw``,]}
               />
               <Text
                 style={[
                   tw`text-center font-semibold`,
-                  { color: colors[index] },
+                  
                 ]}
               >
                 {category}

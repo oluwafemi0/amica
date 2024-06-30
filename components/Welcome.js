@@ -35,29 +35,32 @@ const Welcome = () => {
   };
 
   return (
-    <View style={[tw`bg-[#CBC3E3] p-2 `, { backgroundColor: "#CBC3E3"}]}>
+    <View style={[tw`bg-[#CBC3E3] p-2 `, { backgroundColor: "#fff"}]}>
       <View style={tw`flex-row items-center`}>
+        <View style={tw`flex-1`}>
+      <Text style={tw`text-2xl font-semibold text-[#000] ml-2`}>Explore</Text>
+        </View>
+        
+        <TouchableOpacity
+          onPress={() => navigation.navigate("ChatsList")}
+          style={[tw`p-1.6 rounded-full `, { backgroundColor: "#CBC3E3", borderColor: "#000", borderWidth: 2 }]}>
+          <Icon.Mail width={20} height={20} stroke="#000" />
+        </TouchableOpacity>
+
+
         <TouchableOpacity
           onPress={navigateToProfile}
-          style={[tw`rounded-lg ` , { backgroundColor: "#D1D5DB", borderColor: "#D1D5DB", borderWidth: 1 }]}>
+          style={[tw`rounded-lg ` ]}>
           {user && user.photoURL ? (
             <Image
-              style={tw`w-9 h-9 rounded-lg`}
+              style={tw`w-9 h-9 ml-2 rounded-full border-2 border-[#000]`}
               source={{
                 uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
               }}
             />
           ) : (
-            <Icon.User width={20} height={20} stroke="#F5F5F5" />
+            <Icon.User width={20} height={20} stroke="#000" />
           )}
-        </TouchableOpacity>
-        <View style={tw`flex-1 items-center`}>
-      <Text style={tw`text-2xl font-bold text-[#fff] `}>Amica</Text>
-        </View>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("ChatsList")}
-          style={[tw`p-1.6 rounded-lg `, { backgroundColor: "#fff", borderColor: "#D1D5DB", borderWidth: 1 }]}>
-          <Icon.Mail width={20} height={20} stroke="#CBC3E3" />
         </TouchableOpacity>
       </View>
     </View>
