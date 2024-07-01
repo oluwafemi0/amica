@@ -60,7 +60,7 @@ export default function ProfileScreen() {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <View style={tw` bg-transparent  `}>
         <View style={tw`bg-transparent  `}>
-          <View style={tw`bg-white   shadow-md`}>
+          <View style={tw`bg-white   `}>
         <View style={tw`flex-row  justify-between items-center mx-auto`}>
           <TouchableOpacity
             style={tw`bg-transparent rounded-md z-40  p-2 `}
@@ -72,7 +72,7 @@ export default function ProfileScreen() {
           </TouchableOpacity>
           <View style={tw`flex-1 items-center  ml-2`}>
           <Image
-            style={tw`w-100 h-70  bg-gray-300`}
+            style={tw`w-60 h-60 rounded-full bg-gray-300`}
             source={{
               uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
             }}

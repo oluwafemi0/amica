@@ -122,15 +122,15 @@ const ChatScreen = () => {
       <View
         style={[
           tw`bg-gray-200 px-4 py-2 mb-2 rounded-xl max-w-[60%]`,
-          isSent ? tw`self-end bg-[#AA98A9]` : tw`self-start`,
+          isSent ? tw`self-end bg-[#CBC3E3]` : tw`self-start`,
         ]}
       >
-        <Text style={isSent ? tw`text-white` : tw`text-black`}>
+        <Text style={isSent ? tw`text-black` : tw`text-black`}>
           {item.data.text}
         </Text>
         <Text
           style={[
-            tw`text-xs text-[#333] mt-1`,
+            tw`text-xs text-[#899499] mt-1`,
             isSent ? tw`text-right` : tw`text-left`,
           ]}
         >
@@ -150,28 +150,28 @@ const ChatScreen = () => {
 
   return (
     <View style={tw`flex-1 bg-gray-50 `}>
-      <View style={tw`p-4 bg-[#CBC3E3] mb-4 `}>
+      <View style={tw`p-4 bg-[#fff] mb-4 `}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={tw`rounded-md p-2`}
+            style={[tw`bg-[#CBC3E3]  p-1 rounded-full`, {  borderColor: "#000", borderWidth: 2 }]}
             onPress={() => navigation.goBack()}
           >
-            <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} />
+            <Icon.ArrowLeft strokeWidth={2} stroke={"#000"} />
           </TouchableOpacity>
           <TouchableOpacity style={tw`flex-1 items-center`} >
             <View style={tw` items-center mx-auto`}>
               {user.data ? (
                 <View style={tw`flex flex-row w-74 ml-4 mt-1 justify-between`}>
                   <View>
-                    <Text style={tw`text-xl text-[#fff] font-bold`}>
+                    <Text style={tw`text-xl text-[#000] font-bold`}>
                       {user.data.categories}
                     </Text>
-                    <Text style={tw`text-[#fff]`}>{user.data.category}</Text>
-                    <Text style={tw`text-[#fff] text-sm`}>{user.data.location}</Text>
+                    <Text style={tw`text-[#899499]`}>{user.data.category}</Text>
+                    <Text style={tw`text-[#899499] text-sm`}>{user.data.location}</Text>
                   </View>
                   <View>
                     <Image
-                      style={tw`w-15 h-15 rounded-full`}
+                      style={tw`w-15 h-15 rounded-full border-2 border-[#000]`}
                       source={{
                         uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${user.data.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
                       }}
