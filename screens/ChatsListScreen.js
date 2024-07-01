@@ -44,7 +44,7 @@ const ChatsListScreen = () => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      style={[tw`bg-[#CBC3E3] flex flex-row w-96 h-20 rounded-lg border-2 border-[#000] p-1`, ]}
+      style={[tw` flex flex-row w-96 h-20 rounded-lg border-2 border-[#000] p-1`, ]}
       onPress={() =>
         navigation.navigate("Chat", {
           user: { id: item.userId, data: item.user },
@@ -80,7 +80,7 @@ const ChatsListScreen = () => {
       <View style={[tw`bg-[#fff] p-2 `,]}>
         <View style={tw`flex-row  justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={[tw`bg-[#CBC3E3] rounded-md p-1 rounded-full`, {  borderColor: "#000", borderWidth: 2 }]}
+            style={[tw` rounded-md p-1 rounded-full`, { }]}
             onPress={() => navigation.goBack()}
           >
             <View style={tw`flex flex-row items-center justify-center`}>

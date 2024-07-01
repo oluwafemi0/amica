@@ -66,13 +66,13 @@ export default function ProfileScreen() {
             style={tw`bg-transparent rounded-md z-40  p-2 `}
             onPress={() => navigation.goBack()}
           >
-            <View style={tw`flex flex-row items-center  justify-center`}>
-              <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} style={tw`mb-55 ml-2`} />
+            <View style={tw`flex flex-row items-center  p-2 rounded-full justify-center`}>
+              <Icon.ArrowLeft width={40} height={20} stroke={"#000"} style={tw`  `} />
             </View>
           </TouchableOpacity>
           <View style={tw`flex-1 items-center  ml-2`}>
           <Image
-            style={tw`w-60 h-60 rounded-full bg-gray-300`}
+            style={tw`w-60 h-60 rounded-full border-2 border-[#000] bg-white`}
             source={{
               uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
             }}
@@ -84,8 +84,8 @@ export default function ProfileScreen() {
               style={tw`bg-transparent p-2`}
               onPress={signOut}
             >
-              <View style={tw`flex flex-row items-center justify-center `}>
-                <Icon.LogOut strokeWidth={2} stroke={"#fff"} style={tw`mb-55 `} />
+              <View style={tw`flex flex-row items-center  p-2 rounded-full justify-center `}>
+                <Icon.LogOut  width={40} height={20} stroke={"#000"} style={tw`  `} />
               </View>
             </TouchableOpacity>
               
@@ -99,33 +99,33 @@ export default function ProfileScreen() {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={tw`mt--4`}>
           <View style={tw`bg-transparent p-3`}>
-            <View style={tw`items-center flex flex-row gap-52 border-b-2 border-[#CBC3E3]`}>
+            <View style={tw`items-center flex flex-row gap-52 `}>
         <View style={tw`p-2 bg-white  h-15 rounded-md`}>
-          <Text style={tw`text-gray-300  text-left uppercase  font-bold`}></Text>
+          <Text style={tw`text-[#000]  text-left uppercase  font-bold`}></Text>
           <View  style={tw` bg-white rounded-md `}>
-              <Text style={tw`text-gray-500 text-left text-2xl font-bold`}>{userDetails?.categories[0]}</Text>
+              <Text style={tw`text-[#000] text-left text-2xl font-bold`}>{userDetails?.categories[0]}</Text>
           </View>
         </View>
         <View style={tw`p-2 bg-white  h-15 rounded-md mt-2`}>
           <Text style={tw`text-gray-300 text-base text-right uppercase  font-bold`}></Text>
           <View  style={tw` bg-white rounded-md  `}>
-              <Text style={tw`text-gray-500 text-right font-semibold `}>{userDetails?.location}</Text>
+              <Text style={tw`text-black text-right font-semibold `}>{userDetails?.location}</Text>
           </View>
         </View>
             </View>
-            <View style={tw`border-b border-[#CBC3E3]`}>
-        <View style={tw`p-2 bg-white m-2  rounded-md `}>
-          <Text style={tw`text-gray-300 text-base text-left uppercase  font-bold`}>description</Text>
+            <View style={tw`rounded-lg bg-gray-200 `}>
+        <View style={tw`p-2 bg-gray-200  m-2  rounded-md `}>
+          <Text style={tw`text-[#000] text-base text-left uppercase  font-bold`}>description</Text>
           <View  style={tw`p-2 bg-white rounded-md  m-1`}>
               <Text style={tw`text-gray-500 text-left font-semibold`}>{userDetails?.description}</Text>
           </View>
         </View>
         </View>
-        <View style={tw``}>
+        <View style={tw`mt-2`}>
         {userDetails && userDetails?.comments ? (
             
-        <View style={tw`p-2 bg-white m-2  rounded-md`}>
-        <Text style={tw`text-gray-300 text-base text-left uppercase  font-bold`}>most recent comment</Text>
+        <View style={tw`p-2 rounded-lg bg-gray-200 rounded-md`}>
+        <Text style={tw`text-[#000] text-base text-left uppercase  font-bold`}>most recent comment</Text>
         <View  style={tw`p-2 bg-white rounded-md  m-1`}>
             <Text style={tw`text-gray-500 font-semibold`}>{userDetails?.comments[0]}</Text>
         </View>
@@ -144,13 +144,13 @@ export default function ProfileScreen() {
           >
             <TouchableOpacity
               onPress={() => navigation.navigate("Preferences")}
-              style={tw`bg-[#fff] rounded-md px-27 py-3 mb-3 border border-[#CBC3E3]`}
+              style={tw`bg-[#fff] rounded-md px-27 py-3 mb-3 border-2 border-[#000]`}
             >
               <Text
                 style={{
                   fontSize: 18,
                   fontWeight: "bold",
-                  color: "#CBC3E3",
+                  color: "#000",
                   textAlign: "center",
                 }}
               >
@@ -159,13 +159,13 @@ export default function ProfileScreen() {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => navigation.navigate("History")}
-              style={tw`bg-[#fff] rounded-md  px-25 py-3 mb-3 border border-[#CBC3E3] `}
+              style={tw`bg-[#fff] rounded-md  px-25 py-3 mb-3 border-2 border-[#000] `}
             >
               <Text
                 style={{
                   fontSize: 18,
                   fontWeight: "bold",
-                  color: "#CBC3E3",
+                  color: "#000",
                   textAlign: "center",
                 }}
               >

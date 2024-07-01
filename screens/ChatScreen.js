@@ -153,7 +153,7 @@ const ChatScreen = () => {
       <View style={tw`p-4 bg-[#fff] mb-4 `}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={[tw`bg-[#CBC3E3]  p-1 rounded-full`, {  borderColor: "#000", borderWidth: 2 }]}
+            style={[tw`  p-1 rounded-full`, { }]}
             onPress={() => navigation.goBack()}
           >
             <Icon.ArrowLeft strokeWidth={2} stroke={"#000"} />
@@ -166,8 +166,8 @@ const ChatScreen = () => {
                     <Text style={tw`text-xl text-[#000] font-bold`}>
                       {user.data.categories}
                     </Text>
-                    <Text style={tw`text-[#899499]`}>{user.data.category}</Text>
-                    <Text style={tw`text-[#899499] text-sm`}>{user.data.location}</Text>
+                    <Text style={tw`text-[#000]`}>{user.data.category}</Text>
+                    <Text style={tw`text-[#000] text-sm`}>{user.data.location}</Text>
                   </View>
                   <View>
                     <Image
