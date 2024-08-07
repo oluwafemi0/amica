@@ -48,6 +48,7 @@ const Welcome = () => {
         </TouchableOpacity>
 
 
+
         <TouchableOpacity
           onPress={navigateToProfile}
           style={[tw`rounded-lg ` ]}>

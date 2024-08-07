@@ -42,7 +42,7 @@ const UserList = () => {
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={[
-        tw` w-92 h-24 rounded-lg overflow-hidden flex flex-row border-2 border-[#000] p-1  `,
+        tw` h-24 rounded-lg bg-[#000] flex flex-row border-2 border-[#000] p-1  `,
        ,
       ]}
       onPress={() => {
@@ -56,36 +56,38 @@ const UserList = () => {
         }}
       />
 
-      <View style={tw`p-2`}>
-        <View style={tw`flex flex-row gap-30 justify-between`}>
+      <View style={tw`p-2 ml-2`}>
+        <View style={tw`flex flex-row md:gap-20 gap-30 justify-between`}>
           <Text
-            style={tw`text-lg font-bold text-gray-800 mt-3`}
+            style={tw`text-lg font-bold text-white `}
             numberOfLines={1}
             ellipsizeMode="tail"
           >
             {item.data.categories}
           </Text>
-          <Text
-            style={tw`text-sm text-blue-800 font-semibold text-right mt-4`}
-            numberOfLines={1}
-            ellipsizeMode="tail"
-          >
-            {item.data.category}
-          </Text>
-        </View>
         <Text
-          style={tw`text-sm text-gray-500 `}
+          style={tw`text-sm text-white`}
           numberOfLines={1}
           ellipsizeMode="tail"
         >
           {item.data.location}
+        </Text>
+          
+        </View>
+        
+        <Text
+          style={tw`text-blue-800 font-semibold `}
+          numberOfLines={1}
+          ellipsizeMode="tail"
+        >
+          {item.data.category}
         </Text>
       </View>
     </TouchableOpacity>
   );
 
   return (
-    <View style={tw`py-2`}>
+    <View style={tw`py-2 `}>
       <Text style={tw`text-[#000] p-1 ml-1 text-lg font-semibold`}>
         Recommended
       </Text>

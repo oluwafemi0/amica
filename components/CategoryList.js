@@ -17,12 +17,12 @@ const CategoryList = () => {
   ];
 
   const colors = [
-    "#FFB6C1",
-    "#87CEFA",
-    "#98FB98",
-    "#FFDAB9",
-    "#FFA07A",
-    "#FFD700",
+    "#c0043f",
+    "#441349",
+    "#048207",
+    "#f1be02",
+    "#e64808",
+    "#4F6CA0",
     "#87CEEB",
   ];
 
@@ -64,17 +64,18 @@ const CategoryList = () => {
               onPress={() => navigateToCategoryPage(category)}
               style={[
                 tw`py-1 px-6 ml-2  w-26 items-center justify-center border-2 rounded-lg`,
-                {  backgroundColor: colors[index] + "30", backdropFilter: 'blur(8px)' },
+                {  backgroundColor: colors[index] , backdropFilter: 'blur(8px)' },
               ]}
             >
               <Icon
                 name={categoryIcons[category]}
                 size={28}
                 style={[tw``,]}
+                
               />
               <Text
                 style={[
-                  tw`text-center font-semibold`,
+                  tw`text-center text-[#fff] font-semibold`,
                   
                 ]}
               >
