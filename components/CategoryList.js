@@ -15,15 +15,15 @@ const CategoryList = () => {
     "Plumber",
     "Cleaner",
   ];
-
+  
   const colors = [
-    "#c0043f",
-    "#441349",
-    "#048207",
-    "#f1be02",
-    "#e64808",
-    "#4F6CA0",
-    "#87CEEB",
+    "#fff",
+    "#fff",
+    "#fff",
+    "#fff",
+    "#fff",
+    "#fff",
+    "#fff",
   ];
 
   const categoryIcons = {
@@ -45,9 +45,9 @@ const CategoryList = () => {
   };
 
   return (
-    <View style={[tw`flex-1 p-2`, { backgroundColor: "rgba(255, 255, 255, 0.2)" }]}>
+    <View style={tw`flex-1 p-2 bg-[#36013f] `}>
       <View style={tw`flex flex-row justify-between items-center `}>
-        <Text style={tw`text-lg font-semibold text-[#000]`}>Categories</Text>
+        <Text style={tw`text-lg font-semibold text-[#fff]`}>Categories</Text>
         <TouchableOpacity onPress={navigateToAllCategoriesPage} style={tw``}>
           <Text style={tw`text-[#899499] text-sm font-semibold mt-1`}>See All </Text>
         </TouchableOpacity>
@@ -63,19 +63,20 @@ const CategoryList = () => {
               key={index}
               onPress={() => navigateToCategoryPage(category)}
               style={[
-                tw`py-1 px-6 ml-2  w-26 items-center justify-center border-2 rounded-lg`,
+                tw`py-1 px-6 ml-2  w-26 items-center justify-center border-2 border-[#C8A2C8] rounded-lg`,
                 {  backgroundColor: colors[index] , backdropFilter: 'blur(8px)' },
               ]}
             >
               <Icon
                 name={categoryIcons[category]}
                 size={28}
+                color='#C8A2C8'
                 style={[tw``,]}
                 
               />
               <Text
                 style={[
-                  tw`text-center text-[#fff] font-semibold`,
+                  tw`text-center text-[#C8A2C8] font-semibold`,
                   
                 ]}
               >

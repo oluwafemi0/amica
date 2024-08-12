@@ -23,7 +23,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={tw`flex-1 bg-[#fff]`}>
-      <StatusBar backgroundColor="#fff" barStyle="light-content" />
+      <StatusBar backgroundColor="#36013f" barStyle="light-content" />
 
       <Welcome />
 
@@ -36,7 +36,7 @@ const HomeScreen = () => {
         
         </View>
         
-        <View style={tw`p-1 bg-[#fff] `}>
+        <View style={tw`bg-[#fff] `}>
           
           <CategoryList />
           <ActiveService />

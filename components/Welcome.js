@@ -35,10 +35,10 @@ const Welcome = () => {
   };
 
   return (
-    <View style={[tw`bg-[#CBC3E3] p-2 `, { backgroundColor: "#fff"}]}>
+    <View style={[tw`bg-[#31473A] p-2 `, { backgroundColor: "#36013f"}]}>
       <View style={tw`flex-row items-center`}>
         <View style={tw`flex-1`}>
-      <Text style={tw`text-2xl font-semibold text-[#000] ml-2`}>Explore</Text>
+      <Text style={tw`text-2xl font-semibold text-[#EDF4F2] ml-2`}>Explore</Text>
         </View>
         
         <TouchableOpacity
