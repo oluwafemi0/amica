@@ -33,7 +33,7 @@ const UserList = () => {
 
     fetchUsers();
   }, []);
-51747
+
   const imageUrlPrefix =
     "https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/";
   const imageUrlSuffix =
@@ -42,61 +42,60 @@ const UserList = () => {
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={[
-        tw` h-24 rounded-lg bg-[#C8A2C8] flex flex-row border-2 border-[#31473A] p-1  `,
-       ,
+        tw`flex-1 h-60 rounded-lg bg-[#fff] border-2 border-[#36013f] p-1 m-1`,
       ]}
       onPress={() => {
         navigation.navigate("ViewPage", { user: item });
       }}
     >
       <Image
-        style={tw`w-1.2/3 h-full rounded-lg`}
+        style={tw`h-2/3 w-full rounded-lg `}
         source={{
           uri: imageUrlPrefix + item.data.imageFilename + imageUrlSuffix,
         }}
       />
 
-      <View style={tw`p-2 ml-2`}>
-        <View style={tw`flex flex-row md:gap-20 gap-30 justify-between`}>
-          <Text
-            style={tw`text-lg font-bold text-white `}
-            numberOfLines={1}
-            ellipsizeMode="tail"
-          >
-            {item.data.categories}
-          </Text>
+      <View style={tw`p-1 flex flex-row justify-between my-4 border-t-2 border-[#36013f]`}>
+        <View  style={tw`my-1`}>
         <Text
-          style={tw`text-sm text-white`}
+          style={tw`text-xl font-bold text-[#36013f] `}
+          numberOfLines={1}
+          ellipsizeMode="tail"
+        >
+          {item.data.categories}
+        </Text>
+        <Text
+          style={tw`text-sm text-[#36013f]`}
           numberOfLines={1}
           ellipsizeMode="tail"
         >
           {item.data.location}
         </Text>
-          
         </View>
-        
+        <View style={tw`my--3.5`}>
         <Text
-          style={tw`text-blue-800 font-semibold `}
+          style={tw`text-blue-800 font-semibold my-6`}
           numberOfLines={1}
           ellipsizeMode="tail"
         >
           {item.data.category}
         </Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
 
   return (
-    <View style={tw`py-2 `}>
-      <Text style={tw`text-[#000] p-1 ml-1 text-lg font-semibold`}>
+    <View style={tw`py-2`}>
+      <Text style={tw`text-[#36013f] p-1 ml-1 text-lg font-semibold`}>
         Recommended
       </Text>
       <FlatList
         data={users}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
-        numColumns={1}
-        contentContainerStyle={tw`flex gap-3 p-2 rounded-lg`}
+        numColumns={2}
+        contentContainerStyle={tw`p-2`}
       />
     </View>
   );

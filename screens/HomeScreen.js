@@ -36,10 +36,10 @@ const HomeScreen = () => {
         
         </View>
         
-        <View style={tw`bg-[#fff] `}>
-          
-          <CategoryList />
+        <View style={tw` bg-[#fff]  `}>
+        
           <ActiveService />
+          <CategoryList />
           <UsersList />
         </View>
       </ScrollView>

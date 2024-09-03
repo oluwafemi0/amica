@@ -113,10 +113,10 @@ export default function ProfileScreen() {
           </View>
         </View>
             </View>
-            <View style={tw`rounded-lg bg-gray-200 `}>
-        <View style={tw`p-2 bg-gray-200  m-2  rounded-md `}>
+            <View style={tw`rounded-lg bg-[#fff] `}>
+        <View style={tw`p-2 bg-[#fff]   m-2  rounded-md `}>
           <Text style={tw`text-[#000] text-base text-left uppercase  font-bold`}>description</Text>
-          <View  style={tw`p-2 bg-white rounded-md  m-1`}>
+          <View  style={tw`p-2 bg-[#fff]  rounded-md  m-1`}>
               <Text style={tw`text-gray-500 text-left font-semibold`}>{userDetails?.description}</Text>
           </View>
         </View>
@@ -124,12 +124,12 @@ export default function ProfileScreen() {
         <View style={tw`mt-2`}>
         {userDetails && userDetails?.comments ? (
             
-        <View style={tw`p-2 rounded-lg bg-gray-200 rounded-md`}>
+        <View style={tw`p-2 rounded-lg bg-[#fff]  `}>
         <Text style={tw`text-[#000] text-base text-left uppercase  font-bold`}>most recent comment</Text>
-        <View  style={tw`p-2 bg-white rounded-md  m-1`}>
+        <View  style={tw`p-2 bg-[#fff] border-2 border-[#36013f] rounded-md  m-1`}>
             <Text style={tw`text-gray-500 font-semibold`}>{userDetails?.comments[0]}</Text>
         </View>
-        <View  style={tw`p-2 bg-white rounded-md  m-1`}>
+        <View  style={tw`p-2 bg-[#fff] border-2 border-[#36013f] rounded-md  m-1`}>
             <Text style={tw`text-gray-500 font-semibold`}>{userDetails?.comments[1]}</Text>
         </View>
         </View>
@@ -144,13 +144,13 @@ export default function ProfileScreen() {
           >
             <TouchableOpacity
               onPress={() => navigation.navigate("Preferences")}
-              style={tw`bg-[#fff] rounded-md px-27 py-3 mb-3 border-2 border-[#000]`}
+              style={tw`bg-[#fff] rounded-md px-27 py-3 mb-3 border-2 border-[#36013f]`}
             >
               <Text
                 style={{
                   fontSize: 18,
                   fontWeight: "bold",
-                  color: "#000",
+                  color: "#36013f",
                   textAlign: "center",
                 }}
               >
@@ -159,13 +159,13 @@ export default function ProfileScreen() {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => navigation.navigate("History")}
-              style={tw`bg-[#fff] rounded-md  px-25 py-3 mb-3 border-2 border-[#000] `}
+              style={tw`bg-[#fff] rounded-md  px-25 py-3 mb-3 border-2 border-[#36013f] `}
             >
               <Text
                 style={{
                   fontSize: 18,
                   fontWeight: "bold",
-                  color: "#000",
+                  color: "#36013f",
                   textAlign: "center",
                 }}
               >

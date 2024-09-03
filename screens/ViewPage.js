@@ -92,21 +92,21 @@ const ViewPage = () => {
         <View style={tw`items-center`}>
           <View style={tw`flex flex-row gap-62 mt-2 p-2`}>
             <View>
-              <Text style={tw`text-3xl text-gray-500 font-bold`}>{user.data.categories}</Text>
+              <Text style={tw`text-3xl text-[#36013f] font-bold`}>{user.data.categories}</Text>
             </View>
             <View>
               <TouchableOpacity
-                style={tw`bg-[#CBC3E3] py-2 px-4  rounded`}
+                style={tw`bg-white border-2 border-[#36013f] py-2 px-4  rounded`}
                 onPress={handleChatNavigation}
               >
-                <Text style={tw`text-white font-bold`}>Chat</Text>
+                <Text style={tw`text-[#36013f] font-bold`}>Chat</Text>
               </TouchableOpacity>
             </View>
           </View>
         </View>
 
         <View style={tw`p-2 bg-white m-2 h-15 rounded-md`}>
-          <Text style={tw`text-gray-300 text-base text-left uppercase  font-bold`}>category</Text>
+          <Text style={tw`text-[#36013f] text-base text-left uppercase  font-bold`}>category</Text>
           <View  style={tw`p-2 bg-white rounded-md  m-1`}>
               <Text style={tw`text-gray-500 font-semibold`}>{user.data.category}</Text>
           </View>
@@ -114,7 +114,7 @@ const ViewPage = () => {
 
         
         <View style={tw`p-2 bg-white m-2 h-78 rounded-md`}>
-          <Text style={tw`text-gray-300 text-base text-left uppercase  font-bold`}>Description</Text>
+          <Text style={tw`text-[#36013f] text-base text-left uppercase  font-bold`}>Description</Text>
           <View  style={tw`p-2 bg-white rounded-md  m-1`}>
             <Text style={tw`text-gray-500 font-semibold`}>{user.data.description}</Text>
           </View>
@@ -129,13 +129,13 @@ const ViewPage = () => {
               value={comment}
             />
             <TouchableOpacity
-              style={tw`bg-[#CBC3E3] w-1/5 rounded-md ml-1`}
+              style={tw`bg-white border-2 border-[#36013f]  w-1/5 rounded-md ml-1`}
               onPress={handleCommentSubmit}
             >
               {loading ? (
                 <ActivityIndicator color="#fff" style={tw` mx-auto pt-2 font-bold`}/>
               ) : (
-                <Text style={tw`text-white mx-auto pt-3 font-bold`}>{comment ? "Submit" : "Sent"}</Text>
+                <Text style={tw`text-[#36013f] mx-auto pt-3 font-bold`}>{comment ? "Submit" : "Sent"}</Text>
               )}
             </TouchableOpacity>
 

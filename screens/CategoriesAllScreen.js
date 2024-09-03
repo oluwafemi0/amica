@@ -15,7 +15,7 @@ export default function CategoriesAllScreen() {
       <View>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
-          style={tw`absolute top-8 left-4 bg-white p-2 rounded-full shadow`}
+          style={tw`absolute top-8 left-4 bg-[#36013f]  p-2 rounded-full shadow`}
         >
           <Icon.ArrowLeft strokeWidth={3} stroke={"#F06292"} />
         </TouchableOpacity>

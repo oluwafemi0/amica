@@ -44,7 +44,7 @@ const ChatsListScreen = () => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      style={[tw` flex flex-row w-96 h-20 rounded-lg border-2 border-[#000] p-1`, ]}
+      style={[tw` flex flex-row w-96 h-20 rounded-lg border-2 border-[#36013f] p-1 mt-2`, ]}
       onPress={() =>
         navigation.navigate("Chat", {
           user: { id: item.userId, data: item.user },
@@ -61,7 +61,7 @@ const ChatsListScreen = () => {
       <View style={tw`p-2 w-70`}>
         <View style={tw`flex flex-row py-4 justify-between`}>
           <View>
-            <Text style={tw`text-[#000] text-base font-bold`}>
+            <Text style={tw`text-[#36013f] text-base font-bold`}>
               {item.user.categories}
             </Text>
           </View>
@@ -76,29 +76,29 @@ const ChatsListScreen = () => {
   );
 
   return (
-    <View style={[tw`bg-[#fff]`, ]}>
-      <View style={[tw`bg-[#fff] p-2 `,]}>
+    <View style={[tw`bg-[#36013f]`, ]}>
+      <View style={[tw`bg-[#36013f] p-2 `,]}>
         <View style={tw`flex-row  justify-between items-center mx-auto`}>
           <TouchableOpacity
             style={[tw` rounded-md p-1 rounded-full`, { }]}
             onPress={() => navigation.goBack()}
           >
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.ArrowLeft width={20} height={20} stroke={"#000"} style={tw``} />
+              <Icon.ArrowLeft width={20} height={20} stroke={"#fff"} style={tw``} />
             </View>
           </TouchableOpacity>
           <View style={tw`flex-1 items-center p-2`}>
             <View style={tw``}>
               <Text
-                style={tw`font-medium text-lg text-center text-[#000]`}
+                style={tw`font-medium text-lg text-center text-[#fff]`}
               >
                 Chat
               </Text>
             </View>
           </View>
-          <TouchableOpacity style={[tw`bg-[#fff] rounded-md p-2`,]}>
+          <TouchableOpacity style={[tw`bg-[#36013f] rounded-md p-2`,]}>
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.LogOut strokeWidth={2} stroke={"#fff"} style={tw``} />
+              <Icon.LogOut strokeWidth={2} stroke={"#36013f"} style={tw``} />
             </View>
           </TouchableOpacity>
         </View>

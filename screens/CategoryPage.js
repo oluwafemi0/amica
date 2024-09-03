@@ -48,38 +48,50 @@ const CategoryPage = ({ route }) => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      style={tw`bg-gray-300 bg-opacity-70 w-1/2.1 h-60 rounded-lg shadow-md`}
+      style={tw` w-1/2.1 h-60 rounded-lg bg-[#fff] border-2 border-[#36013f] p-1 m-1`}
       onPress={() => navigation.navigate("Chat", { user: item })}
     >
       <Image
-        style={tw`w-full h-2.4/3 rounded-t-lg`}
+        style={tw`w-full h-2/3 rounded-lg`}
         source={{
           uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${item.data.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
         }}
       />
 
-      <View style={tw`bg-gray-600 bg-opacity-70 p-2 flex h-0.6/3 rounded-b-lg`}>
-        <View style={tw``}>
-          <Text style={tw`text-white text-lg font-bold mx-auto `}>
-            {item.data.categories}
-          </Text>
-        </View>
-        <View style={tw`flex flex-row justify-between `}>
-          <View>
-            <Text style={tw`text-white font-bold`}>{item.data.category}</Text>
-          </View>
-          <View>
-            <Text style={tw`text-white font-bold`}>{item.data.location}</Text>
-          </View>
-        </View>
-      </View>
+        <View style={tw`p-1 flex flex-row justify-between my-4 border-t-2 border-[#36013f]`}>
+                <View  style={tw`my-1`}>
+                <Text
+                  style={tw`text-xl font-bold text-[#36013f] `}
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
+                >
+                  {item.data.categories}
+                </Text>
+                <Text
+                  style={tw`text-sm text-[#36013f]`}
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
+                >
+                  {item.data.location}
+                </Text>
+                </View>
+                <View style={tw`my--3.5`}>
+                <Text
+                  style={tw`text-blue-800 font-semibold my-6`}
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
+                >
+                  {item.data.category}
+                </Text>
+                </View>
+              </View>
     </TouchableOpacity>
   );
 
   return (
     <View style={tw`bg-[#fff]  flex-1`}>
-      <View style={tw`p-4 bg-[#CBC3E3]`}>
-        <View style={tw`flex-row bg-[#CBC3E3] justify-between items-center mx-auto`}>
+      <View style={tw`p-4 bg-[#36013f] `}>
+        <View style={tw`flex-row bg-[#36013f]  justify-between items-center mx-auto`}>
           <TouchableOpacity
             style={tw`rounded-md p-2`}
             onPress={() => navigation.goBack()}
@@ -94,18 +106,18 @@ const CategoryPage = ({ route }) => {
             </View>
           </View>
           <TouchableOpacity style={tw` p-2`}>
-            <Icon.LogOut strokeWidth={2} stroke={"#CBC3E3"} />
+            <Icon.LogOut strokeWidth={2} stroke={"#36013f"} />
           </TouchableOpacity>
         </View>
       </View>
-      <View style={tw`p-4 bg-[#fff]`}>
+      <View style={tw`p-2 bg-[#fff]`}>
       {filteredUsers.length > 0 ? (
         <FlatList
           data={filteredUsers}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
           numColumns={2}
-          contentContainerStyle={tw`flex gap-4 p-4`}
+          contentContainerStyle={tw`flex gap-4 `}
           columnWrapperStyle={{ justifyContent: "space-between" }}
         />
       ) : (

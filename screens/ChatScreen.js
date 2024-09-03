@@ -122,15 +122,15 @@ const ChatScreen = () => {
       <View
         style={[
           tw`bg-gray-200 px-4 py-2 mb-2 rounded-xl max-w-[60%]`,
-          isSent ? tw`self-end bg-[#CBC3E3]` : tw`self-start`,
+          isSent ? tw`self-end bg-[#36013f]` : tw`self-start`,
         ]}
       >
-        <Text style={isSent ? tw`text-black` : tw`text-black`}>
+        <Text style={isSent ? tw`text-white` : tw`text-white`}>
           {item.data.text}
         </Text>
         <Text
           style={[
-            tw`text-xs text-[#899499] mt-1`,
+            tw`text-xs text-[#333] mt-1`,
             isSent ? tw`text-right` : tw`text-left`,
           ]}
         >
@@ -150,28 +150,28 @@ const ChatScreen = () => {
 
   return (
     <View style={tw`flex-1 bg-gray-50 `}>
-      <View style={tw`p-4 bg-[#fff] mb-4 `}>
+      <View style={tw`p-4 bg-[#36013f] mb-4 `}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
             style={[tw`  p-1 rounded-full`, { }]}
             onPress={() => navigation.goBack()}
           >
-            <Icon.ArrowLeft strokeWidth={2} stroke={"#000"} />
+            <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} />
           </TouchableOpacity>
           <TouchableOpacity style={tw`flex-1 items-center`} >
             <View style={tw` items-center mx-auto`}>
               {user.data ? (
                 <View style={tw`flex flex-row w-74 ml-4 mt-1 justify-between`}>
                   <View>
-                    <Text style={tw`text-xl text-[#000] font-bold`}>
+                    <Text style={tw`text-xl text-[#fff] font-bold`}>
                       {user.data.categories}
                     </Text>
-                    <Text style={tw`text-[#000]`}>{user.data.category}</Text>
-                    <Text style={tw`text-[#000] text-sm`}>{user.data.location}</Text>
+                    <Text style={tw`text-[#fff]`}>{user.data.category}</Text>
+                    <Text style={tw`text-[#fff] text-sm`}>{user.data.location}</Text>
                   </View>
                   <View>
                     <Image
-                      style={tw`w-15 h-15 rounded-full border-2 border-[#000]`}
+                      style={tw`w-15 h-15 rounded-full border-2 border-[#fff]`}
                       source={{
                         uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${user.data.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
                       }}
@@ -210,13 +210,13 @@ const ChatScreen = () => {
           />
           <TouchableOpacity
             style={[
-              tw`p-2 bg-blue-500 rounded-lg items-center justify-center`,
-              !textMessage.trim() && tw`bg-gray-400`,
+              tw`p-2 bg-[#fff] border-2 border-[#36013f]  rounded-lg items-center justify-center`,
+              !textMessage.trim() && tw`bg-white`,
             ]}
             onPress={handleSend}
             disabled={!textMessage.trim()}
           >
-            <Icon.Send width={24} height={24} stroke="white" />
+            <Icon.Send width={24} height={24} stroke="#36013f" />
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>

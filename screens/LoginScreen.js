@@ -60,8 +60,8 @@ const LoginScreen = () => {
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         >
           <Image
-            source={require("../assets/images/HANDS.png")}
-            style={{ width: 150, height: 150, marginBottom: 20 }}
+            source={{ uri: "https://images.pexels.com/photos/139205/pexels-photo-139205.jpeg?auto=compress&cs=tinysrgb&w=600" }}
+            style={{ width: 100, height: 150, marginBottom: 20 }}
           />
           <GoogleSigninButton
             style={{ width: 200, height: 48, marginBottom: 20 }}

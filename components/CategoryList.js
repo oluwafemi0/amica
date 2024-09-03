@@ -63,20 +63,20 @@ const CategoryList = () => {
               key={index}
               onPress={() => navigateToCategoryPage(category)}
               style={[
-                tw`py-1 px-6 ml-2  w-26 items-center justify-center border-2 border-[#C8A2C8] rounded-lg`,
+                tw`py-1 px-6 ml-2  w-26 items-center justify-center border-2 border-[#000] rounded-lg`,
                 {  backgroundColor: colors[index] , backdropFilter: 'blur(8px)' },
               ]}
             >
               <Icon
                 name={categoryIcons[category]}
                 size={28}
-                color='#C8A2C8'
+                color='#36013f'
                 style={[tw``,]}
                 
               />
               <Text
                 style={[
-                  tw`text-center text-[#C8A2C8] font-semibold`,
+                  tw`text-center text-[#36013f] font-semibold `,
                   
                 ]}
               >
