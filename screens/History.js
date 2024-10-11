@@ -32,7 +32,7 @@ export default function History() {
             activeOpacity={0.7}
           >
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.LogOut strokeWidth={2} stroke={"#fff"} />
+              <Icon.LogOut strokeWidth={2} stroke={"#000"} />
             </View>
           </TouchableOpacity>
         </View>

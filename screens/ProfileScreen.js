@@ -73,7 +73,7 @@ export default function ProfileScreen() {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={tw`flex-1 items-center p-4`}>
           <Image
-            style={tw`w-24 h-24 rounded-full border-4 border-[#000]`}
+            style={tw`w-50 h-50 rounded-full border-4 border-[#000]`}
             source={{
               uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
             }}
@@ -81,16 +81,13 @@ export default function ProfileScreen() {
 
           <View style={tw`mt-4 bg-white w-full rounded-lg p-4 shadow`}>
             <Text style={tw`text-xl font-bold text-[#000]`}>
-              {userDetails?.name || "User Name"}
+            {userDetails?.categories[0] || "User Category"}
             </Text>
             <Text style={tw`text-gray-600 text-sm`}>
               {userDetails?.location || "User Location"}
             </Text>
-            <Text style={tw`text-gray-600 text-sm`}>
-              {userDetails?.categories[0] || "User Category"}
-            </Text>
             <View style={tw`mt-2`}>
-              <Text style={tw`text-[#000] font-semibold`}>Description:</Text>
+              <Text style={tw`text-[#000] font-semibold `}>Description</Text>
               <Text style={tw`text-gray-500`}>{userDetails?.description}</Text>
             </View>
           </View>
