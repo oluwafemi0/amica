@@ -13,9 +13,15 @@ const TableComponent = () => {
   return (
     <View style={tw`bg-[#fff]`}>
       
-      <View style={tw`flex-row border-b-2 border-[#000] mb-1`}>
-        <Text style={tw`w-1/2 text-lg font-bold text-[#000] text-center`}>Job</Text>
-        <Text style={tw`w-1/2 text-lg font-bold text-[#000] text-center`}>Location</Text>
+      <View style={tw`flex-row border-b-2 border-[#000] `}>
+      <View  style={tw`w-1/2 bg-[#fff] py-2`}>
+      <Text style={tw`text-lg font-bold text-[#000] text-center`}>Job</Text>
+      </View>
+        
+      <View  style={tw`w-1/2 bg-[#fff] py-2`}>
+      <Text style={tw` text-lg font-bold text-[#000] text-center`}>Location</Text>
+      </View>
+        
       </View>
 
      
@@ -23,14 +29,20 @@ const TableComponent = () => {
       {tableData.map((row, index) => (
         <View
           key={index}
-          style={tw`flex-row items-center border-b border-gray-200 py-1`}
+          style={tw`flex-row items-center border-b border-gray-200 `}
         >
           <TouchableOpacity
-            style={tw`w-2/2 bg-[#000] rounded-md py-1 border border-[#000] flex-row `}
+            style={tw`w-2/2 bg-[#000]   flex-row `}
             onPress={() => alert(`Viewing description for ${row.job}`)}
           >
-          <Text style={tw`w-1/2 text-base text-[#fff] text-center`}>{row.job}</Text>
-          <Text style={tw`w-1/2 bg-[#fff] rounded-tl-lg  rounded-bl-lg text-base text-[#000] text-center`}>{row.location}</Text>
+            <View  style={tw`w-1/2 bg-[#000] py-2`}>
+            <Text style={tw` text-base text-[#fff] text-center`}>{row.job}</Text>
+            </View>
+
+            <View  style={tw`w-1/2 bg-[#fff] py-2`}>
+            <Text style={tw` text-base text-[#000] text-center`}>{row.location}</Text>
+            </View>
+         
           </TouchableOpacity>
         </View>
       ))}
