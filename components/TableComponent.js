@@ -11,7 +11,7 @@ const TableComponent = () => {
   ];
 
   return (
-    <View style={tw`bg-[#fff]`}>
+    <View style={tw`bg-[#333]`}>
       <View style={tw`flex-row border-b-2 border-[#000] `}>
         <View style={tw`w-1/2 bg-[#fff] py-2`}>
           <Text style={tw`text-lg font-bold text-[#000] text-center`}>Job</Text>
