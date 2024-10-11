@@ -15,16 +15,8 @@ const CategoryList = () => {
     "Plumber",
     "Cleaner",
   ];
-  
-  const colors = [
-    "#fff",
-    "#fff",
-    "#fff",
-    "#fff",
-    "#fff",
-    "#fff",
-    "#fff",
-  ];
+
+  const colors = ["#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#fff"];
 
   const categoryIcons = {
     Electrical: "power-plug-outline",
@@ -46,10 +38,12 @@ const CategoryList = () => {
 
   return (
     <View style={tw`flex-1 p-2 bg-[#000]`}>
-      <View style={tw`flex flex-row justify-between items-center `}>
+      <View style={tw`flex flex-row justify-between items-center`}>
         <Text style={tw`text-lg font-semibold text-[#fff]`}>Categories</Text>
-        <TouchableOpacity onPress={navigateToAllCategoriesPage} style={tw``}>
-          <Text style={tw`text-[#899499] text-sm font-semibold mt-1`}>See All </Text>
+        <TouchableOpacity onPress={navigateToAllCategoriesPage}>
+          <Text style={tw`text-[#899499] text-sm font-semibold mt-1`}>
+            See All
+          </Text>
         </TouchableOpacity>
       </View>
       <ScrollView
@@ -63,23 +57,17 @@ const CategoryList = () => {
               key={index}
               onPress={() => navigateToCategoryPage(category)}
               style={[
-                tw`py-1 px-6 ml-2  w-26 items-center justify-center border border-[#000] rounded-lg`,
-                {  backgroundColor: colors[index] , backdropFilter: 'blur(8px)' },
+                tw`py-1 px-6 ml-2 w-26 items-center justify-center border border-[#000] rounded-lg`,
+                { backgroundColor: colors[index], backdropFilter: "blur(8px)" },
               ]}
             >
               <Icon
                 name={categoryIcons[category]}
                 size={28}
-                color='#000'
-                style={[tw``,]}
-                
+                color="#000"
+                style={tw``}
               />
-              <Text
-                style={[
-                  tw`text-center text-[#000] font-semibold `,
-                  
-                ]}
-              >
+              <Text style={[tw`text-center text-[#000] font-semibold`]}>
                 {category}
               </Text>
             </TouchableOpacity>

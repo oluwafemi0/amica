@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Image } from "react-native";
+import { View, Image, Text, TouchableOpacity } from "react-native";
 import {
   GoogleSignin,
   GoogleSigninButton,
@@ -10,6 +10,7 @@ import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import PreferencesScreen from "./PreferencesScreen";
 import HomeScreen from "./HomeScreen";
+import tw from "twrnc";
 
 const LoginScreen = () => {
   const [initializing, setInitializing] = useState(true);
@@ -55,20 +56,31 @@ const LoginScreen = () => {
 
   if (!user) {
     return (
-      <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-        <View
-          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-        >
+      <SafeAreaView style={tw`flex-1 bg-[#000]`}>
+        <View style={tw`flex-1 justify-center items-center `}>
           <Image
-            source={{ uri: "https://images.pexels.com/photos/139205/pexels-photo-139205.jpeg?auto=compress&cs=tinysrgb&w=600" }}
-            style={{ width: 100, height: 150, marginBottom: 20 }}
+            source={{
+              uri: "https://images.pexels.com/photos/1061623/pexels-photo-1061623.jpeg?auto=compress&cs=tinysrgb&w=600",
+            }}
+            style={tw`absolute top-0 left-0 w-full h-full`}
           />
-          <GoogleSigninButton
-            style={{ width: 200, height: 48, marginBottom: 20 }}
-            size={GoogleSigninButton.Size.Wide}
-            color={GoogleSigninButton.Color.Light}
-            onPress={onGoogleButtonPress}
-          />
+          <Text style={tw`text-[#000] text-5xl mb-20 font-extrabold`}>
+            Amica
+          </Text>
+          <View style={tw`absolute bottom-80 left-5 right-5`}>
+            <GoogleSigninButton
+              style={tw`w-full h-12  rounded-lg`}
+              size={GoogleSigninButton.Size.Wide}
+              color={GoogleSigninButton.Color.Dark}
+              onPress={onGoogleButtonPress}
+            />
+          </View>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("ForgotPassword")}
+            style={tw`absolute bottom-30 left-5 right-5 items-center`}
+          >
+            <Text style={tw`text-white mt-2`}>Forgot Password?</Text>
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
     );

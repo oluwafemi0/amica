@@ -10,72 +10,55 @@ export default function History() {
   let item = params;
 
   return (
-    <View>
-      <View style={tw`bg-[#000] p-4   `}>
+    <View style={tw`flex-1 bg-[#fff]`}>
+      <View style={tw`bg-[#000] p-4`}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={tw`bg-[#000] rounded-md p-2 `}
+            style={tw`bg-[#000] rounded-md p-2`}
+            activeOpacity={0.7}
             onPress={() => navigation.goBack()}
           >
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} style={tw``} />
+              <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} />
             </View>
           </TouchableOpacity>
           <View style={tw`flex-1 items-center p-2`}>
-            <View style={tw``}>
-              <Text style={tw`font-semibold text-lg text-center text-[#fff]`}>
-                History
-              </Text>
-            </View>
+            <Text style={tw`font-semibold text-lg text-center text-[#fff]`}>
+              History
+            </Text>
           </View>
-          <TouchableOpacity style={tw`bg-[#000] rounded-md p-2`}>
+          <TouchableOpacity
+            style={tw`bg-[#000] rounded-md p-2`}
+            activeOpacity={0.7}
+          >
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.LogOut strokeWidth={2} stroke={"#000"} style={tw``} />
+              <Icon.LogOut strokeWidth={2} stroke={"#fff"} />
             </View>
           </TouchableOpacity>
         </View>
       </View>
 
-      <View style={tw`mt-2`}>
-        <ScrollView contentContainerStyle={tw`p-4`}>
-          <TouchableOpacity style={tw`bg-white p-4 mb-4 rounded shadow-md`}>
-            <Text style={tw`font-bold text-lg ml-2 mb-2`}>Date</Text>
-            <View
-              style={tw`bg-[#000] flex flex-row justify-between items-center rounded-lg p-4 mb-2 `}
+      <ScrollView contentContainerStyle={tw`p-4`}>
+        {Array(4)
+          .fill()
+          .map((_, index) => (
+            <TouchableOpacity
+              key={index}
+              style={tw`bg-white p-4 mb-4 rounded shadow-md`}
+              activeOpacity={0.7}
             >
-              <Text style={tw`text-xl font-bold text-white`}>Service name</Text>
-              <Text style={tw`text-white`}>Service status</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={tw`bg-white p-4 mb-4 rounded shadow-md`}>
-            <Text style={tw`font-bold text-lg ml-2 mb-2`}>Date</Text>
-            <View
-              style={tw`bg-[#000] flex flex-row justify-between items-center rounded-lg p-4 mb-2 `}
-            >
-              <Text style={tw`text-xl font-bold text-white`}>Service name</Text>
-              <Text style={tw`text-white`}>Service status</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={tw`bg-white p-4 mb-4 rounded shadow-md`}>
-            <Text style={tw`font-bold text-lg ml-2 mb-2`}>Date</Text>
-            <View
-              style={tw`bg-[#000] flex flex-row justify-between items-center rounded-lg p-4 mb-2 `}
-            >
-              <Text style={tw`text-xl font-bold text-white`}>Service name</Text>
-              <Text style={tw`text-white`}>Service status</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={tw`bg-white p-4 mb-4 rounded shadow-md`}>
-            <Text style={tw`font-bold text-lg ml-2 mb-2`}>Date</Text>
-            <View
-              style={tw`bg-[#000] flex flex-row justify-between items-center rounded-lg p-4 mb-2 `}
-            >
-              <Text style={tw`text-xl font-bold text-white`}>Service name</Text>
-              <Text style={tw`text-white`}>Service status</Text>
-            </View>
-          </TouchableOpacity>
-        </ScrollView>
-      </View>
+              <Text style={tw`font-bold text-lg ml-2 mb-2`}>Date</Text>
+              <View
+                style={tw`bg-[#000] flex flex-row justify-between items-center rounded-lg p-4`}
+              >
+                <Text style={tw`text-xl font-bold text-white`}>
+                  Service name
+                </Text>
+                <Text style={tw`text-white`}>Service status</Text>
+              </View>
+            </TouchableOpacity>
+          ))}
+      </ScrollView>
     </View>
   );
 }

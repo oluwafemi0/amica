@@ -6,12 +6,11 @@ import {
   Modal,
   FlatList,
   TextInput,
-  Image,
   ScrollView,
 } from "react-native";
 import auth from "@react-native-firebase/auth";
 import firestore from "@react-native-firebase/firestore";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import tw from "twrnc";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Icon from "react-native-feather";
@@ -25,7 +24,6 @@ const PreferencesScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [image, setImage] = useState(null);
   const navigation = useNavigation();
-  const route = useRoute();
 
   const handleSavePreferences = async (filename) => {
     const currentUser = auth().currentUser;
@@ -62,12 +60,12 @@ const PreferencesScreen = () => {
   ];
 
   return (
-    <SafeAreaView style={tw`flex-1 bg-[#fff] `}>
-    <View style={tw` bg-[#000] p-2 mb-2`}>
-      <View style={tw`bg-[#000] `}>
+    <SafeAreaView style={tw`flex-1 bg-[#fff]`}>
+      <View style={tw`bg-[#000] p-2 mb-2`}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={tw`bg-[#000]  p-2 `}
+            style={tw`bg-[#000] p-2`}
+            activeOpacity={0.7}
             onPress={() => {
               if (navigation.canGoBack()) {
                 navigation.goBack();
@@ -77,40 +75,35 @@ const PreferencesScreen = () => {
             }}
           >
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.ArrowLeft
-                strokeWidth={2}
-                stroke={"#fff"}
-                style={tw``}
-              />
+              <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} />
             </View>
           </TouchableOpacity>
           <View style={tw`flex-1 items-center p-2`}>
-            <View style={tw``}>
-              <Text
-                style={tw`font-semibold mr-8 text-lg text-center text-[#fff]`}
-              >
-                Add Your Details
-              </Text>
-            </View>
+            <Text
+              style={tw`font-semibold mr-8 text-lg text-center text-[#fff]`}
+            >
+              Add Your Details
+            </Text>
           </View>
         </View>
       </View>
-    </View>
-      <ScrollView style={tw`p-2 `}>
 
+      <ScrollView style={tw`p-2`}>
         <Upload setImage={setImage} onUpload={handleSavePreferences} />
-        <View style={tw`bg-white rounded-lg p-2 `}>
+
+        <View style={tw`bg-white rounded-lg p-2 mb-2`}>
           <Text style={tw`font-medium text-[#333] mb-1 text-left pl-2`}>
-            Name
+            Categories
           </Text>
           <TextInput
-            placeholder="Add Name"
+            placeholder="Add Categories"
             style={tw`h-10 border text-left pl-2 text-gray-500 border-[#333] rounded-lg`}
             onChangeText={(text) => setCategories(text)}
             value={categories}
           />
         </View>
-        <View style={tw`bg-white rounded-lg p-2 `}>
+
+        <View style={tw`bg-white rounded-lg p-2 mb-2`}>
           <Text style={tw`font-medium text-[#333] mb-1 text-left pl-2`}>
             Location
           </Text>
@@ -121,7 +114,8 @@ const PreferencesScreen = () => {
             value={location}
           />
         </View>
-        <View style={tw`bg-white rounded-lg p-2 `}>
+
+        <View style={tw`bg-white rounded-lg p-2 mb-2`}>
           <Text style={tw`font-medium text-[#333] mb-1 text-left pl-2`}>
             Description
           </Text>
@@ -132,12 +126,14 @@ const PreferencesScreen = () => {
             value={description}
           />
         </View>
-        <View style={tw`bg-white rounded-lg p-2 `}>
-          <Text style={tw`font-medium text-[#333] text-left pl-2 mb-1 `}>
+
+        <View style={tw`bg-white rounded-lg p-2 mb-2`}>
+          <Text style={tw`font-medium text-[#333] text-left pl-2 mb-1`}>
             Category
           </Text>
           <TouchableOpacity
             style={tw`h-10 border border-[#333] rounded-lg justify-center`}
+            activeOpacity={0.7}
             onPress={() => setModalVisible(true)}
           >
             <Text style={tw`text-left pl-2 text-gray-500`}>
@@ -163,12 +159,13 @@ const PreferencesScreen = () => {
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => (
                   <TouchableOpacity
+                    activeOpacity={0.7}
                     onPress={() => {
                       setCategoryName(item.name);
                       setModalVisible(false);
                     }}
                   >
-                    <Text style={tw`py-2 px-4 text-center text-[#CBC3E3]`}>
+                    <Text style={tw`py-2 px-4 text-center text-[#000]`}>
                       {item.name}
                     </Text>
                   </TouchableOpacity>
@@ -177,7 +174,6 @@ const PreferencesScreen = () => {
             </View>
           </View>
         </Modal>
-
       </ScrollView>
     </SafeAreaView>
   );

@@ -44,7 +44,9 @@ const ChatsListScreen = () => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      style={[tw` flex flex-row w-96 h-20 rounded-lg border-2 border-[#36013f] p-1 mt-2`, ]}
+      style={[
+        tw`flex flex-row w-96 h-20 rounded-lg border-2 border-[#36013f] p-1 mt-2`,
+      ]}
       onPress={() =>
         navigation.navigate("Chat", {
           user: { id: item.userId, data: item.user },
@@ -76,42 +78,40 @@ const ChatsListScreen = () => {
   );
 
   return (
-    <View style={[tw`bg-[#000]`, ]}>
-      <View style={[tw`bg-[#000] p-2 `,]}>
-        <View style={tw`flex-row  justify-between items-center mx-auto`}>
+    <View style={tw`bg-[#000]`}>
+      <View style={tw`bg-[#000] p-2`}>
+        <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={[tw` rounded-md p-1 rounded-full`, { }]}
+            style={tw`rounded-md p-1 rounded-full`}
             onPress={() => navigation.goBack()}
           >
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.ArrowLeft width={20} height={20} stroke={"#fff"} style={tw``} />
+              <Icon.ArrowLeft width={20} height={20} stroke={"#fff"} />
             </View>
           </TouchableOpacity>
           <View style={tw`flex-1 items-center p-2`}>
-            <View style={tw``}>
-              <Text
-                style={tw`font-medium text-lg text-center text-[#fff]`}
-              >
+            <View>
+              <Text style={tw`font-medium text-lg text-center text-[#fff]`}>
                 Chat
               </Text>
             </View>
           </View>
-          <TouchableOpacity style={[tw`bg-[#000] rounded-md p-2`,]}>
+          <TouchableOpacity style={tw`bg-[#000] rounded-md p-2`}>
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.LogOut strokeWidth={2} stroke={"#000"} style={tw``} />
+              <Icon.LogOut strokeWidth={2} stroke={"#000"} />
             </View>
           </TouchableOpacity>
         </View>
       </View>
       <View style={tw`bg-[#fff]`}>
-      <FlatList
-        data={chats}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        numColumns={1}
-        contentContainerStyle={tw`p-1 bg-[#fff]`}
-        extraData={chats}
-      />
+        <FlatList
+          data={chats}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          numColumns={1}
+          contentContainerStyle={tw`p-1 bg-[#fff]`}
+          extraData={chats}
+        />
       </View>
     </View>
   );

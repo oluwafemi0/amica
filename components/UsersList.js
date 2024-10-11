@@ -41,45 +41,44 @@ const UserList = () => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      style={[
-        tw`flex-1 h-55 rounded-lg bg-[#fff] border border-[#fff]  m-1`,
-      ]}
+      style={tw`flex-1 h-55 rounded-lg bg-[#fff] border border-[#fff] m-1`} 
       onPress={() => {
         navigation.navigate("ViewPage", { user: item });
       }}
     >
       <Image
-        style={tw`h-2/3 w-full rounded-lg `}
+        style={tw`h-2/3 w-full rounded-lg`}
         source={{
           uri: imageUrlPrefix + item.data.imageFilename + imageUrlSuffix,
         }}
       />
-
-      <View style={tw`p-2 flex flex-row justify-between bg-[#fff] border-t-4 border-[#fff]`}>
-        <View  style={tw`my-1`}>
-        <Text
-          style={tw`text-xl font-bold text-[#000] `}
-          numberOfLines={1}
-          ellipsizeMode="tail"
-        >
-          {item.data.categories}
-        </Text>
-        <Text
-          style={tw`text-sm text-[#000]`}
-          numberOfLines={1}
-          ellipsizeMode="tail"
-        >
-          {item.data.location}
-        </Text>
+      <View
+        style={tw`p-2 flex flex-row justify-between bg-[#fff] border-t-4 border-[#fff]`}
+      >
+        <View style={tw`my-1`}>
+          <Text
+            style={tw`text-xl font-bold text-[#000]`} 
+            numberOfLines={1}
+            ellipsizeMode="tail"
+          >
+            {item.data.categories}
+          </Text>
+          <Text
+            style={tw`text-sm text-[#000]`} 
+            numberOfLines={1}
+            ellipsizeMode="tail"
+          >
+            {item.data.location}
+          </Text>
         </View>
         <View style={tw`my--3.5`}>
-        <Text
-          style={tw`text-[#000] font-semibold my-6`}
-          numberOfLines={1}
-          ellipsizeMode="tail"
-        >
-          {item.data.category}
-        </Text>
+          <Text
+            style={tw`text-[#000] font-semibold my-6`}
+            numberOfLines={1}
+            ellipsizeMode="tail"
+          >
+            {item.data.category}
+          </Text>
         </View>
       </View>
     </TouchableOpacity>

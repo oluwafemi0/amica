@@ -14,7 +14,12 @@ const Map = () => {
   };
 
   return (
-    <View style={[tw`m-2 p-2 rounded-lg`, { width: width - 20, height: height / 3 }]}>
+    <View
+      style={[
+        tw`m-2 p-2 rounded-lg`,
+        { width: width - 20, height: height / 3 },
+      ]}
+    >
       <MapView
         style={{ flex: 1, borderRadius: 10 }}
         initialRegion={initialRegion}

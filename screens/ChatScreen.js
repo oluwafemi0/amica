@@ -148,51 +148,34 @@ const ChatScreen = () => {
     return new Date(date.toDate()).toLocaleDateString(undefined, options);
   };
 
+  const navigateToJobForm = () => {
+    navigation.navigate("JobForm", { user });
+  };
+
   return (
-    <View style={tw`flex-1 bg-gray-50 `}>
-      <View style={tw`p-4 bg-[#000] mb-4 `}>
+    <View style={tw`flex-1 bg-gray-50`}>
+      <View style={tw`p-4 bg-[#000] mb-4`}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
-          <TouchableOpacity
-            style={[tw`  p-1 rounded-full`, { }]}
-            onPress={() => navigation.goBack()}
-          >
+          <TouchableOpacity onPress={() => navigation.goBack()}>
             <Icon.ArrowLeft strokeWidth={2} stroke={"#fff"} />
           </TouchableOpacity>
-          <TouchableOpacity style={tw`flex-1 items-center`} >
-            <View style={tw` items-center mx-auto`}>
-              {user.data ? (
-                <View style={tw`flex flex-row w-74 ml-4 mt-1 justify-between`}>
-                  <View>
-                    <Text style={tw`text-xl text-[#fff] font-bold`}>
-                      {user.data.categories}
-                    </Text>
-                    <Text style={tw`text-[#fff]`}>{user.data.category}</Text>
-                    <Text style={tw`text-[#fff] text-sm`}>{user.data.location}</Text>
-                  </View>
-                  <View>
-                    <Image
-                      style={tw`w-15 h-15 rounded-full border-2 border-[#fff]`}
-                      source={{
-                        uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${user.data.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
-                      }}
-                    />
-                  </View>
-                </View>
-              ) : (
-                <Text>Loading...</Text>
-              )}
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={tw`rounded-md p-2`}>
-           
-          </TouchableOpacity>
+          <View style={tw`flex-1 items-center`}>
+            {user.data ? (
+              <View style={tw`flex flex-row justify-between`}>
+                <Text style={tw`text-xl text-[#fff] font-bold`}>
+                  {user.data.categories}
+                </Text>
+              </View>
+            ) : (
+              <Text>Loading...</Text>
+            )}
+          </View>
         </View>
       </View>
 
       <KeyboardAvoidingView
         style={tw`flex-1 p-2`}
         behavior={Platform.OS === "ios" ? "padding" : null}
-        keyboardVerticalOffset={Platform.OS === "ios" ? 100 : 0}
       >
         <FlatList
           data={messages}
@@ -201,6 +184,14 @@ const ChatScreen = () => {
           contentContainerStyle={tw`flex-grow`}
           showsVerticalScrollIndicator={false}
         />
+
+        <TouchableOpacity
+          style={tw`bg-[#000] p-4 rounded-lg mt-4`}
+          onPress={navigateToJobForm}
+        >
+          <Text style={tw`text-white text-center`}>Fill Job Details</Text>
+        </TouchableOpacity>
+
         <View style={tw`flex-row items-center mt-4`}>
           <TextInput
             style={tw`flex-1 p-2 bg-gray-200 rounded-lg mr-2`}
@@ -208,14 +199,7 @@ const ChatScreen = () => {
             value={textMessage}
             onChangeText={(text) => setTextMessage(text)}
           />
-          <TouchableOpacity
-            style={[
-              tw`p-2 bg-[#fff] border-2 border-[#36013f]  rounded-lg items-center justify-center`,
-              !textMessage.trim() && tw`bg-white`,
-            ]}
-            onPress={handleSend}
-            disabled={!textMessage.trim()}
-          >
+          <TouchableOpacity onPress={handleSend} disabled={!textMessage.trim()}>
             <Icon.Send width={24} height={24} stroke="#000" />
           </TouchableOpacity>
         </View>

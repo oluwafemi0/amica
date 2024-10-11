@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Image, TouchableOpacity, TextInput,Text } from "react-native";
+import { View, Image, TouchableOpacity, Text } from "react-native";
 import tw from "twrnc";
 import { useNavigation } from "@react-navigation/native";
 import * as Icon from "react-native-feather";
@@ -35,34 +35,31 @@ const Welcome = () => {
   };
 
   return (
-    <View style={[tw`bg-[#31473A] p-2 `, { backgroundColor: "#fff"}]}>
-      <View style={tw`flex-row items-center`}>
-        <View style={tw`flex-1`}>
-      <Text style={tw`text-2xl font-semibold text-[#000] ml-2`}>Explore</Text>
+    <View style={tw`bg-white p-4`}>
+      <View style={tw`flex-row items-center justify-between`}>
+        <Text style={tw`text-2xl font-semibold text-black`}>Explore</Text>
+
+        <View style={tw`flex-row items-center`}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("ChatsList")}
+            style={tw`p-2 rounded-full bg-black`}
+          >
+            <Icon.Mail width={20} height={20} stroke="#fff" />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={navigateToProfile} style={tw`ml-4`}>
+            {user && user.photoURL ? (
+              <Image
+                style={tw`w-9 h-9 rounded-full border-2 border-black`}
+                source={{
+                  uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
+                }}
+              />
+            ) : (
+              <Icon.User width={20} height={20} stroke="#000" />
+            )}
+          </TouchableOpacity>
         </View>
-        
-        <TouchableOpacity
-          onPress={() => navigation.navigate("ChatsList")}
-          style={[tw`p-1.6 rounded-full `, { backgroundColor: "#fff", borderColor: "#000", borderWidth: 2 }]}>
-          <Icon.Mail width={20} height={20} stroke="#000" />
-        </TouchableOpacity>
-
-
-
-        <TouchableOpacity
-          onPress={navigateToProfile}
-          style={[tw`rounded-lg ` ]}>
-          {user && user.photoURL ? (
-            <Image
-              style={tw`w-9 h-9 ml-2 rounded-full border-2 border-[#000]`}
-              source={{
-                uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
-              }}
-            />
-          ) : (
-            <Icon.User width={20} height={20} stroke="#000" />
-          )}
-        </TouchableOpacity>
       </View>
     </View>
   );

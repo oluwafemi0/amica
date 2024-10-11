@@ -10,7 +10,6 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import tw from "twrnc";
 import * as Icon from "react-native-feather";
-import Categories from "../components/Categories";
 import Welcome from "../components/Welcome";
 import { useNavigation } from "@react-navigation/native";
 import { featured } from "../constants";
@@ -27,17 +26,13 @@ const HomeScreen = () => {
 
       <Welcome />
 
-
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={tw``}
       >
-        <View style={tw` bg-[#fff] `}>
-        
-        </View>
-        
+        <View style={tw` bg-[#fff] `}></View>
+
         <View style={tw` bg-[#000]  `}>
-        
           <ActiveService />
           <CategoryList />
           <UsersList />
