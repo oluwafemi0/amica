@@ -76,8 +76,8 @@ const ChatsListScreen = () => {
   );
 
   return (
-    <View style={[tw`bg-[#36013f]`, ]}>
-      <View style={[tw`bg-[#36013f] p-2 `,]}>
+    <View style={[tw`bg-[#000]`, ]}>
+      <View style={[tw`bg-[#000] p-2 `,]}>
         <View style={tw`flex-row  justify-between items-center mx-auto`}>
           <TouchableOpacity
             style={[tw` rounded-md p-1 rounded-full`, { }]}
@@ -96,9 +96,9 @@ const ChatsListScreen = () => {
               </Text>
             </View>
           </View>
-          <TouchableOpacity style={[tw`bg-[#36013f] rounded-md p-2`,]}>
+          <TouchableOpacity style={[tw`bg-[#000] rounded-md p-2`,]}>
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.LogOut strokeWidth={2} stroke={"#36013f"} style={tw``} />
+              <Icon.LogOut strokeWidth={2} stroke={"#000"} style={tw``} />
             </View>
           </TouchableOpacity>
         </View>

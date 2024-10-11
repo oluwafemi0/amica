@@ -48,7 +48,7 @@ const CategoryPage = ({ route }) => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      style={tw` w-1/2.1 h-60 rounded-lg bg-[#fff] border-2 border-[#36013f] p-1 m-1`}
+      style={tw` w-1/2.1 h-55 rounded-lg bg-[#fff] border border-[#fff]  m-1`}
       onPress={() => navigation.navigate("Chat", { user: item })}
     >
       <Image
@@ -58,17 +58,17 @@ const CategoryPage = ({ route }) => {
         }}
       />
 
-        <View style={tw`p-1 flex flex-row justify-between my-4 border-t-2 border-[#36013f]`}>
+        <View style={tw`p-1 flex flex-row justify-between my-4 rounded-lg bg-[#fff] border-4 border-[#fff]`}>
                 <View  style={tw`my-1`}>
                 <Text
-                  style={tw`text-xl font-bold text-[#36013f] `}
+                  style={tw`text-xl font-bold text-[#000] `}
                   numberOfLines={1}
                   ellipsizeMode="tail"
                 >
                   {item.data.categories}
                 </Text>
                 <Text
-                  style={tw`text-sm text-[#36013f]`}
+                  style={tw`text-sm text-[#000]`}
                   numberOfLines={1}
                   ellipsizeMode="tail"
                 >
@@ -77,7 +77,7 @@ const CategoryPage = ({ route }) => {
                 </View>
                 <View style={tw`my--3.5`}>
                 <Text
-                  style={tw`text-blue-800 font-semibold my-6`}
+                  style={tw` text-[#000] font-semibold my-6`}
                   numberOfLines={1}
                   ellipsizeMode="tail"
                 >
@@ -89,9 +89,9 @@ const CategoryPage = ({ route }) => {
   );
 
   return (
-    <View style={tw`bg-[#fff]  flex-1`}>
-      <View style={tw`p-4 bg-[#36013f] `}>
-        <View style={tw`flex-row bg-[#36013f]  justify-between items-center mx-auto`}>
+    <View style={tw`bg-[#000]  flex-1`}>
+      <View style={tw`p-4 bg-[#000] `}>
+        <View style={tw`flex-row bg-[#000]  justify-between items-center mx-auto`}>
           <TouchableOpacity
             style={tw`rounded-md p-2`}
             onPress={() => navigation.goBack()}
@@ -106,11 +106,11 @@ const CategoryPage = ({ route }) => {
             </View>
           </View>
           <TouchableOpacity style={tw` p-2`}>
-            <Icon.LogOut strokeWidth={2} stroke={"#36013f"} />
+            <Icon.LogOut strokeWidth={2} stroke={"#000"} />
           </TouchableOpacity>
         </View>
       </View>
-      <View style={tw`p-2 bg-[#fff]`}>
+      <View style={tw`p-2 bg-[#000]`}>
       {filteredUsers.length > 0 ? (
         <FlatList
           data={filteredUsers}

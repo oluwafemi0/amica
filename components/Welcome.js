@@ -35,16 +35,16 @@ const Welcome = () => {
   };
 
   return (
-    <View style={[tw`bg-[#31473A] p-2 `, { backgroundColor: "#36013f"}]}>
+    <View style={[tw`bg-[#31473A] p-2 `, { backgroundColor: "#fff"}]}>
       <View style={tw`flex-row items-center`}>
         <View style={tw`flex-1`}>
-      <Text style={tw`text-2xl font-semibold text-[#EDF4F2] ml-2`}>Explore</Text>
+      <Text style={tw`text-2xl font-semibold text-[#000] ml-2`}>Explore</Text>
         </View>
         
         <TouchableOpacity
           onPress={() => navigation.navigate("ChatsList")}
           style={[tw`p-1.6 rounded-full `, { backgroundColor: "#fff", borderColor: "#000", borderWidth: 2 }]}>
-          <Icon.Mail width={20} height={20} stroke="#36013f" />
+          <Icon.Mail width={20} height={20} stroke="#000" />
         </TouchableOpacity>
 
 

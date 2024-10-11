@@ -11,10 +11,10 @@ export default function History() {
 
   return (
     <View>
-      <View style={tw`bg-[#36013f] p-4   `}>
+      <View style={tw`bg-[#000] p-4   `}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={tw`bg-[#36013f] rounded-md p-2 `}
+            style={tw`bg-[#000] rounded-md p-2 `}
             onPress={() => navigation.goBack()}
           >
             <View style={tw`flex flex-row items-center justify-center`}>
@@ -28,9 +28,9 @@ export default function History() {
               </Text>
             </View>
           </View>
-          <TouchableOpacity style={tw`bg-[#36013f] rounded-md p-2`}>
+          <TouchableOpacity style={tw`bg-[#000] rounded-md p-2`}>
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.LogOut strokeWidth={2} stroke={"#36013f"} style={tw``} />
+              <Icon.LogOut strokeWidth={2} stroke={"#000"} style={tw``} />
             </View>
           </TouchableOpacity>
         </View>
@@ -41,7 +41,7 @@ export default function History() {
           <TouchableOpacity style={tw`bg-white p-4 mb-4 rounded shadow-md`}>
             <Text style={tw`font-bold text-lg ml-2 mb-2`}>Date</Text>
             <View
-              style={tw`bg-[#36013f] flex flex-row justify-between items-center rounded-lg p-4 mb-2 `}
+              style={tw`bg-[#000] flex flex-row justify-between items-center rounded-lg p-4 mb-2 `}
             >
               <Text style={tw`text-xl font-bold text-white`}>Service name</Text>
               <Text style={tw`text-white`}>Service status</Text>
@@ -50,7 +50,7 @@ export default function History() {
           <TouchableOpacity style={tw`bg-white p-4 mb-4 rounded shadow-md`}>
             <Text style={tw`font-bold text-lg ml-2 mb-2`}>Date</Text>
             <View
-              style={tw`bg-[#36013f] flex flex-row justify-between items-center rounded-lg p-4 mb-2 `}
+              style={tw`bg-[#000] flex flex-row justify-between items-center rounded-lg p-4 mb-2 `}
             >
               <Text style={tw`text-xl font-bold text-white`}>Service name</Text>
               <Text style={tw`text-white`}>Service status</Text>
@@ -59,7 +59,7 @@ export default function History() {
           <TouchableOpacity style={tw`bg-white p-4 mb-4 rounded shadow-md`}>
             <Text style={tw`font-bold text-lg ml-2 mb-2`}>Date</Text>
             <View
-              style={tw`bg-[#36013f] flex flex-row justify-between items-center rounded-lg p-4 mb-2 `}
+              style={tw`bg-[#000] flex flex-row justify-between items-center rounded-lg p-4 mb-2 `}
             >
               <Text style={tw`text-xl font-bold text-white`}>Service name</Text>
               <Text style={tw`text-white`}>Service status</Text>
@@ -68,7 +68,7 @@ export default function History() {
           <TouchableOpacity style={tw`bg-white p-4 mb-4 rounded shadow-md`}>
             <Text style={tw`font-bold text-lg ml-2 mb-2`}>Date</Text>
             <View
-              style={tw`bg-[#36013f] flex flex-row justify-between items-center rounded-lg p-4 mb-2 `}
+              style={tw`bg-[#000] flex flex-row justify-between items-center rounded-lg p-4 mb-2 `}
             >
               <Text style={tw`text-xl font-bold text-white`}>Service name</Text>
               <Text style={tw`text-white`}>Service status</Text>

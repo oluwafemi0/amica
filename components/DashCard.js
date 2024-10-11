@@ -5,56 +5,62 @@ import tw from "twrnc";
 
 const Dashboard = () => {
   return (
-    <View style={tw`flex-1 bg-gray-100 `}>
-      <View style={tw`flex-row flex-wrap `}>
-        <View style={tw`w-1/2 border border-[#36013f] `}>
-          <Card title="Overview">
+    <View style={tw`flex-1 bg-[#fff] `}>
+      <View style={tw`flex-row flex-wrap -m-2`}>
+        
+       
+        <View style={tw`w-1/2 bg-[#fff]`}>
+          <Card title="Overview" >
             <View style={tw`flex-row justify-between`}>
-              <Text style={tw`text-base font-bold`}>Total</Text>
-              <Text style={tw`text-base`}>1,234</Text>
+              <Text style={tw`text-base font-semibold text-gray-700`}>Total</Text>
+              <Text style={tw`text-base font-semibold text-gray-800`}>1,234</Text>
             </View>
-            <View style={tw`flex-row justify-between `}>
-              <Text style={tw`text-base font-bold`}>Active Users</Text>
-              <Text style={tw`text-base`}>567</Text>
+            <View style={tw`flex-row justify-between mt-2`}>
+              <Text style={tw`text-base font-semibold text-gray-700`}>Active Users</Text>
+              <Text style={tw`text-base font-semibold text-gray-800`}>567</Text>
             </View>
           </Card>
         </View>
 
-        <View style={tw`w-1/2 border border-[#36013f]`}>
+        
+
+        <View style={tw`w-1/2 `}>
           <Card title="Performance">
             <View style={tw`flex-row justify-between`}>
-              <Text style={tw`text-base font-bold`}>Page Views</Text>
-              <Text style={tw`text-base`}>12,345</Text>
+              <Text style={tw`text-base font-semibold text-gray-700`}>Page Views</Text>
+              <Text style={tw`text-base font-semibold text-gray-800`}>12,345</Text>
             </View>
-            <View style={tw`flex-row justify-between `}>
-              <Text style={tw`text-base font-bold`}>Bounce Rate</Text>
-              <Text style={tw`text-base`}>34%</Text>
+            <View style={tw`flex-row justify-between mt-2`}>
+              <Text style={tw`text-base font-semibold text-gray-700`}>Bounce Rate</Text>
+              <Text style={tw`text-base font-semibold text-gray-800`}>34%</Text>
             </View>
           </Card>
         </View>
 
-        <View style={tw`w-1/2 border border-[#36013f]`}>
+       
+        <View style={tw`w-1/2 `}>
           <Card title="Sales">
             <View style={tw`flex-row justify-between`}>
-              <Text style={tw`text-base font-bold`}>Total Sales</Text>
-              <Text style={tw`text-base`}>$8,900</Text>
+              <Text style={tw`text-base font-semibold text-gray-700`}>Total Sales</Text>
+              <Text style={tw`text-base font-semibold text-gray-800`}>$8,900</Text>
             </View>
-            <View style={tw`flex-row justify-between`}>
-              <Text style={tw`text-base font-bold`}>Revenue</Text>
-              <Text style={tw`text-base`}>$25,000</Text>
+            <View style={tw`flex-row justify-between mt-2`}>
+              <Text style={tw`text-base font-semibold text-gray-700`}>Revenue</Text>
+              <Text style={tw`text-base font-semibold text-gray-800`}>$25,000</Text>
             </View>
           </Card>
         </View>
 
-        <View style={tw`w-1/2 border border-[#36013f]`}>
+        
+        <View style={tw`w-1/2`}>
           <Card title="User Growth">
             <View style={tw`flex-row justify-between`}>
-              <Text style={tw`text-base font-bold`}>New Users</Text>
-              <Text style={tw`text-base`}>300</Text>
+              <Text style={tw`text-base font-semibold text-gray-700`}>New Users</Text>
+              <Text style={tw`text-base font-semibold text-gray-800`}>300</Text>
             </View>
-            <View style={tw`flex-row justify-between `}>
-              <Text style={tw`text-base font-bold`}>Churn Rate</Text>
-              <Text style={tw`text-base`}>5%</Text>
+            <View style={tw`flex-row justify-between mt-2`}>
+              <Text style={tw`text-base font-semibold text-gray-700`}>Churn Rate</Text>
+              <Text style={tw`text-base font-semibold text-gray-800`}>5%</Text>
             </View>
           </Card>
         </View>

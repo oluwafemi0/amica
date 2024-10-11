@@ -12,7 +12,7 @@ const ActiveService = () => {
   const carouselRef = useRef(null);
   const [entries, setEntries] = useState([
     { type: "image", imageUrl: "https://ng.jumia.is/cms/0-1-homepage/0-0-thumbnails/2024/triple-banner/cooking-web.gif" },
-    { type: "view", content: <View style={tw`h-full bg-blue-200 rounded-md`}><Dashboard /></View> },
+    { type: "view", content: <View style={tw`h-full`}><Dashboard /></View> },
     { type: "image", imageUrl: "https://ng.jumia.is/cms/0-1-weekly-cps/0-2024/Week-33/upgrade_your_kitchen/Desktop_Homepage_Slider__712x384.jpg" },
     { type: "view", content: <View style={tw`h-full `}><TableComponent /></View> },
     { type: "image", imageUrl: "https://ng.jumia.is/cms/0-1-homepage/0-0-thumbnails/2024/triple-banner/cooling-web.gif" },
@@ -66,7 +66,7 @@ const ActiveService = () => {
         return (
           <View
             style={[
-              tw`bg-[#fff] border-2 border-[#000] items-center justify-center h-50 m-2 rounded-lg p-4`,
+              tw`bg-[#fff]   items-center justify-center h-50 m-2 rounded-lg p-4`,
             ]}
           >
             <Text style={tw`text-[#000] font-bold text-lg mb-2`}>
@@ -80,11 +80,11 @@ const ActiveService = () => {
         return (
           <View
             style={[
-              tw`bg-[#fff] border-2 border-[#000] items-center justify-center h-50 m-2 rounded-lg `,
+              tw`bg-[#fff]  items-center justify-center h-50 m-2 rounded-lg `,
             ]}
           >
             <Image
-              style={tw`h-full w-full rounded-lg`}
+              style={tw`h-full w-full `}
               source={{ uri: item.imageUrl }}
               resizeMode="cover"
             />
@@ -95,7 +95,7 @@ const ActiveService = () => {
         return (
           <View
             style={[
-              tw`bg-[#fff] border-2 border-[#000] h-50 m-2 rounded-lg `,
+              tw`bg-[#fff]  h-50  rounded-lg `,
             ]}
           >
             {item.content}
@@ -108,8 +108,8 @@ const ActiveService = () => {
   };
 
   return (
-    <View style={tw`bg-[#36013f] `}>
-      <View style={[tw`h-55 rounded-lg m-2`]}>
+    <View style={tw`bg-[#fff]  border-b-2 border-[#000]`}>
+      <View style={[tw`h-55  m-2`]}>
         <Carousel
           ref={carouselRef}
           data={entries}

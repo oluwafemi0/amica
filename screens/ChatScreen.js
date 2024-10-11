@@ -122,7 +122,7 @@ const ChatScreen = () => {
       <View
         style={[
           tw`bg-gray-200 px-4 py-2 mb-2 rounded-xl max-w-[60%]`,
-          isSent ? tw`self-end bg-[#36013f]` : tw`self-start`,
+          isSent ? tw`self-end bg-[#000]` : tw`self-start`,
         ]}
       >
         <Text style={isSent ? tw`text-white` : tw`text-white`}>
@@ -150,7 +150,7 @@ const ChatScreen = () => {
 
   return (
     <View style={tw`flex-1 bg-gray-50 `}>
-      <View style={tw`p-4 bg-[#36013f] mb-4 `}>
+      <View style={tw`p-4 bg-[#000] mb-4 `}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
             style={[tw`  p-1 rounded-full`, { }]}
@@ -216,7 +216,7 @@ const ChatScreen = () => {
             onPress={handleSend}
             disabled={!textMessage.trim()}
           >
-            <Icon.Send width={24} height={24} stroke="#36013f" />
+            <Icon.Send width={24} height={24} stroke="#000" />
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>

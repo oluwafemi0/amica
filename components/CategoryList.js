@@ -45,7 +45,7 @@ const CategoryList = () => {
   };
 
   return (
-    <View style={tw`flex-1 p-2 bg-[#36013f] `}>
+    <View style={tw`flex-1 p-2 bg-[#000]`}>
       <View style={tw`flex flex-row justify-between items-center `}>
         <Text style={tw`text-lg font-semibold text-[#fff]`}>Categories</Text>
         <TouchableOpacity onPress={navigateToAllCategoriesPage} style={tw``}>
@@ -63,20 +63,20 @@ const CategoryList = () => {
               key={index}
               onPress={() => navigateToCategoryPage(category)}
               style={[
-                tw`py-1 px-6 ml-2  w-26 items-center justify-center border-2 border-[#000] rounded-lg`,
+                tw`py-1 px-6 ml-2  w-26 items-center justify-center border border-[#000] rounded-lg`,
                 {  backgroundColor: colors[index] , backdropFilter: 'blur(8px)' },
               ]}
             >
               <Icon
                 name={categoryIcons[category]}
                 size={28}
-                color='#36013f'
+                color='#000'
                 style={[tw``,]}
                 
               />
               <Text
                 style={[
-                  tw`text-center text-[#36013f] font-semibold `,
+                  tw`text-center text-[#000] font-semibold `,
                   
                 ]}
               >

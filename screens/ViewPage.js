@@ -105,22 +105,22 @@ const ViewPage = () => {
           </View>
         </View>
 
-        <View style={tw`p-2 bg-white m-2 h-15 rounded-md`}>
-          <Text style={tw`text-[#36013f] text-base text-left uppercase  font-bold`}>category</Text>
+        <View style={tw`p-2   m-2 h-15 rounded-md`}>
+          <Text style={tw`text-[#000] text-sm text-left uppercase  font-bold`}>category</Text>
           <View  style={tw`p-2 bg-white rounded-md  m-1`}>
               <Text style={tw`text-gray-500 font-semibold`}>{user.data.category}</Text>
           </View>
         </View>
 
         
-        <View style={tw`p-2 bg-white m-2 h-78 rounded-md`}>
-          <Text style={tw`text-[#36013f] text-base text-left uppercase  font-bold`}>Description</Text>
+        <View style={tw`p-4  m-2 h-60 rounded-md`}>
+          <Text style={tw`text-[#000] text-sm text-left uppercase  font-bold`}>Description</Text>
           <View  style={tw`p-2 bg-white rounded-md  m-1`}>
             <Text style={tw`text-gray-500 font-semibold`}>{user.data.description}</Text>
           </View>
         </View>
 
-        <View style={tw`p-3 bg-gray-100 m-2 rounded-md`}>
+        <View style={tw`p-3 bg-[#000] m-2 rounded-md`}>
           <View style={tw`p-0 flex flex-row`}>
             <TextInput
               placeholder="Add a comment"
