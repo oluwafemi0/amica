@@ -7,8 +7,11 @@ import { useNavigation } from "@react-navigation/native";
 import * as Icon from "react-native-feather";
 
 const JobForm = ({ route }) => {
-  const { user } = route.params;
+ 
+  const { user1, user2 } = route.params;
   const navigation = useNavigation();
+
+  
   const [jobDetails, setJobDetails] = useState({
     title: "",
     description: "",
@@ -25,12 +28,13 @@ const JobForm = ({ route }) => {
     }
 
     try {
+     
       await firestore()
         .collection("jobs")
         .add({
           ...jobDetails,
-          createdBy: auth().currentUser.uid,
-          assignedTo: user.id,
+          createdBy: user1.uid, 
+          assignedTo: user2.uid, 
           createdAt: new Date(),
         });
       Alert.alert("Success", "Job successfully created!");

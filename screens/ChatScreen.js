@@ -5,7 +5,6 @@ import {
   FlatList,
   TextInput,
   TouchableOpacity,
-  Image,
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
@@ -149,7 +148,11 @@ const ChatScreen = () => {
   };
 
   const navigateToJobForm = () => {
-    navigation.navigate("JobForm", { user });
+    
+    navigation.navigate("JobForm", {
+      user1: { uid: currentUser.uid, name: currentUser.categories },
+      user2: { uid: user.id, name: user.data.categories }, 
+    });
   };
 
   return (

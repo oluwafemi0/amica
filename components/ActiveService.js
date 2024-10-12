@@ -4,13 +4,22 @@ import Carousel from "react-native-snap-carousel";
 import tw from "twrnc";
 import Dashboard from "./DashCard";
 import TableComponent from "./TableComponent";
+import JobCard from "./JobCard"
 
 const { width: screenWidth } = Dimensions.get("window");
 
 const ActiveService = () => {
   const carouselRef = useRef(null);
   const [entries, setEntries] = useState([
+    
     {
+      type: "view",
+      content: (
+        <View style={tw`h-full `}>
+          <JobCard />
+        </View>
+      ),
+    },{
       type: "image",
       imageUrl:
         "https://ng.jumia.is/cms/0-1-homepage/0-0-thumbnails/2024/triple-banner/cooking-web.gif",

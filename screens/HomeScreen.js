@@ -12,10 +12,10 @@ import tw from "twrnc";
 import * as Icon from "react-native-feather";
 import Welcome from "../components/Welcome";
 import { useNavigation } from "@react-navigation/native";
-import { featured } from "../constants";
 import CategoryList from "../components/CategoryList";
 import UsersList from "../components/UsersList";
 import ActiveService from "../components/ActiveService";
+import BiddingSystem from "../components/BiddingSystem"
 
 const HomeScreen = () => {
   const navigation = useNavigation();
