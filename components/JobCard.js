@@ -84,7 +84,7 @@ const JobCard = () => {
   };
 
   const renderItem = ({ item }) => (
-    <View key={item.id} style={tw`bg-gray-100 p-4 rounded-lg mb-4`}>
+    <View key={item.id} style={tw`bg-gray-100 p-4 rounded-lg mb-4 border border-[#FF6F20]`}>
       <Text style={tw`text-lg font-semibold`}>{item.data.title || "No Title"}</Text>
       <Text style={tw`text-gray-600`}>{item.data.description || "No Description"}</Text>
       <Text style={tw`text-gray-600`}>Location: {item.data.location || "No Location"}</Text>
@@ -96,17 +96,17 @@ const JobCard = () => {
         Assigned to: {item.data.assignedTo === currentUser.uid ? "You" : item.data.assignedTo}
       </Text>
 
-      <View style={tw`flex flex-row justify-between mt-4`}>
+      <View style={tw`flex flex-row justify-between mt-3 -ml-4`}>
         {item.data.startTime ? (
-          <TouchableOpacity onPress={() => finishJob(item.id)} style={tw`rounded-lg w-full bg-[#000] p-2 `}>
+          <TouchableOpacity onPress={() => finishJob(item.id)} style={tw`rounded-lg w-full bg-[#000] p-2  border border-[#FF6F20]`}>
             <Text style={tw`text-md font-semibold text-[#fff] text-center`}>Finish Job</Text>
           </TouchableOpacity>
         ) : (
           <>
-            <TouchableOpacity onPress={() => startJob(item.id)} style={tw`rounded-lg w-1/2 bg-[#000] p-2 mx-1`}>
+            <TouchableOpacity onPress={() => startJob(item.id)} style={tw`rounded-lg w-1/2 bg-[#000] p-2 mx-1  border border-[#FF6F20]`}>
               <Text style={tw`text-md font-semibold text-[#fff] text-center`}>Start Job</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => cancelJob(item.id)} style={tw`rounded-lg w-1/2 bg-[#fff] p-2 mx-1`}>
+            <TouchableOpacity onPress={() => cancelJob(item.id)} style={tw`rounded-lg w-1/2 bg-[#fff] p-2 mx-1  border border-[#FF6F20]`}>
               <Text style={tw`text-md font-semibold text-[#000] text-center`}>Cancel Job</Text>
             </TouchableOpacity>
           </>

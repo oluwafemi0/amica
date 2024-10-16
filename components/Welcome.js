@@ -42,13 +42,13 @@ const Welcome = () => {
         <View style={tw`flex-row items-center`}>
           <TouchableOpacity
             onPress={() => navigation.navigate("Bid")}
-            style={tw`p-2 rounded-full bg-black  bg-[#fff] border-2 border-[#000]`}
+            style={tw`p-2 rounded-full bg-black  bg-[#1a1a1a]  ml-4`}
           >
-            <Icon.Link width={18} height={18} stroke="#000" />
+            <Icon.Link width={20} height={20} stroke="#fff" />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigation.navigate("ChatsList")}
-            style={tw`p-2 rounded-full bg-black ml-4`}
+            style={tw`p-2 rounded-full bg-[#1a1a1a] ml-4`}
           >
             <Icon.Mail width={20} height={20} stroke="#fff" />
           </TouchableOpacity>
@@ -56,7 +56,7 @@ const Welcome = () => {
           <TouchableOpacity onPress={navigateToProfile} style={tw`ml-4`}>
             {user && user.photoURL ? (
               <Image
-                style={tw`w-9 h-9 rounded-full border-2 border-black`}
+                style={tw`w-9 h-9 rounded-full border-2 border-[#1a1a1a]`}
                 source={{
                   uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
                 }}

@@ -61,10 +61,10 @@ const PreferencesScreen = () => {
 
   return (
     <SafeAreaView style={tw`flex-1 bg-[#fff]`}>
-      <View style={tw`bg-[#000] p-2 mb-2`}>
+      <View style={tw`bg-[#1a1a1a] p-2 mb-2`}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={tw`bg-[#000] p-2`}
+            style={tw`bg-[#1a1a1a] p-2`}
             activeOpacity={0.7}
             onPress={() => {
               if (navigation.canGoBack()) {

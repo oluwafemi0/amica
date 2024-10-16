@@ -99,7 +99,7 @@ const ActiveService = () => {
       case "text":
         return (
           <View
-            style={tw`bg-white items-center justify-center h-50 m-2 rounded-lg p-4`}
+            style={tw`bg-white items-center justify-center h-50 m-2 rounded-lg p-4 `}
           >
             <Text style={tw`text-black font-bold text-lg mb-2`}>
               {item.title}

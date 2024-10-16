@@ -60,7 +60,7 @@ const Upload = ({ setImage, onUpload }) => {
       </View>
       <View style={tw`flex mx-auto gap-2 flex-row pb-2`}>
       <TouchableOpacity
-        style={tw`rounded-lg w-30 h-10 bg-[#000] mx-auto p-2 mb-2 `}
+        style={tw`rounded-lg w-30 h-10 bg-[#1a1a1a] mx-auto p-2 mb-2 `}
         onPress={pickImage}
       >
         <Text
@@ -73,7 +73,7 @@ const Upload = ({ setImage, onUpload }) => {
       <View>
        
         <TouchableOpacity
-          style={tw`rounded-lg w-30 h-10 bg-[#000] mx-auto p-2`}
+          style={tw`rounded-lg w-30 h-10 bg-[#1a1a1a] mx-auto p-2`}
           onPress={uploadMedia}
         >
           <Text

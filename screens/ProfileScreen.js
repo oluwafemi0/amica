@@ -58,7 +58,7 @@ export default function ProfileScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-      <View style={tw`bg-[#000] p-4`}>
+      <View style={tw`bg-[#1a1a1a] p-4`}>
         <View style={tw`flex-row justify-between items-center`}>
           <TouchableOpacity style={tw`p-2`} onPress={() => navigation.goBack()}>
             <Icon.ArrowLeft width={30} height={20} stroke={"#fff"} />
@@ -73,7 +73,7 @@ export default function ProfileScreen() {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={tw`flex-1 items-center p-4`}>
           <Image
-            style={tw`w-50 h-50 rounded-full border-4 border-[#000]`}
+            style={tw`w-50 h-50 rounded-full border-4 border-[#1a1a1a]`}
             source={{
               uri: `https://firebasestorage.googleapis.com/v0/b/amica-577d1.appspot.com/o/${userDetails?.imageFilename}?alt=media&token=691eede7-bbda-48f8-a25c-1836bfc7cc1e`,
             }}
@@ -112,7 +112,7 @@ export default function ProfileScreen() {
           <View style={tw`mt-4 bg-white w-full rounded-lg p-4 shadow`}>
             <TouchableOpacity
               onPress={() => navigation.navigate("Preferences")}
-              style={tw`bg-[#000] rounded-md py-2`}
+              style={tw`bg-[#1a1a1a] rounded-md py-2`}
             >
               <Text style={tw`text-center text-white font-semibold`}>
                 Edit Profile
@@ -120,7 +120,7 @@ export default function ProfileScreen() {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => navigation.navigate("History")}
-              style={tw`bg-[#000] rounded-md py-2 mt-2`}
+              style={tw`bg-[#1a1a1a] rounded-md py-2 mt-2`}
             >
               <Text style={tw`text-center text-white font-semibold`}>
                 Work History

@@ -45,7 +45,7 @@ const ChatsListScreen = () => {
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={[
-        tw`flex flex-row w-96 h-20 rounded-lg border-2 border-[#36013f] p-1 mt-2`,
+        tw`flex flex-row w-96 h-20 rounded-lg border-2 border-[#1a1a1a] p-1 mt-2`,
       ]}
       onPress={() =>
         navigation.navigate("Chat", {
@@ -78,8 +78,8 @@ const ChatsListScreen = () => {
   );
 
   return (
-    <View style={tw`bg-[#000]`}>
-      <View style={tw`bg-[#000] p-2`}>
+    <View style={tw`bg-[#1a1a1a]`}>
+      <View style={tw`bg-[#1a1a1a] p-2`}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
             style={tw`rounded-md p-1 rounded-full`}
@@ -96,9 +96,9 @@ const ChatsListScreen = () => {
               </Text>
             </View>
           </View>
-          <TouchableOpacity style={tw`bg-[#000] rounded-md p-2`}>
+          <TouchableOpacity style={tw`bg-[#1a1a1a] rounded-md p-2`}>
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.LogOut strokeWidth={2} stroke={"#000"} />
+              <Icon.LogOut strokeWidth={2} stroke={"#1a1a1a"} />
             </View>
           </TouchableOpacity>
         </View>

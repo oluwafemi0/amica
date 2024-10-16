@@ -97,7 +97,7 @@ const ViewPage = () => {
             onPress={handleChatNavigation}
           >
             <View style={tw`flex flex-row items-center justify-center`}>
-              {/* Add any icon here if needed */}
+             
             </View>
           </TouchableOpacity>
         </View>

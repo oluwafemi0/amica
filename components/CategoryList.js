@@ -7,6 +7,7 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 const CategoryList = () => {
   const navigation = useNavigation();
   const categories = [
+    "Virtual",
     "Electrical",
     "Welder",
     "School",
@@ -16,9 +17,10 @@ const CategoryList = () => {
     "Cleaner",
   ];
 
-  const colors = ["#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#fff"];
+  const colors = ["#FF6F20", "#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#fff"];
 
   const categoryIcons = {
+    Virtual: "message-video",
     Electrical: "power-plug-outline",
     Welder: "fence-electric",
     School: "school-outline",
@@ -29,7 +31,11 @@ const CategoryList = () => {
   };
 
   const navigateToCategoryPage = (category) => {
-    navigation.navigate("CategoryPage", { category });
+    if (category === "Virtual") {
+      navigation.navigate("Virtual");
+    } else {
+      navigation.navigate("CategoryPage", { category });
+    }
   };
 
   const navigateToAllCategoriesPage = () => {
@@ -37,7 +43,7 @@ const CategoryList = () => {
   };
 
   return (
-    <View style={tw`flex-1 p-2 bg-[#000]`}>
+    <View style={tw`flex-1 p-2 bg-[#1a1a1a]`}>
       <View style={tw`flex flex-row justify-between items-center`}>
         <Text style={tw`text-lg font-semibold text-[#fff]`}>Categories</Text>
         <TouchableOpacity onPress={navigateToAllCategoriesPage}>
@@ -57,17 +63,22 @@ const CategoryList = () => {
               key={index}
               onPress={() => navigateToCategoryPage(category)}
               style={[
-                tw`py-1 px-6 ml-2 w-26 items-center justify-center border border-[#000] rounded-lg`,
-                { backgroundColor: colors[index], backdropFilter: "blur(8px)" },
+                tw`py-1 px-6 ml-2 w-26 items-center justify-center rounded-lg`,
+                {
+                  backgroundColor: colors[index],
+                  borderColor: category === "Virtual" ? "#fff" : "#000", 
+                  borderWidth: category === "Virtual" ? 1 : 1, 
+                  backdropFilter: "blur(8px)",
+                },
               ]}
             >
               <Icon
                 name={categoryIcons[category]}
                 size={28}
-                color="#000"
+                color={category === "Virtual" ? "#fff" : "#000"} 
                 style={tw``}
               />
-              <Text style={[tw`text-center text-[#000] font-semibold`]}>
+              <Text style={[tw`text-center font-semibold`, { color: category === "Virtual" ? "#fff" : "#000" }]}>
                 {category}
               </Text>
             </TouchableOpacity>

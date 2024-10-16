@@ -32,7 +32,7 @@ const HomeScreen = () => {
       >
         <View style={tw` bg-[#fff] `}></View>
 
-        <View style={tw` bg-[#000]  `}>
+        <View style={tw` bg-[#1a1a1a]  `}>
           <ActiveService />
           <CategoryList />
           <UsersList />

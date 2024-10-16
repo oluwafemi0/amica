@@ -89,9 +89,9 @@ const CategoryPage = ({ route }) => {
   );
 
   return (
-    <View style={tw`bg-[#000]  flex-1`}>
-      <View style={tw`p-4 bg-[#000] `}>
-        <View style={tw`flex-row bg-[#000]  justify-between items-center mx-auto`}>
+    <View style={tw`bg-[#1a1a1a]  flex-1`}>
+      <View style={tw`p-4 bg-[#1a1a1a] `}>
+        <View style={tw`flex-row bg-[#1a1a1a]  justify-between items-center mx-auto`}>
           <TouchableOpacity
             style={tw`rounded-md p-2`}
             onPress={() => navigation.goBack()}
@@ -106,11 +106,11 @@ const CategoryPage = ({ route }) => {
             </View>
           </View>
           <TouchableOpacity style={tw` p-2`}>
-            <Icon.LogOut strokeWidth={2} stroke={"#000"} />
+            <Icon.LogOut strokeWidth={2} stroke={"#1a1a1a"} />
           </TouchableOpacity>
         </View>
       </View>
-      <View style={tw`p-2 bg-[#000]`}>
+      <View style={tw`p-2 bg-[#1a1a1a]`}>
       {filteredUsers.length > 0 ? (
         <FlatList
           data={filteredUsers}

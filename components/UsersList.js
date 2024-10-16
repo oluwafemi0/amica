@@ -47,13 +47,13 @@ const UserList = () => {
       }}
     >
       <Image
-        style={tw`h-2/3 w-full rounded-lg`}
+        style={tw`h-2/3 w-full rounded-t-lg`}
         source={{
           uri: imageUrlPrefix + item.data.imageFilename + imageUrlSuffix,
         }}
       />
       <View
-        style={tw`p-2 flex flex-row justify-between bg-[#fff] border-t-4 border-[#fff]`}
+        style={tw`h-1/3 p-2 flex flex-row justify-between border-t border-[#FF6F20] bg-[#fff] rounded-b-lg`}
       >
         <View style={tw`my-1`}>
           <Text

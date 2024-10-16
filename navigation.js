@@ -15,7 +15,8 @@ import History from "./screens/History";
 import ChatsListScreen from "./screens/ChatsListScreen";
 import ViewPage from "./screens/ViewPage";
 import JobFormScreen from "./components/JobFormScreen";
-import BiddingSystem from "./components/BiddingSystem"
+import BiddingSystem from "./components/BiddingSystem";
+import Virtual from "./components/VIrtual";
 
 const Stack = createNativeStackNavigator();
 
@@ -69,6 +70,7 @@ export default function Navigation() {
             <Stack.Screen name="History" component={History} />
             <Stack.Screen name="JobForm" component={JobFormScreen} />
             <Stack.Screen name="Bid" component={BiddingSystem} />
+            <Stack.Screen name="Virtual" component={Virtual} />
           </>
         )}
       </Stack.Navigator>

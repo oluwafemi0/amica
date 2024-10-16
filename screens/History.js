@@ -69,7 +69,7 @@ const History = ({ navigation }) => {
     >
       <Text style={tw`font-bold text-lg ml-2 mb-2`}>{item.title}</Text>
       <View
-        style={tw`bg-[#000] flex flex-row justify-between items-center rounded-lg p-4`}
+        style={tw`bg-[#1a1a1a] flex flex-row justify-between items-center rounded-lg p-4`}
       >
         <Text style={tw`text-xl font-bold text-white`}>
           Location: {item.location}
@@ -88,10 +88,10 @@ const History = ({ navigation }) => {
 
   return (
     <View style={tw`flex-1 bg-[#fff]`}>
-      <View style={tw`bg-[#000] p-4`}>
+      <View style={tw`bg-[#1a1a1a] p-4`}>
         <View style={tw`flex-row justify-between items-center mx-auto`}>
           <TouchableOpacity
-            style={tw`bg-[#000] rounded-md p-2`}
+            style={tw`bg-[#1a1a1a] rounded-md p-2`}
             activeOpacity={0.7}
             onPress={() => navigation.goBack()}
           >
@@ -105,12 +105,12 @@ const History = ({ navigation }) => {
             </Text>
           </View>
           <TouchableOpacity
-            style={tw`bg-[#000] rounded-md p-2`}
+            style={tw`bg-[#1a1a1a] rounded-md p-2`}
             activeOpacity={0.7}
             onPress={() => console.log("Log out action")}
           >
             <View style={tw`flex flex-row items-center justify-center`}>
-              <Icon.LogOut strokeWidth={2} stroke={"#000"} />
+              <Icon.LogOut strokeWidth={2} stroke={"#1a1a1a"} />
             </View>
           </TouchableOpacity>
         </View>
